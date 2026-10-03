@@ -57,6 +57,11 @@ export function normalizeGithub(payload, source, now) {
     throw new Error('GitHub 返回不完整或无效数据');
   return payload.items.flatMap((r, index) => {
     if (r.archived || r.fork || r.private) return [];
+    if (
+      source.kind === 'github-org' &&
+      (!date(r.pushed_at, now) || Date.parse(r.pushed_at) < Date.parse(now) - 30 * 86400000)
+    )
+      return [];
     const i = base(source, r.html_url, r.full_name, now, index);
     if (!i) return [];
     return [
@@ -160,16 +165,16 @@ export function normalizeRss(text, source, now) {
       )
     )
       categories.push('tips');
-    if (/\b(model|models|release|releases|introducing|llm)\b/.test(textForRules))
+    if (/\b(model|models|release|releases|introducing|llm)\b|模型|大模型/.test(textForRules))
       categories.push('models');
     const publishedAt = date(r.pubDate ?? r.published ?? r.updated, now);
     if (publishedAt && Date.parse(publishedAt) < Date.parse(now) - 30 * 86400000) return [];
     return [
       {
         ...i,
-        summary: summary || '查看官方原文，了解完整背景与细节。',
+        summary: summary || '查看来源原文，了解完整背景与细节。',
         categories,
-        tags: ['官方博客'],
+        tags: [source.media ? '媒体报道' : '官方博客'],
         publishedAt,
         updatedAt: date(r.updated, now),
         rankScore: Math.max(0, 95 - index * 3),

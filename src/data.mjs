@@ -1,3 +1,4 @@
+import { enrichItem, isChinaRelated } from './topics.mjs';
 /** Shared data contract; kept dependency-free for browser and Node. */
 export const CATEGORY_LABELS = Object.freeze({
   news: 'AI 动态',
@@ -105,12 +106,14 @@ export function validateFeed(value) {
       fail();
     ids.add(i.id);
   }
-  return value;
+  return { ...value, items: value.items.map(enrichItem) };
 }
 export function filterItems(
   items,
   {
     query = '',
+    tag = '',
+    chinaOnly = false,
     category = 'all',
     days = 0,
     sort = 'latest',
@@ -124,6 +127,8 @@ export function filterItems(
     .filter(
       (i) =>
         (category === 'all' || i.categories.includes(category)) &&
+        (!tag || i.tags.includes(tag)) &&
+        (!chinaOnly || isChinaRelated(i)) &&
         (!savedOnly || saved.has(i.id)) &&
         (!days || itemTime(i) >= now - days * 86400000) &&
         terms.every((term) =>

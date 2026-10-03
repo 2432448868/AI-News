@@ -205,3 +205,63 @@ test('light and dark views pass automated WCAG A/AA checks', async ({ page }) =>
   result = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21aa']).analyze();
   expect(result.violations).toEqual([]);
 });
+
+test('reading progress follows scrolling without blocking content', async ({ page }) => {
+  await mock(page);
+  const progress = page.locator('.reading-progress');
+  await expect(progress).toHaveAttribute('aria-hidden', 'true');
+  await page.evaluate(() =>
+    window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'instant' }),
+  );
+  await expect
+    .poll(() =>
+      progress.evaluate((el) =>
+        Number(getComputedStyle(el).transform.split('(')[1]?.split(',')[0]),
+      ),
+    )
+    .toBeGreaterThan(0.9);
+  await expect(page.locator('.site-header')).toHaveClass(/is-scrolled/);
+});
+test('pointer decoration respects touch and reduced-motion preferences', async ({
+  page,
+  isMobile,
+}) => {
+  await mock(page);
+  const hero = page.locator('.hero');
+  await hero.hover();
+  if (!isMobile) await expect(hero).toHaveClass(/pointer-active/);
+  else await expect(hero).not.toHaveClass(/pointer-active/);
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  await expect(hero).not.toHaveClass(/pointer-active/);
+  expect(
+    await page.locator('.hero-orbit-ring').evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe('none');
+  expect(
+    await page.evaluate(
+      () => document.getAnimations().filter((a) => a.playState === 'running').length,
+    ),
+  ).toBe(0);
+  await expect(page.locator('.news-card').first()).toBeVisible();
+});
+
+test('entity tags and China focus combine, clear and preserve keyboard focus', async ({ page }) => {
+  const data = structuredClone(fixture);
+  data.items[0].title = 'ChatGPT 发布编程教程';
+  data.items[1].title = 'DeepSeek 新模型';
+  data.items[2].title = 'Qwen3 Agent Skills';
+  await mock(page, data);
+  await expect(page.locator('#featured .topic-tag').first()).toHaveText('ChatGPT');
+  await page.locator('#china-filter').click();
+  await expect(page.locator('.news-card')).toHaveCount(2);
+  await page.locator('#feed-grid [data-tag="DeepSeek"]').click();
+  await expect(page.locator('.news-card')).toHaveCount(1);
+  await expect(page.locator('#active-tag')).toBeFocused();
+  await page.locator('[data-category="skills"]').click();
+  await expect(page.locator('.empty-state')).toBeVisible();
+  await page.locator('#active-tag').click();
+  await expect(page.locator('.news-card')).toHaveCount(1);
+  await page.locator('#clear-filters').click();
+  await expect(page.locator('.news-card')).toHaveCount(12);
+  await expect(page.locator('#china-filter')).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.locator('#active-tag')).toBeHidden();
+});

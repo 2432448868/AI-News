@@ -25,3 +25,24 @@
 - GitHub 首次部署、远程定时触发、runner 到 HF 的连接。
 - 真机 Safari/Firefox/非 Chromium 浏览器；当前手机测试为 Chromium 模拟。
 - 自动无障碍检测不代表完整人工 WCAG 合规认证。
+
+## 2026-10-03 交互动效增强（本地，未提交/上线）
+| 改动 | 文件 | 验证 |
+|---|---|---|
+| 指针光晕、轻微卡片倾斜、首屏视差与轨道环 | src/motion.ts、src/motion.css、src/shell.html | 桌面指针与手机降级用例通过 |
+| 滚动入场、阅读进度、按钮回弹、弹窗入场、焦点光圈 | src/motion.ts、src/motion.css | 滚动与原有交互回归通过 |
+| 单次初始化与动效开关 | src/main.ts | 减少动态效果时取消运行中动画，内容始终可见 |
+| 动效专项回归 | tests/browser/site.spec.mjs | 共 34/34 浏览器测试通过 |
+
+- npm run check：格式、27 项数据测试、TypeScript 与生产构建全部通过。
+- 新增依赖：无；未增加网络请求或付费服务。
+- 渲染使用 requestAnimationFrame 合并指针/滚动更新；IntersectionObserver 仅播放首次看到的卡片。
+- 修复验收发现的初始化位置错误；最终完整回归通过。
+- 待验证：真实 Safari/Firefox、低性能真机帧率；本轮未 commit/push，线上仍为上一版。
+
+## 2026-10-03 标签与中国 AI（本地）
+- 新增共享规则标签、精选/卡片标签按钮、中国 AI 开关与组合筛选，兼容旧快照。
+- 新增量子位 RSS 及 DeepSeek/Qwen/Moonshot/智谱官方 GitHub 组织来源，无付费依赖。
+- npm run check 通过：33 项数据测试、类型检查、生产构建；最终串行浏览器 36/36 通过。
+- 真实快照 133 条、9/12 来源成功；HF 本机连接失败，页面诚实提示。
+- 未 commit/push；范围、来源核验与测试限制见 09-topics-china.md。

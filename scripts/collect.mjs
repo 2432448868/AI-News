@@ -20,6 +20,21 @@ const ghQuery = (q) =>
   new URLSearchParams({ q, sort: 'stars', order: 'desc', per_page: '30' });
 const sources = [
   {
+    id: 'qbitai',
+    name: '量子位 · AI 媒体',
+    homepage: 'https://www.qbitai.com',
+    kind: 'rss',
+    media: true,
+    url: 'https://www.qbitai.com/feed',
+  },
+  ...['deepseek-ai', 'QwenLM', 'MoonshotAI', 'zai-org'].map((org) => ({
+    id: 'cn-official-' + org,
+    name: org + ' · 官方开源',
+    homepage: 'https://github.com/' + org,
+    kind: 'github-org',
+    url: 'https://api.github.com/orgs/' + org + '/repos?sort=pushed&per_page=20',
+  })),
+  {
     id: 'github-projects',
     name: 'GitHub',
     homepage: 'https://github.com/topics/llm',
@@ -86,22 +101,25 @@ const results = [];
 // Two API searches are sequential to avoid search endpoint burst limits.
 for (const source of sources) {
   try {
-    const headers =
-      source.kind === 'github'
-        ? {
-            Accept: 'application/vnd.github+json',
-            'X-GitHub-Api-Version': '2022-11-28',
-            ...(process.env.GITHUB_TOKEN
-              ? { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN }
-              : {}),
-          }
-        : {};
+    const headers = source.kind.startsWith('github')
+      ? {
+          Accept: 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
+          ...(process.env.GITHUB_TOKEN
+            ? { Authorization: 'Bearer ' + process.env.GITHUB_TOKEN }
+            : {}),
+        }
+      : {};
     const raw = await fetchText(source.url, { headers });
     const items =
       source.kind === 'rss'
         ? normalizeRss(raw, source, now)
-        : source.kind === 'github'
-          ? normalizeGithub(JSON.parse(raw), source, now)
+        : source.kind.startsWith('github')
+          ? normalizeGithub(
+              source.kind === 'github-org' ? { items: JSON.parse(raw) } : JSON.parse(raw),
+              source,
+              now,
+            )
           : normalizeHf(JSON.parse(raw), source, now);
     if (!items.length) throw new Error('本次没有有效条目');
     results.push({ source, ok: true, items });

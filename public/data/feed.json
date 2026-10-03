@@ -1,13 +1,58 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T19:51:24.688Z",
+  "generatedAt": "2026-10-03T02:25:17.513Z",
   "sources": [
+    {
+      "id": "qbitai",
+      "name": "量子位 · AI 媒体",
+      "homepage": "https://www.qbitai.com",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-03T02:25:17.513Z",
+      "itemCount": 10,
+      "error": null
+    },
+    {
+      "id": "cn-official-deepseek-ai",
+      "name": "deepseek-ai · 官方开源",
+      "homepage": "https://github.com/deepseek-ai",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-03T02:27:29.580Z",
+      "itemCount": 14,
+      "error": null
+    },
+    {
+      "id": "cn-official-QwenLM",
+      "name": "QwenLM · 官方开源",
+      "homepage": "https://github.com/QwenLM",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-03T02:27:29.580Z",
+      "itemCount": 10,
+      "error": null
+    },
+    {
+      "id": "cn-official-MoonshotAI",
+      "name": "MoonshotAI · 官方开源",
+      "homepage": "https://github.com/MoonshotAI",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-03T02:27:29.580Z",
+      "itemCount": 5,
+      "error": null
+    },
+    {
+      "id": "cn-official-zai-org",
+      "name": "zai-org · 官方开源",
+      "homepage": "https://github.com/zai-org",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-03T02:27:29.580Z",
+      "itemCount": 5,
+      "error": null
+    },
     {
       "id": "github-projects",
       "name": "GitHub",
       "homepage": "https://github.com/topics/llm",
       "status": "ok",
-      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "lastSuccessAt": "2026-10-03T02:25:17.513Z",
       "itemCount": 29,
       "error": null
     },
@@ -16,7 +61,7 @@
       "name": "GitHub Skills",
       "homepage": "https://github.com/topics/agent-skills",
       "status": "ok",
-      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "lastSuccessAt": "2026-10-03T02:25:17.513Z",
       "itemCount": 30,
       "error": null
     },
@@ -25,7 +70,7 @@
       "name": "GitHub Demos",
       "homepage": "https://github.com/topics/gradio",
       "status": "ok",
-      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "lastSuccessAt": "2026-10-03T02:25:17.513Z",
       "itemCount": 20,
       "error": null
     },
@@ -61,126 +106,38 @@
       "name": "GitHub Blog",
       "homepage": "https://github.blog/ai-and-ml/",
       "status": "ok",
-      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "lastSuccessAt": "2026-10-03T02:25:17.513Z",
       "itemCount": 10,
       "error": null
     }
   ],
   "items": [
     {
-      "id": "7fc08de27bce1b0c7e7a",
-      "title": "Significant-Gravitas/AutoGPT",
-      "url": "https://github.com/Significant-Gravitas/AutoGPT",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "id": "1922d9d520f9ceba156c",
+      "title": "QwenLM/qwen-code",
+      "url": "https://github.com/QwenLM/qwen-code",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "An open-source AI coding agent that lives in your terminal.",
       "categories": [
         "projects"
       ],
       "tags": [
-        "agentic-ai",
-        "agents",
+        "通义千问",
+        "Agent",
+        "AI 编程",
+        "开源项目",
+        "agentic",
         "ai",
-        "artificial-intelligence"
+        "ai-agent",
+        "ai-coding"
       ],
-      "publishedAt": "2023-03-16T09:21:07.000Z",
-      "updatedAt": "2026-10-02T19:51:11.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "publishedAt": "2025-06-26T01:37:46.000Z",
+      "updatedAt": "2026-10-03T02:25:18.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
       "metricLabel": "stars",
-      "metricValue": 187641,
-      "rankScore": 91
-    },
-    {
-      "id": "b5a44c85aa7745855c3c",
-      "title": "OpenHands/OpenHands",
-      "url": "https://github.com/OpenHands/OpenHands",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "🙌 OpenHands: AI-Driven Development",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "agent",
-        "artificial-intelligence",
-        "chatgpt",
-        "claude-ai"
-      ],
-      "publishedAt": "2024-03-13T03:33:31.000Z",
-      "updatedAt": "2026-10-02T19:45:36.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 89807,
-      "rankScore": 46
-    },
-    {
-      "id": "1970f2aab6a882fb2b18",
-      "title": "unslothai/unsloth",
-      "url": "https://github.com/unslothai/unsloth",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "agent",
-        "ai",
-        "chatgpt",
-        "deepseek"
-      ],
-      "publishedAt": "2023-11-29T16:50:09.000Z",
-      "updatedAt": "2026-10-02T19:45:34.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 77135,
-      "rankScore": 28
-    },
-    {
-      "id": "53d940334a2a5afd27d7",
-      "title": "huggingface/transformers",
-      "url": "https://github.com/huggingface/transformers",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "audio",
-        "deep-learning",
-        "deepseek",
-        "gemma"
-      ],
-      "publishedAt": "2018-10-29T13:56:00.000Z",
-      "updatedAt": "2026-10-02T19:44:43.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 166904,
-      "rankScore": 82
-    },
-    {
-      "id": "e8ba7172314e48e96a3e",
-      "title": "vllm-project/vllm",
-      "url": "https://github.com/vllm-project/vllm",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "amd",
-        "blackwell",
-        "cuda",
-        "deepseek"
-      ],
-      "publishedAt": "2023-02-09T11:23:20.000Z",
-      "updatedAt": "2026-10-02T19:43:34.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 93075,
-      "rankScore": 49
+      "metricValue": 28279,
+      "rankScore": 100
     },
     {
       "id": "ec2b8bd43eefd65f9cb1",
@@ -193,17 +150,557 @@
         "projects"
       ],
       "tags": [
+        "Agent",
+        "开源项目",
         "ai",
         "ai-agent",
         "ai-agents",
         "anthropic"
       ],
       "publishedAt": "2025-07-22T22:22:28.000Z",
-      "updatedAt": "2026-10-02T19:43:12.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "updatedAt": "2026-10-03T02:23:32.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 250737,
+      "metricValue": 250787,
       "rankScore": 97
+    },
+    {
+      "id": "38c3408d933af173aa2e",
+      "title": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+      "categories": [
+        "projects",
+        "skills"
+      ],
+      "tags": [
+        "Agent",
+        "Skills",
+        "开源项目",
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code"
+      ],
+      "publishedAt": "2026-06-12T00:52:37.000Z",
+      "updatedAt": "2026-10-03T02:22:19.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 151872,
+      "rankScore": 97
+    },
+    {
+      "id": "1970f2aab6a882fb2b18",
+      "title": "unslothai/unsloth",
+      "url": "https://github.com/unslothai/unsloth",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ChatGPT",
+        "DeepSeek",
+        "通义千问",
+        "MiniMax",
+        "Agent",
+        "开源项目",
+        "agent",
+        "ai",
+        "chatgpt",
+        "deepseek"
+      ],
+      "publishedAt": "2023-11-29T16:50:09.000Z",
+      "updatedAt": "2026-10-03T02:19:24.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 77150,
+      "rankScore": 28
+    },
+    {
+      "id": "7fc08de27bce1b0c7e7a",
+      "title": "Significant-Gravitas/AutoGPT",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "开源项目",
+        "agentic-ai",
+        "agents",
+        "ai",
+        "artificial-intelligence"
+      ],
+      "publishedAt": "2023-03-16T09:21:07.000Z",
+      "updatedAt": "2026-10-03T02:13:37.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 187639,
+      "rankScore": 91
+    },
+    {
+      "id": "16389f32495280ea98c7",
+      "title": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "Skills",
+        "开源项目",
+        "agent",
+        "agentic",
+        "agentic-framework",
+        "agentic-workflow"
+      ],
+      "publishedAt": "2025-05-07T02:50:19.000Z",
+      "updatedAt": "2026-10-03T02:05:47.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 83336,
+      "rankScore": 40
+    },
+    {
+      "id": "b1b1542da472edd24925",
+      "title": "CherryHQ/cherry-studio",
+      "url": "https://github.com/CherryHQ/cherry-studio",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "Agent",
+        "Skills",
+        "agent-skills",
+        "ai-agent",
+        "claude-code",
+        "codex"
+      ],
+      "publishedAt": "2024-05-24T01:56:26.000Z",
+      "updatedAt": "2026-10-03T02:04:29.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 52325,
+      "rankScore": 70
+    },
+    {
+      "id": "e8ba7172314e48e96a3e",
+      "title": "vllm-project/vllm",
+      "url": "https://github.com/vllm-project/vllm",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目",
+        "amd",
+        "blackwell",
+        "cuda",
+        "deepseek"
+      ],
+      "publishedAt": "2023-02-09T11:23:20.000Z",
+      "updatedAt": "2026-10-03T02:03:38.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 93084,
+      "rankScore": 49
+    },
+    {
+      "id": "97dcab4759c83fdbf316",
+      "title": "langgenius/dify",
+      "url": "https://github.com/langgenius/dify",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "开源项目",
+        "agent",
+        "agentic-ai",
+        "agentic-framework",
+        "agentic-workflow"
+      ],
+      "publishedAt": "2023-04-12T07:40:24.000Z",
+      "updatedAt": "2026-10-03T01:59:55.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 157733,
+      "rankScore": 79
+    },
+    {
+      "id": "668711a6e10728221dfc",
+      "title": "headroomlabs-ai/headroom",
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "MCP",
+        "AI 编程",
+        "开源项目",
+        "agent",
+        "ai",
+        "anthropic",
+        "claude-code"
+      ],
+      "publishedAt": "2026-01-07T19:58:51.000Z",
+      "updatedAt": "2026-10-03T01:59:03.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 74299,
+      "rankScore": 22
+    },
+    {
+      "id": "0604d6a7a7d7afd21105",
+      "title": "harry0703/MoneyPrinterTurbo",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "开源项目",
+        "ai-video-generator",
+        "content-creation",
+        "ffmpeg",
+        "instagram-reels"
+      ],
+      "publishedAt": "2024-03-11T02:57:34.000Z",
+      "updatedAt": "2026-10-03T01:58:36.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 128105,
+      "rankScore": 67
+    },
+    {
+      "id": "53d940334a2a5afd27d7",
+      "title": "huggingface/transformers",
+      "url": "https://github.com/huggingface/transformers",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "多模态",
+        "开源项目",
+        "audio",
+        "deep-learning",
+        "deepseek",
+        "gemma"
+      ],
+      "publishedAt": "2018-10-29T13:56:00.000Z",
+      "updatedAt": "2026-10-03T01:51:42.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 166908,
+      "rankScore": 82
+    },
+    {
+      "id": "bac657e60ae022eb6406",
+      "title": "JuliusBrussee/caveman",
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "Skills",
+        "AI 编程",
+        "开源项目",
+        "ai",
+        "anthropic",
+        "caveman",
+        "claude"
+      ],
+      "publishedAt": "2026-04-04T10:03:00.000Z",
+      "updatedAt": "2026-10-03T01:34:05.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 109125,
+      "rankScore": 55
+    },
+    {
+      "id": "d8ff876dfb1eadf08a10",
+      "title": "nexu-io/open-design",
+      "url": "https://github.com/nexu-io/open-design",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your coding agent becomes the design engine: prototypes, landing pages, dashboards, slides, images & video — real files, HTM",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "Claude",
+        "DeepSeek",
+        "Agent",
+        "Skills",
+        "AI 编程",
+        "agent-skills",
+        "ai-design",
+        "byok",
+        "claude-code-for-design"
+      ],
+      "publishedAt": "2026-04-28T04:25:20.000Z",
+      "updatedAt": "2026-10-03T01:26:22.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 99195,
+      "rankScore": 91
+    },
+    {
+      "id": "85b23a6c94bb0832d062",
+      "title": "Mintplex-Labs/anything-llm",
+      "url": "https://github.com/Mintplex-Labs/anything-llm",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "开源项目",
+        "agent-computer",
+        "agent-harness",
+        "agent-orchestration",
+        "agentic-ai"
+      ],
+      "publishedAt": "2023-06-04T02:29:14.000Z",
+      "updatedAt": "2026-10-03T01:18:20.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 66673,
+      "rankScore": 16
+    },
+    {
+      "id": "302d92cf5bb4ba842b45",
+      "title": "timoncool/ACE-Step-Studio",
+      "url": "https://github.com/timoncool/ACE-Step-Studio",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Portable AI music generator — full songs with vocals, covers, music videos. One-click install, 100% offline, NVIDIA GPU.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ace-step",
+        "ai-music",
+        "gradio",
+        "local-ai"
+      ],
+      "publishedAt": "2026-04-10T23:34:01.000Z",
+      "updatedAt": "2026-10-03T01:06:59.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 373,
+      "rankScore": 76
+    },
+    {
+      "id": "bb9a7497c136f753139e",
+      "title": "career-ops-hq/career-ops",
+      "url": "https://github.com/career-ops-hq/career-ops",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in eac",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "Agent",
+        "Skills",
+        "agent-skills",
+        "ai-agent",
+        "ai-job-search",
+        "ats"
+      ],
+      "publishedAt": "2026-04-04T18:21:18.000Z",
+      "updatedAt": "2026-10-03T00:34:02.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 73323,
+      "rankScore": 82
+    },
+    {
+      "id": "d07066251c23560c4586",
+      "title": "rtk-ai/rtk",
+      "url": "https://github.com/rtk-ai/rtk",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "AI 编程",
+        "开源项目",
+        "agentic-coding",
+        "ai-coding",
+        "anthropic",
+        "claude-code"
+      ],
+      "publishedAt": "2026-01-22T16:54:16.000Z",
+      "updatedAt": "2026-10-03T00:29:54.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 82255,
+      "rankScore": 37
+    },
+    {
+      "id": "7765e623bebd57da6be9",
+      "title": "hesreallyhim/awesome-claude-code",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC. A delectable showcase of top tier skills, ambidextrou",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
+        "AI 编程",
+        "agent-skills",
+        "agentic-code",
+        "agentic-coding",
+        "ai-workflow-optimization"
+      ],
+      "publishedAt": "2025-04-19T20:55:59.000Z",
+      "updatedAt": "2026-10-03T00:26:58.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 54967,
+      "rankScore": 79
+    },
+    {
+      "id": "e9dbf459bd01dca31193",
+      "title": "firecrawl/firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🔥 Supercharge your AI agents with data from the web and beyond. A web data API to search, scrape, and access more sources.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "开源项目",
+        "ai",
+        "ai-agents",
+        "ai-crawler",
+        "ai-scraping"
+      ],
+      "publishedAt": "2024-04-15T21:02:29.000Z",
+      "updatedAt": "2026-10-03T00:12:18.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 187978,
+      "rankScore": 94
+    },
+    {
+      "id": "c1af6b58492f9bf434d2",
+      "title": "browser-use/browser-use",
+      "url": "https://github.com/browser-use/browser-use",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Agents that use the browser.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Agent",
+        "开源项目",
+        "ai-agents",
+        "ai-tools",
+        "browser-automation",
+        "browser-use"
+      ],
+      "publishedAt": "2024-10-31T16:00:56.000Z",
+      "updatedAt": "2026-10-03T00:06:08.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 117014,
+      "rankScore": 61
+    },
+    {
+      "id": "890a56b0d2aff0c91c90",
+      "title": "deepseek-ai/deepseek-harness",
+      "url": "https://github.com/deepseek-ai/deepseek-harness",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "DeepSeek Harness: Everything is a Plugin.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "Agent",
+        "开源项目",
+        "ai-agents",
+        "cordis",
+        "dsh",
+        "dsh-plugin"
+      ],
+      "publishedAt": "2026-08-13T11:56:32.000Z",
+      "updatedAt": "2026-10-03T00:01:28.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 242400,
+      "rankScore": 100
+    },
+    {
+      "id": "7d16a85b7e307034e306",
+      "title": "DrewThomasson/ebook2audiobook",
+      "url": "https://github.com/DrewThomasson/ebook2audiobook",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Generate audiobooks from e-books, voice cloning & 1158+ languages!",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "audiobook",
+        "audiobooks",
+        "chinese",
+        "colab-notebook"
+      ],
+      "publishedAt": "2024-01-22T23:49:55.000Z",
+      "updatedAt": "2026-10-02T22:58:51.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 20261,
+      "rankScore": 100
     },
     {
       "id": "c5a32632e586ab2c7c9c",
@@ -216,17 +713,147 @@
         "projects"
       ],
       "tags": [
+        "Agent",
+        "开源项目",
         "agents",
         "ai",
         "ai-agents",
         "anthropic"
       ],
       "publishedAt": "2022-10-17T02:58:36.000Z",
-      "updatedAt": "2026-10-02T19:42:46.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "updatedAt": "2026-10-02T22:57:27.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 147384,
+      "metricValue": 147390,
       "rankScore": 70
+    },
+    {
+      "id": "46293e1fc3f7a57f631d",
+      "title": "daniandtheweb/sd.cpp-webui",
+      "url": "https://github.com/daniandtheweb/sd.cpp-webui",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A lightweight Gradio WebUI for stable-diffusion.cpp.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ai",
+        "gradio",
+        "local-ai",
+        "python"
+      ],
+      "publishedAt": "2024-02-14T03:03:29.000Z",
+      "updatedAt": "2026-10-02T22:37:18.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 161,
+      "rankScore": 67
+    },
+    {
+      "id": "c290a2acf859c75ba018",
+      "title": "Graphify-Labs/graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Claude",
+        "Gemini",
+        "Agent",
+        "Skills",
+        "开源项目",
+        "ai-agents",
+        "antigravity",
+        "ast",
+        "claude-code"
+      ],
+      "publishedAt": "2026-04-03T15:49:07.000Z",
+      "updatedAt": "2026-10-02T22:12:03.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 123352,
+      "rankScore": 64
+    },
+    {
+      "id": "b5a44c85aa7745855c3c",
+      "title": "OpenHands/OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ChatGPT",
+        "Agent",
+        "开源项目",
+        "agent",
+        "artificial-intelligence",
+        "chatgpt",
+        "claude-ai"
+      ],
+      "publishedAt": "2024-03-13T03:33:31.000Z",
+      "updatedAt": "2026-10-02T21:53:23.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 89827,
+      "rankScore": 46
+    },
+    {
+      "id": "d399d99ef4e490b63f51",
+      "title": "topoteretes/cognee",
+      "url": "https://github.com/topoteretes/cognee",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Cognee is the open-source AI memory platform for agents. Give your AI agents persistent long-term memory with small models for free",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "Agent",
+        "Skills",
+        "agent-memory",
+        "agent-skills",
+        "ai",
+        "ai-agents"
+      ],
+      "publishedAt": "2023-08-16T16:16:33.000Z",
+      "updatedAt": "2026-10-02T20:55:58.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 31313,
+      "rankScore": 40
+    },
+    {
+      "id": "e1ae8aa0ded84424cccf",
+      "title": "pascalorg/editor",
+      "url": "https://github.com/pascalorg/editor",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Open-source 3D architectural editor with a local CLI, MCP tools, and practical workflows for humans and AI agents.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "Agent",
+        "Skills",
+        "MCP",
+        "3d",
+        "agent-skills",
+        "ai-agents",
+        "architecture"
+      ],
+      "publishedAt": "2025-10-16T19:35:06.000Z",
+      "updatedAt": "2026-10-02T20:54:27.000Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": "stars",
+      "metricValue": 24577,
+      "rankScore": 22
     },
     {
       "id": "dc992f11fd8132fbfd34",
@@ -246,102 +873,10 @@
       ],
       "publishedAt": "2023-09-26T15:21:12.000Z",
       "updatedAt": "2026-10-02T19:40:13.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 1151,
       "rankScore": 85
-    },
-    {
-      "id": "c1af6b58492f9bf434d2",
-      "title": "browser-use/browser-use",
-      "url": "https://github.com/browser-use/browser-use",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "Agents that use the browser.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "ai-agents",
-        "ai-tools",
-        "browser-automation",
-        "browser-use"
-      ],
-      "publishedAt": "2024-10-31T16:00:56.000Z",
-      "updatedAt": "2026-10-02T19:29:38.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 117000,
-      "rankScore": 61
-    },
-    {
-      "id": "e1ae8aa0ded84424cccf",
-      "title": "pascalorg/editor",
-      "url": "https://github.com/pascalorg/editor",
-      "sourceId": "github-skills",
-      "sourceName": "GitHub Skills",
-      "summary": "Open-source 3D architectural editor with a local CLI, MCP tools, and practical workflows for humans and AI agents.",
-      "categories": [
-        "skills"
-      ],
-      "tags": [
-        "3d",
-        "agent-skills",
-        "ai-agents",
-        "architecture"
-      ],
-      "publishedAt": "2025-10-16T19:35:06.000Z",
-      "updatedAt": "2026-10-02T19:27:34.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 24564,
-      "rankScore": 22
-    },
-    {
-      "id": "97dcab4759c83fdbf316",
-      "title": "langgenius/dify",
-      "url": "https://github.com/langgenius/dify",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "agent",
-        "agentic-ai",
-        "agentic-framework",
-        "agentic-workflow"
-      ],
-      "publishedAt": "2023-04-12T07:40:24.000Z",
-      "updatedAt": "2026-10-02T19:05:00.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 157726,
-      "rankScore": 79
-    },
-    {
-      "id": "85b23a6c94bb0832d062",
-      "title": "Mintplex-Labs/anything-llm",
-      "url": "https://github.com/Mintplex-Labs/anything-llm",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "agent-computer",
-        "agent-harness",
-        "agent-orchestration",
-        "agentic-ai"
-      ],
-      "publishedAt": "2023-06-04T02:29:14.000Z",
-      "updatedAt": "2026-10-02T19:01:24.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 66668,
-      "rankScore": 16
     },
     {
       "id": "77b4be38215d4c711f40",
@@ -354,6 +889,11 @@
         "projects"
       ],
       "tags": [
+        "DeepSeek",
+        "通义千问",
+        "Kimi",
+        "MiniMax",
+        "开源项目",
         "deepseek",
         "gemma",
         "gemma3",
@@ -361,9 +901,9 @@
       ],
       "publishedAt": "2023-06-26T19:39:32.000Z",
       "updatedAt": "2026-10-02T18:52:29.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 182059,
+      "metricValue": 182069,
       "rankScore": 88
     },
     {
@@ -377,6 +917,10 @@
         "skills"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
+        "MCP",
         "agent-security",
         "agent-skills",
         "agentic-ai",
@@ -384,171 +928,10 @@
       ],
       "publishedAt": "2026-03-21T00:28:43.000Z",
       "updatedAt": "2026-10-02T18:40:00.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 19080,
+      "metricValue": 19122,
       "rankScore": 16
-    },
-    {
-      "id": "e9dbf459bd01dca31193",
-      "title": "firecrawl/firecrawl",
-      "url": "https://github.com/firecrawl/firecrawl",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "🔥 Supercharge your AI agents with data from the web and beyond. A web data API to search, scrape, and access more sources.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "ai",
-        "ai-agents",
-        "ai-crawler",
-        "ai-scraping"
-      ],
-      "publishedAt": "2024-04-15T21:02:29.000Z",
-      "updatedAt": "2026-10-02T18:14:34.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 187893,
-      "rankScore": 94
-    },
-    {
-      "id": "7765e623bebd57da6be9",
-      "title": "hesreallyhim/awesome-claude-code",
-      "url": "https://github.com/hesreallyhim/awesome-claude-code",
-      "sourceId": "github-skills",
-      "sourceName": "GitHub Skills",
-      "summary": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC. A delectable showcase of top tier skills, ambidextrou",
-      "categories": [
-        "skills"
-      ],
-      "tags": [
-        "agent-skills",
-        "agentic-code",
-        "agentic-coding",
-        "ai-workflow-optimization"
-      ],
-      "publishedAt": "2025-04-19T20:55:59.000Z",
-      "updatedAt": "2026-10-02T18:13:50.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 54955,
-      "rankScore": 79
-    },
-    {
-      "id": "7d16a85b7e307034e306",
-      "title": "DrewThomasson/ebook2audiobook",
-      "url": "https://github.com/DrewThomasson/ebook2audiobook",
-      "sourceId": "github-apps",
-      "sourceName": "GitHub Demos",
-      "summary": "Generate audiobooks from e-books, voice cloning & 1158+ languages!",
-      "categories": [
-        "apps"
-      ],
-      "tags": [
-        "audiobook",
-        "audiobooks",
-        "chinese",
-        "colab-notebook"
-      ],
-      "publishedAt": "2024-01-22T23:49:55.000Z",
-      "updatedAt": "2026-10-02T18:13:43.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 20261,
-      "rankScore": 100
-    },
-    {
-      "id": "668711a6e10728221dfc",
-      "title": "headroomlabs-ai/headroom",
-      "url": "https://github.com/headroomlabs-ai/headroom",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "agent",
-        "ai",
-        "anthropic",
-        "claude-code"
-      ],
-      "publishedAt": "2026-01-07T19:58:51.000Z",
-      "updatedAt": "2026-10-02T18:00:16.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 74286,
-      "rankScore": 22
-    },
-    {
-      "id": "d399d99ef4e490b63f51",
-      "title": "topoteretes/cognee",
-      "url": "https://github.com/topoteretes/cognee",
-      "sourceId": "github-skills",
-      "sourceName": "GitHub Skills",
-      "summary": "Cognee is the open-source AI memory platform for agents. Give your AI agents persistent long-term memory with small models for free",
-      "categories": [
-        "skills"
-      ],
-      "tags": [
-        "agent-memory",
-        "agent-skills",
-        "ai",
-        "ai-agents"
-      ],
-      "publishedAt": "2023-08-16T16:16:33.000Z",
-      "updatedAt": "2026-10-02T17:57:14.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 31303,
-      "rankScore": 40
-    },
-    {
-      "id": "b1b1542da472edd24925",
-      "title": "CherryHQ/cherry-studio",
-      "url": "https://github.com/CherryHQ/cherry-studio",
-      "sourceId": "github-skills",
-      "sourceName": "GitHub Skills",
-      "summary": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
-      "categories": [
-        "skills"
-      ],
-      "tags": [
-        "agent-skills",
-        "ai-agent",
-        "claude-code",
-        "codex"
-      ],
-      "publishedAt": "2024-05-24T01:56:26.000Z",
-      "updatedAt": "2026-10-02T17:51:24.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 52324,
-      "rankScore": 70
-    },
-    {
-      "id": "bb9a7497c136f753139e",
-      "title": "career-ops-hq/career-ops",
-      "url": "https://github.com/career-ops-hq/career-ops",
-      "sourceId": "github-skills",
-      "sourceName": "GitHub Skills",
-      "summary": "Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in eac",
-      "categories": [
-        "skills"
-      ],
-      "tags": [
-        "agent-skills",
-        "ai-agent",
-        "ai-job-search",
-        "ats"
-      ],
-      "publishedAt": "2026-04-04T18:21:18.000Z",
-      "updatedAt": "2026-10-02T17:50:04.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 73298,
-      "rankScore": 82
     },
     {
       "id": "ce7a336e4c6d8cb5842c",
@@ -561,6 +944,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "awesome",
         "awesome-list",
@@ -568,9 +953,9 @@
       ],
       "publishedAt": "2026-01-25T09:22:32.000Z",
       "updatedAt": "2026-10-02T17:28:46.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 52910,
+      "metricValue": 52914,
       "rankScore": 73
     },
     {
@@ -584,6 +969,10 @@
         "skills"
       ],
       "tags": [
+        "Claude",
+        "Gemini",
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai-agents",
         "awesome",
@@ -591,126 +980,10 @@
       ],
       "publishedAt": "2025-10-28T08:55:32.000Z",
       "updatedAt": "2026-10-02T17:24:52.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 35122,
+      "metricValue": 35126,
       "rankScore": 46
-    },
-    {
-      "id": "38c3408d933af173aa2e",
-      "title": "DietrichGebert/ponytail",
-      "url": "https://github.com/DietrichGebert/ponytail",
-      "sourceId": "github-skills",
-      "sourceName": "GitHub Skills",
-      "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
-      "categories": [
-        "projects",
-        "skills"
-      ],
-      "tags": [
-        "agent-skills",
-        "ai-agents",
-        "claude",
-        "claude-code"
-      ],
-      "publishedAt": "2026-06-12T00:52:37.000Z",
-      "updatedAt": "2026-10-02T16:22:48.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 151555,
-      "rankScore": 97
-    },
-    {
-      "id": "d07066251c23560c4586",
-      "title": "rtk-ai/rtk",
-      "url": "https://github.com/rtk-ai/rtk",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "agentic-coding",
-        "ai-coding",
-        "anthropic",
-        "claude-code"
-      ],
-      "publishedAt": "2026-01-22T16:54:16.000Z",
-      "updatedAt": "2026-10-02T16:22:42.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 82239,
-      "rankScore": 37
-    },
-    {
-      "id": "c290a2acf859c75ba018",
-      "title": "Graphify-Labs/graphify",
-      "url": "https://github.com/Graphify-Labs/graphify",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "ai-agents",
-        "antigravity",
-        "ast",
-        "claude-code"
-      ],
-      "publishedAt": "2026-04-03T15:49:07.000Z",
-      "updatedAt": "2026-10-02T16:20:43.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 123292,
-      "rankScore": 64
-    },
-    {
-      "id": "302d92cf5bb4ba842b45",
-      "title": "timoncool/ACE-Step-Studio",
-      "url": "https://github.com/timoncool/ACE-Step-Studio",
-      "sourceId": "github-apps",
-      "sourceName": "GitHub Demos",
-      "summary": "Portable AI music generator — full songs with vocals, covers, music videos. One-click install, 100% offline, NVIDIA GPU.",
-      "categories": [
-        "apps"
-      ],
-      "tags": [
-        "ace-step",
-        "ai-music",
-        "gradio",
-        "local-ai"
-      ],
-      "publishedAt": "2026-04-10T23:34:01.000Z",
-      "updatedAt": "2026-10-02T15:57:53.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 372,
-      "rankScore": 76
-    },
-    {
-      "id": "16389f32495280ea98c7",
-      "title": "bytedance/deer-flow",
-      "url": "https://github.com/bytedance/deer-flow",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "agent",
-        "agentic",
-        "agentic-framework",
-        "agentic-workflow"
-      ],
-      "publishedAt": "2025-05-07T02:50:19.000Z",
-      "updatedAt": "2026-10-02T15:49:22.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 83330,
-      "rankScore": 40
     },
     {
       "id": "3adf82e6716a48e97371",
@@ -725,11 +998,13 @@
         "tips"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "官方博客"
       ],
       "publishedAt": "2026-10-02T15:00:00.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 95
@@ -745,6 +1020,8 @@
         "projects"
       ],
       "tags": [
+        "ChatGPT",
+        "开源项目",
         "ai",
         "artificial-intelligence",
         "attention-mechanism",
@@ -752,9 +1029,9 @@
       ],
       "publishedAt": "2023-07-23T18:15:57.000Z",
       "updatedAt": "2026-10-02T14:55:52.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 105889,
+      "metricValue": 105893,
       "rankScore": 52
     },
     {
@@ -775,7 +1052,7 @@
       ],
       "publishedAt": "2024-06-05T15:41:15.000Z",
       "updatedAt": "2026-10-02T14:36:50.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 85,
       "rankScore": 49
@@ -791,6 +1068,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "architecture-as-code",
         "architecture-diagram",
@@ -798,9 +1077,9 @@
       ],
       "publishedAt": "2026-04-15T05:27:37.000Z",
       "updatedAt": "2026-10-02T14:08:03.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 76207,
+      "metricValue": 76295,
       "rankScore": 85
     },
     {
@@ -814,6 +1093,9 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
+        "MCP",
         "agent-skills",
         "agentic-skills",
         "ai-agent-skills",
@@ -821,9 +1103,9 @@
       ],
       "publishedAt": "2026-01-14T17:48:09.000Z",
       "updatedAt": "2026-10-02T13:37:12.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 47190,
+      "metricValue": 47195,
       "rankScore": 64
     },
     {
@@ -837,6 +1119,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai",
         "dsh-plugin",
@@ -844,56 +1128,32 @@
       ],
       "publishedAt": "2020-03-25T14:08:22.000Z",
       "updatedAt": "2026-10-02T12:39:44.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 43701,
+      "metricValue": 43705,
       "rankScore": 61
     },
     {
-      "id": "0604d6a7a7d7afd21105",
-      "title": "harry0703/MoneyPrinterTurbo",
-      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
+      "id": "d015ca7e50bb8f4637f3",
+      "title": "MoonshotAI/kimi-code",
+      "url": "https://github.com/MoonshotAI/kimi-code",
+      "sourceId": "cn-official-MoonshotAI",
+      "sourceName": "MoonshotAI · 官方开源",
+      "summary": "Kimi Code CLI — The Starting Point for Next-Gen Agents",
       "categories": [
         "projects"
       ],
       "tags": [
-        "ai-video-generator",
-        "content-creation",
-        "ffmpeg",
-        "instagram-reels"
+        "Kimi",
+        "Agent",
+        "开源项目"
       ],
-      "publishedAt": "2024-03-11T02:57:34.000Z",
-      "updatedAt": "2026-10-02T10:28:45.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "publishedAt": "2026-05-22T08:02:03.000Z",
+      "updatedAt": "2026-10-02T12:24:22.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
       "metricLabel": "stars",
-      "metricValue": 128063,
-      "rankScore": 67
-    },
-    {
-      "id": "d8ff876dfb1eadf08a10",
-      "title": "nexu-io/open-design",
-      "url": "https://github.com/nexu-io/open-design",
-      "sourceId": "github-skills",
-      "sourceName": "GitHub Skills",
-      "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your coding agent becomes the design engine: prototypes, landing pages, dashboards, slides, images & video — real files, HTM",
-      "categories": [
-        "skills"
-      ],
-      "tags": [
-        "agent-skills",
-        "ai-design",
-        "byok",
-        "claude-code-for-design"
-      ],
-      "publishedAt": "2026-04-28T04:25:20.000Z",
-      "updatedAt": "2026-10-02T09:44:20.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 99173,
-      "rankScore": 91
+      "metricValue": 7756,
+      "rankScore": 100
     },
     {
       "id": "2f9e523e9cef2e1fbb20",
@@ -913,7 +1173,7 @@
       ],
       "publishedAt": "2026-06-13T11:42:44.000Z",
       "updatedAt": "2026-10-02T09:43:29.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 86,
       "rankScore": 52
@@ -936,10 +1196,101 @@
       ],
       "publishedAt": "2026-01-24T07:52:17.000Z",
       "updatedAt": "2026-10-02T09:33:56.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 199,
       "rankScore": 70
+    },
+    {
+      "id": "35ff85a10c1faefe0c3d",
+      "title": "openJiuwen X-Router自演进模型路由技术首发，昇腾亲和，Agent越跑越省，实测减少50+%Token消耗",
+      "url": "https://www.qbitai.com/2026/10/500098.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "让每一次请求选对模型，让每一次反馈都成为下一次更优、更省的选择",
+      "categories": [
+        "news",
+        "models"
+      ],
+      "tags": [
+        "昇腾",
+        "Agent",
+        "模型动态",
+        "媒体报道"
+      ],
+      "publishedAt": "2026-10-02T07:34:15.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 95
+    },
+    {
+      "id": "49deb106e8259352bb15",
+      "title": "zai-org/GLM-V",
+      "url": "https://github.com/zai-org/GLM-V",
+      "sourceId": "cn-official-zai-org",
+      "sourceName": "zai-org · 官方开源",
+      "summary": "GLM-4.6V/4.5V/4.1V-Thinking: Towards Versatile Multimodal Reasoning with Scalable Reinforcement Learning",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "智谱 GLM",
+        "多模态",
+        "开源项目",
+        "image2text",
+        "reasoning",
+        "video-understanding",
+        "vlm"
+      ],
+      "publishedAt": "2025-06-28T08:44:06.000Z",
+      "updatedAt": "2026-10-02T07:28:29.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 2393,
+      "rankScore": 100
+    },
+    {
+      "id": "4d23593880a571101858",
+      "title": "丘成桐新论文致谢了GPT和Claude",
+      "url": "https://www.qbitai.com/2026/10/499991.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "44年前被亲自列入问题清单",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "Claude",
+        "媒体报道"
+      ],
+      "publishedAt": "2026-10-02T07:27:03.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 92
+    },
+    {
+      "id": "090bb4f35277f421efde",
+      "title": "arXiv最严新规！每人每月最多提交2篇，拒稿不退额度",
+      "url": "https://www.qbitai.com/2026/10/499958.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "换区也没用",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "媒体报道"
+      ],
+      "publishedAt": "2026-10-02T06:46:32.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 89
     },
     {
       "id": "7c94eb734f17ebfcce72",
@@ -952,6 +1303,8 @@
         "projects"
       ],
       "tags": [
+        "OpenAI",
+        "开源项目",
         "ai",
         "llm",
         "llm-ui",
@@ -959,9 +1312,9 @@
       ],
       "publishedAt": "2023-10-06T22:08:27.000Z",
       "updatedAt": "2026-10-02T04:50:55.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 153806,
+      "metricValue": 153825,
       "rankScore": 76
     },
     {
@@ -975,6 +1328,9 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
+        "AI 编程",
         "agent-skills",
         "antigravity",
         "claude-code",
@@ -982,10 +1338,33 @@
       ],
       "publishedAt": "2026-02-15T20:20:26.000Z",
       "updatedAt": "2026-10-02T03:29:29.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 100482,
+      "metricValue": 100554,
       "rankScore": 94
+    },
+    {
+      "id": "ad9bdc4b4c8f87ba8006",
+      "title": "QwenLM/Qwen-MM-Plugins",
+      "url": "https://github.com/QwenLM/Qwen-MM-Plugins",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "Make any agent harness multimodal-native.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "Agent",
+        "多模态",
+        "开源项目"
+      ],
+      "publishedAt": "2026-07-29T09:14:34.000Z",
+      "updatedAt": "2026-10-02T03:15:41.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 3107,
+      "rankScore": 97
     },
     {
       "id": "edb3a626875732de5c9b",
@@ -998,6 +1377,10 @@
         "projects"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
+        "开源项目",
         "ai-agents",
         "anthropic",
         "claude",
@@ -1005,10 +1388,31 @@
       ],
       "publishedAt": "2026-01-18T00:51:51.000Z",
       "updatedAt": "2026-10-02T02:01:14.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 271112,
+      "metricValue": 271397,
       "rankScore": 100
+    },
+    {
+      "id": "ed3e82d0e66f5ed5c3a5",
+      "title": "QwenLM/qwen-mm-plugins-hub",
+      "url": "https://github.com/QwenLM/qwen-mm-plugins-hub",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "A documentation for Qwen-MM-Plugins",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-09T07:40:40.000Z",
+      "updatedAt": "2026-10-02T00:33:56.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 5,
+      "rankScore": 94
     },
     {
       "id": "c8f3d928a400ca537089",
@@ -1021,6 +1425,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai-scientist",
         "bioinformatics",
@@ -1028,9 +1434,9 @@
       ],
       "publishedAt": "2025-10-19T20:54:15.000Z",
       "updatedAt": "2026-10-01T22:42:43.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 47365,
+      "metricValue": 47382,
       "rankScore": 67
     },
     {
@@ -1044,6 +1450,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "agents",
         "ai",
@@ -1051,9 +1459,9 @@
       ],
       "publishedAt": "2025-06-11T16:57:39.000Z",
       "updatedAt": "2026-10-01T22:22:02.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 39631,
+      "metricValue": 39640,
       "rankScore": 49
     },
     {
@@ -1067,6 +1475,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent",
         "agent-skills",
         "code-review",
@@ -1074,9 +1484,9 @@
       ],
       "publishedAt": "2026-05-18T02:16:36.000Z",
       "updatedAt": "2026-10-01T20:40:46.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 43334,
+      "metricValue": 43362,
       "rankScore": 58
     },
     {
@@ -1090,6 +1500,8 @@
         "projects"
       ],
       "tags": [
+        "Agent",
+        "开源项目",
         "agentic-memory",
         "agentic-memory-system",
         "agents",
@@ -1097,9 +1509,9 @@
       ],
       "publishedAt": "2023-06-20T08:58:36.000Z",
       "updatedAt": "2026-10-01T20:07:39.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 66483,
+      "metricValue": 66491,
       "rankScore": 13
     },
     {
@@ -1113,6 +1525,9 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
+        "AI 编程",
         "agent-skills",
         "autonomous-agents",
         "claude",
@@ -1120,33 +1535,10 @@
       ],
       "publishedAt": "2026-01-03T07:37:28.000Z",
       "updatedAt": "2026-10-01T19:57:49.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 27261,
+      "metricValue": 27263,
       "rankScore": 34
-    },
-    {
-      "id": "bac657e60ae022eb6406",
-      "title": "JuliusBrussee/caveman",
-      "url": "https://github.com/JuliusBrussee/caveman",
-      "sourceId": "github-projects",
-      "sourceName": "GitHub",
-      "summary": "🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman.",
-      "categories": [
-        "projects"
-      ],
-      "tags": [
-        "ai",
-        "anthropic",
-        "caveman",
-        "claude"
-      ],
-      "publishedAt": "2026-04-04T10:03:00.000Z",
-      "updatedAt": "2026-10-01T19:57:24.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
-      "metricLabel": "stars",
-      "metricValue": 109007,
-      "rankScore": 55
     },
     {
       "id": "31661aae5fd34dec93b2",
@@ -1159,6 +1551,9 @@
         "skills"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
         "agent-skills",
         "agentic-ai",
         "ai-agents",
@@ -1166,9 +1561,9 @@
       ],
       "publishedAt": "2025-07-24T23:28:14.000Z",
       "updatedAt": "2026-10-01T19:08:25.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 40157,
+      "metricValue": 40166,
       "rankScore": 52
     },
     {
@@ -1182,6 +1577,9 @@
         "skills"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
         "agent-skills",
         "claude-code",
         "codex",
@@ -1189,10 +1587,72 @@
       ],
       "publishedAt": "2026-04-16T18:01:16.000Z",
       "updatedAt": "2026-10-01T17:03:07.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 43083,
+      "metricValue": 43112,
       "rankScore": 55
+    },
+    {
+      "id": "833edfdf4b853c5a0365",
+      "title": "何恺明团队新作：看猫片就能学会ARC挑战",
+      "url": "https://www.qbitai.com/2026/10/499812.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "用ImageNet训练encoder",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "媒体报道"
+      ],
+      "publishedAt": "2026-10-01T15:06:30.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 86
+    },
+    {
+      "id": "a06a06361cf6d0764163",
+      "title": "谷歌Gemini 4突然发布！RSI加持，GPT和Opus都让让",
+      "url": "https://www.qbitai.com/2026/10/499663.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "价格只有Astra一半",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "Gemini",
+        "媒体报道"
+      ],
+      "publishedAt": "2026-10-01T15:02:14.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 83
+    },
+    {
+      "id": "b355256907ef5daaff1a",
+      "title": "QwenLM/qwen-code-docs",
+      "url": "https://github.com/QwenLM/qwen-code-docs",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "A documentation translation tool specifically designed for Qwen Code",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "开源项目"
+      ],
+      "publishedAt": "2025-08-20T14:45:00.000Z",
+      "updatedAt": "2026-10-01T14:31:12.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 51,
+      "rankScore": 91
     },
     {
       "id": "5f599dbaa10cf9fa6cce",
@@ -1205,6 +1665,7 @@
         "apps"
       ],
       "tags": [
+        "Agent",
         "agent",
         "agentic-ai",
         "agentic-rag",
@@ -1212,9 +1673,9 @@
       ],
       "publishedAt": "2025-10-13T18:51:41.000Z",
       "updatedAt": "2026-10-01T13:58:18.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 4221,
+      "metricValue": 4222,
       "rankScore": 94
     },
     {
@@ -1228,6 +1689,9 @@
         "skills"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai-agents",
         "claude",
@@ -1235,9 +1699,9 @@
       ],
       "publishedAt": "2026-04-06T07:37:02.000Z",
       "updatedAt": "2026-10-01T13:15:32.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 21103,
+      "metricValue": 21106,
       "rankScore": 19
     },
     {
@@ -1251,6 +1715,8 @@
         "projects"
       ],
       "tags": [
+        "ChatGPT",
+        "开源项目",
         "ai",
         "artificial-intelligence",
         "awesome-list",
@@ -1258,9 +1724,9 @@
       ],
       "publishedAt": "2022-12-05T13:54:13.000Z",
       "updatedAt": "2026-10-01T09:59:16.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 171855,
+      "metricValue": 171876,
       "rankScore": 85
     },
     {
@@ -1281,10 +1747,31 @@
       ],
       "publishedAt": "2025-09-08T12:43:37.000Z",
       "updatedAt": "2026-10-01T09:04:21.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 142,
       "rankScore": 61
+    },
+    {
+      "id": "d3e2c89754f50f59210f",
+      "title": "zai-org/Vision2Web",
+      "url": "https://github.com/zai-org/Vision2Web",
+      "sourceId": "cn-official-zai-org",
+      "sourceName": "zai-org · 官方开源",
+      "summary": "该项目暂未提供描述，访问仓库了解详情。",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "智谱 GLM",
+        "开源项目"
+      ],
+      "publishedAt": "2026-03-29T15:31:33.000Z",
+      "updatedAt": "2026-10-01T05:57:52.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 80,
+      "rankScore": 97
     },
     {
       "id": "716cf9e2237ac9dba9f7",
@@ -1297,6 +1784,13 @@
         "projects"
       ],
       "tags": [
+        "ChatGPT",
+        "OpenAI",
+        "Claude",
+        "Gemini",
+        "Kimi",
+        "Agent",
+        "开源项目",
         "ai",
         "ai-agents",
         "ai-prompts",
@@ -1304,9 +1798,9 @@
       ],
       "publishedAt": "2025-05-03T02:43:56.000Z",
       "updatedAt": "2026-10-01T02:59:15.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 68766,
+      "metricValue": 68777,
       "rankScore": 19
     },
     {
@@ -1327,7 +1821,7 @@
       ],
       "publishedAt": "2026-04-24T07:40:10.000Z",
       "updatedAt": "2026-10-01T02:11:51.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 83,
       "rankScore": 46
@@ -1338,7 +1832,7 @@
       "url": "https://github.com/EveningStudy/asmr-dubber",
       "sourceId": "github-apps",
       "sourceName": "GitHub Demos",
-      "summary": "日语／英语／中文音视频 → 中文/英文配音与字幕。支持音色克隆、批量处理、仅字幕导出、双语混音、RTF 空间处理和人声分离。JA/EN/ZH media → Chinese/English dubbing & subtitles. Voice cloning, batch processing, subtitle-only export, bilingual mixing, RTF spatial processing & vocal separation.",
+      "summary": "日语／英语／中文音视频 → 中文/英文配音与字幕。支持音色克隆、双语混音、RTF 空间处理、人声分离、批量处理和仅字幕导出。JA/EN/ZH media → Chinese/English dubbing & subtitles. Voice cloning, bilingual mixing, RTF spatial processing, vocal separation, batch processing & subtitle-only export",
       "categories": [
         "apps"
       ],
@@ -1350,7 +1844,7 @@
       ],
       "publishedAt": "2026-07-23T18:16:47.000Z",
       "updatedAt": "2026-10-01T00:45:05.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 222,
       "rankScore": 73
@@ -1366,14 +1860,16 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "self-evolving-agents"
       ],
       "publishedAt": "2026-05-08T06:41:01.000Z",
       "updatedAt": "2026-09-30T23:37:09.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 17954,
+      "metricValue": 17962,
       "rankScore": 13
     },
     {
@@ -1387,6 +1883,9 @@
         "apps"
       ],
       "tags": [
+        "Agent",
+        "Skills",
+        "MCP",
         "ai-agents",
         "anthropic",
         "claude-code",
@@ -1394,33 +1893,373 @@
       ],
       "publishedAt": "2026-04-26T17:13:11.000Z",
       "updatedAt": "2026-09-30T19:10:27.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 531,
       "rankScore": 79
     },
     {
-      "id": "46293e1fc3f7a57f631d",
-      "title": "daniandtheweb/sd.cpp-webui",
-      "url": "https://github.com/daniandtheweb/sd.cpp-webui",
-      "sourceId": "github-apps",
-      "sourceName": "GitHub Demos",
-      "summary": "A lightweight Gradio WebUI for stable-diffusion.cpp.",
+      "id": "a56429335c603ae5d195",
+      "title": "OpenAI推理之父最新访谈！数学只是多智能体时代的开胃菜",
+      "url": "https://www.qbitai.com/2026/09/499654.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "千禧年难题的突破，10000个Agent最多占了10%的功劳。",
       "categories": [
-        "apps"
+        "news"
       ],
       "tags": [
-        "ai",
-        "gradio",
-        "local-ai",
-        "python"
+        "OpenAI",
+        "Agent",
+        "媒体报道"
       ],
-      "publishedAt": "2024-02-14T03:03:29.000Z",
-      "updatedAt": "2026-09-29T23:21:30.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "publishedAt": "2026-09-30T14:03:43.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 80
+    },
+    {
+      "id": "5cf4da739d0627516bd4",
+      "title": "QwenLM/FlashQLA",
+      "url": "https://github.com/QwenLM/FlashQLA",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "high-performance linear attention kernel library built on TileLang",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "开源项目"
+      ],
+      "publishedAt": "2026-04-24T09:18:05.000Z",
+      "updatedAt": "2026-09-30T13:03:29.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
       "metricLabel": "stars",
-      "metricValue": 161,
-      "rankScore": 67
+      "metricValue": 719,
+      "rankScore": 88
+    },
+    {
+      "id": "923c6dc106ca94a5e20a",
+      "title": "直播回顾：工业AI的下一个机会在哪？",
+      "url": "https://www.qbitai.com/2026/09/499605.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "什么样的AI才适合工业现场？企业真正开始做工业AI时，又该从哪里下手？",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "媒体报道"
+      ],
+      "publishedAt": "2026-09-30T12:11:24.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 77
+    },
+    {
+      "id": "448196b76eaf09f98ed7",
+      "title": "Anthropic，你是来给智谱打广告的吧！",
+      "url": "https://www.qbitai.com/2026/09/499597.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "实测说GLM-5.3很强",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "智谱 GLM",
+        "媒体报道"
+      ],
+      "publishedAt": "2026-09-30T10:04:12.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 74
+    },
+    {
+      "id": "f19786ad3c3a858f79b0",
+      "title": "Manus 2.0回来了！给AI配手机号和钱包，还能拉群干活",
+      "url": "https://www.qbitai.com/2026/09/499592.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "给Agent配上手机号，再拉个群",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "Agent",
+        "媒体报道"
+      ],
+      "publishedAt": "2026-09-30T07:58:37.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 71
+    },
+    {
+      "id": "e8f04c0480471fb31229",
+      "title": "刚刚，GPT-6 Astra接上宇树G1，把厨房收拾了！",
+      "url": "https://www.qbitai.com/2026/09/499493.html",
+      "sourceId": "qbitai",
+      "sourceName": "量子位 · AI 媒体",
+      "summary": "让GPT把机器人技能当工具调用",
+      "categories": [
+        "news"
+      ],
+      "tags": [
+        "媒体报道"
+      ],
+      "publishedAt": "2026-09-30T07:54:54.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-03T02:25:17.513Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 68
+    },
+    {
+      "id": "afd1cf4b7cd3c5323bd8",
+      "title": "deepseek-ai/dsh-libreoffice-kit",
+      "url": "https://github.com/deepseek-ai/dsh-libreoffice-kit",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "An internal component used by DeepSeek Harness",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目",
+        "deepseek",
+        "deepseek-harness"
+      ],
+      "publishedAt": "2026-09-30T06:28:16.000Z",
+      "updatedAt": "2026-09-30T07:37:00.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 118,
+      "rankScore": 97
+    },
+    {
+      "id": "1bec6ae8faee03ecddc4",
+      "title": "deepseek-ai/dsh-node-addon-require-builtin",
+      "url": "https://github.com/deepseek-ai/dsh-node-addon-require-builtin",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "An internal component used by DeepSeek Harness",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目",
+        "deepseek",
+        "deepseek-harness"
+      ],
+      "publishedAt": "2026-09-30T06:27:22.000Z",
+      "updatedAt": "2026-09-30T07:03:33.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 9,
+      "rankScore": 94
+    },
+    {
+      "id": "fffb4b264b037495790a",
+      "title": "deepseek-ai/DeepJIT",
+      "url": "https://github.com/deepseek-ai/DeepJIT",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "A lightweight library for xPU kernel JIT compilation",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-08T03:57:22.000Z",
+      "updatedAt": "2026-09-30T02:21:39.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 363,
+      "rankScore": 91
+    },
+    {
+      "id": "2905592015494e065afe",
+      "title": "QwenLM/Qwen-Image-2.1",
+      "url": "https://github.com/QwenLM/Qwen-Image-2.1",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "Qwen's most powerful open-source image generation model",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "图像生成",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-14T04:12:17.000Z",
+      "updatedAt": "2026-09-30T02:17:34.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 1678,
+      "rankScore": 85
+    },
+    {
+      "id": "e94806be43b62c379cb5",
+      "title": "deepseek-ai/TileKernels",
+      "url": "https://github.com/deepseek-ai/TileKernels",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "A kernel library written in tilelang",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目"
+      ],
+      "publishedAt": "2026-04-22T05:38:31.000Z",
+      "updatedAt": "2026-09-30T01:58:45.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 1901,
+      "rankScore": 88
+    },
+    {
+      "id": "c97e6ac0b0c7d2365f72",
+      "title": "deepseek-ai/FlashMLA",
+      "url": "https://github.com/deepseek-ai/FlashMLA",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "FlashMLA: Efficient Multi-head Latent Attention Kernels",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目"
+      ],
+      "publishedAt": "2025-02-21T06:31:27.000Z",
+      "updatedAt": "2026-09-30T01:58:27.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 13025,
+      "rankScore": 85
+    },
+    {
+      "id": "6324ef0d16b22ebceb6d",
+      "title": "deepseek-ai/DeepSelect",
+      "url": "https://github.com/deepseek-ai/DeepSelect",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "DeepSelect: TopK kernels for DeepSeek Sparse Attention (DSA) and Samplers",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-09T14:38:04.000Z",
+      "updatedAt": "2026-09-30T01:54:54.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 454,
+      "rankScore": 82
+    },
+    {
+      "id": "548c777176838cb43bf1",
+      "title": "deepseek-ai/DeepGEMM",
+      "url": "https://github.com/deepseek-ai/DeepGEMM",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "DeepGEMM: clean and efficient BLAS kernel library on GPU",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目"
+      ],
+      "publishedAt": "2025-02-13T09:09:21.000Z",
+      "updatedAt": "2026-09-30T01:48:05.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 7967,
+      "rankScore": 79
+    },
+    {
+      "id": "5eee6e573adb0d39e20b",
+      "title": "deepseek-ai/DeepGEMM-Ascend",
+      "url": "https://github.com/deepseek-ai/DeepGEMM-Ascend",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "DeepGEMM-Ascend: clean and efficient matrix multiplication kernel library for Huawei Ascend NPUs",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "昇腾",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-29T15:49:55.000Z",
+      "updatedAt": "2026-09-30T01:11:39.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 467,
+      "rankScore": 76
+    },
+    {
+      "id": "08b96935929c8530620d",
+      "title": "deepseek-ai/DeepEP",
+      "url": "https://github.com/deepseek-ai/DeepEP",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "DeepEP: an efficient expert-parallel communication library",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目"
+      ],
+      "publishedAt": "2025-02-17T01:33:04.000Z",
+      "updatedAt": "2026-09-30T01:09:52.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 10237,
+      "rankScore": 73
+    },
+    {
+      "id": "de828c913b4b2cc03438",
+      "title": "deepseek-ai/DeepEP-Ascend",
+      "url": "https://github.com/deepseek-ai/DeepEP-Ascend",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "A high-performance communication library for machine learning training and inference on Huawei Ascend NPUs.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "昇腾",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-30T00:44:59.000Z",
+      "updatedAt": "2026-09-30T00:53:14.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 207,
+      "rankScore": 70
     },
     {
       "id": "16a73b8e53c5832aba4b",
@@ -1433,6 +2272,9 @@
         "skills"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai-agents",
         "book-to-skill",
@@ -1440,9 +2282,9 @@
       ],
       "publishedAt": "2026-05-01T02:09:39.000Z",
       "updatedAt": "2026-09-29T14:08:33.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 33299,
+      "metricValue": 33316,
       "rankScore": 43
     },
     {
@@ -1456,6 +2298,9 @@
         "projects"
       ],
       "tags": [
+        "Agent",
+        "教程",
+        "开源项目",
         "agent",
         "llm",
         "rag",
@@ -1463,10 +2308,76 @@
       ],
       "publishedAt": "2025-09-07T09:50:24.000Z",
       "updatedAt": "2026-09-29T11:53:44.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 81540,
+      "metricValue": 81541,
       "rankScore": 34
+    },
+    {
+      "id": "22c57c5fb98a5ce974eb",
+      "title": "deepseek-ai/clangd-ascend",
+      "url": "https://github.com/deepseek-ai/clangd-ascend",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "Clangd for Ascend for Code Lint & Code Completion",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "昇腾",
+        "开源项目"
+      ],
+      "publishedAt": "2026-05-28T08:25:37.000Z",
+      "updatedAt": "2026-09-29T10:27:05.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 15,
+      "rankScore": 67
+    },
+    {
+      "id": "76544039edbef2e2cf74",
+      "title": "zai-org/ZCode",
+      "url": "https://github.com/zai-org/ZCode",
+      "sourceId": "cn-official-zai-org",
+      "sourceName": "zai-org · 官方开源",
+      "summary": "Z.ai's coding agent harness. Powerful, intelligent, extensible.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "智谱 GLM",
+        "Agent",
+        "AI 编程",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-20T12:01:16.000Z",
+      "updatedAt": "2026-09-29T10:06:54.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 7335,
+      "rankScore": 94
+    },
+    {
+      "id": "ef1df863116322a069c0",
+      "title": "zai-org/zcode-plugins",
+      "url": "https://github.com/zai-org/zcode-plugins",
+      "sourceId": "cn-official-zai-org",
+      "sourceName": "zai-org · 官方开源",
+      "summary": "ZCode Plugins Marketplace - official built-in and community plugins for ZCode",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "智谱 GLM",
+        "开源项目"
+      ],
+      "publishedAt": "2026-08-26T10:56:45.000Z",
+      "updatedAt": "2026-09-29T09:59:12.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 86,
+      "rankScore": 91
     },
     {
       "id": "626a5e4fcb233d8d7ffe",
@@ -1479,6 +2390,8 @@
         "projects"
       ],
       "tags": [
+        "Agent",
+        "开源项目",
         "agent",
         "finance",
         "llm",
@@ -1486,9 +2399,9 @@
       ],
       "publishedAt": "2024-12-28T03:31:08.000Z",
       "updatedAt": "2026-09-29T06:15:10.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 109510,
+      "metricValue": 109536,
       "rankScore": 58
     },
     {
@@ -1502,13 +2415,15 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills"
       ],
       "publishedAt": "2025-09-22T15:53:31.000Z",
       "updatedAt": "2026-09-29T02:20:07.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 179395,
+      "metricValue": 179420,
       "rankScore": 100
     },
     {
@@ -1529,7 +2444,7 @@
       ],
       "publishedAt": "2024-04-25T13:14:15.000Z",
       "updatedAt": "2026-09-28T19:54:12.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 63,
       "rankScore": 43
@@ -1545,6 +2460,9 @@
         "projects"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "开源项目",
         "agent",
         "agent-development",
         "ai-agent",
@@ -1552,9 +2470,9 @@
       ],
       "publishedAt": "2025-06-29T15:34:15.000Z",
       "updatedAt": "2026-09-28T13:49:16.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 77919,
+      "metricValue": 77924,
       "rankScore": 31
     },
     {
@@ -1568,6 +2486,9 @@
         "projects"
       ],
       "tags": [
+        "DeepSeek",
+        "Agent",
+        "开源项目",
         "agent",
         "ai",
         "deepseek",
@@ -1575,10 +2496,32 @@
       ],
       "publishedAt": "2023-05-28T10:09:12.000Z",
       "updatedAt": "2026-09-28T09:10:59.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 75279,
+      "metricValue": 75282,
       "rankScore": 25
+    },
+    {
+      "id": "56173d64055948400431",
+      "title": "QwenLM/Qwen-Live-Harness",
+      "url": "https://github.com/QwenLM/Qwen-Live-Harness",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "An open-source agent harness powered by the Qwen Omni Realtime API—see, hear, and act, with built-in memory.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "Agent",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-10T07:32:35.000Z",
+      "updatedAt": "2026-09-28T08:41:18.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 171,
+      "rankScore": 82
     },
     {
       "id": "2db4f7d2d7de0ea292a7",
@@ -1591,6 +2534,9 @@
         "skills"
       ],
       "tags": [
+        "ChatGPT",
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai-humanizer",
         "ai-writing",
@@ -1598,9 +2544,9 @@
       ],
       "publishedAt": "2026-01-18T05:30:15.000Z",
       "updatedAt": "2026-09-28T05:55:12.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 53579,
+      "metricValue": 53608,
       "rankScore": 76
     },
     {
@@ -1616,11 +2562,13 @@
         "tips"
       ],
       "tags": [
+        "Agent",
+        "教程",
         "官方博客"
       ],
       "publishedAt": "2026-09-25T18:00:00.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 92
@@ -1636,6 +2584,8 @@
         "projects"
       ],
       "tags": [
+        "Agent",
+        "开源项目",
         "ai",
         "ai-agents",
         "crawler",
@@ -1643,9 +2593,9 @@
       ],
       "publishedAt": "2024-05-09T09:48:50.000Z",
       "updatedAt": "2026-09-25T06:37:14.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 84645,
+      "metricValue": 84658,
       "rankScore": 43
     },
     {
@@ -1659,6 +2609,8 @@
         "apps"
       ],
       "tags": [
+        "Agent",
+        "MCP",
         "agent",
         "comfyui",
         "gradio",
@@ -1666,9 +2618,9 @@
       ],
       "publishedAt": "2025-11-10T09:21:05.000Z",
       "updatedAt": "2026-09-24T23:23:41.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 107,
+      "metricValue": 109,
       "rankScore": 55
     },
     {
@@ -1687,7 +2639,7 @@
       ],
       "publishedAt": "2026-09-24T20:00:00.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 89
@@ -1704,14 +2656,42 @@
         "dev"
       ],
       "tags": [
+        "Agent",
+        "教程",
         "官方博客"
       ],
       "publishedAt": "2026-09-24T18:26:12.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 86
+    },
+    {
+      "id": "705da17fc8822f126470",
+      "title": "zai-org/GLM-5",
+      "url": "https://github.com/zai-org/GLM-5",
+      "sourceId": "cn-official-zai-org",
+      "sourceName": "zai-org · 官方开源",
+      "summary": "GLM-5: From Vibe Coding to Agentic Engineering",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "智谱 GLM",
+        "AI 编程",
+        "开源项目",
+        "agentic-ai",
+        "coding",
+        "llm",
+        "long-horizon"
+      ],
+      "publishedAt": "2026-02-09T08:17:02.000Z",
+      "updatedAt": "2026-09-24T10:28:33.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 7271,
+      "rankScore": 88
     },
     {
       "id": "b9d2abdd810b52f872c0",
@@ -1724,6 +2704,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai-agent",
         "automation",
@@ -1731,9 +2713,9 @@
       ],
       "publishedAt": "2026-03-02T19:46:06.000Z",
       "updatedAt": "2026-09-24T05:09:29.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 31237,
+      "metricValue": 31236,
       "rankScore": 37
     },
     {
@@ -1752,7 +2734,7 @@
       ],
       "publishedAt": "2026-09-23T18:29:49.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 83
@@ -1768,6 +2750,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "agentic-ai",
         "ai-agent",
@@ -1775,9 +2759,9 @@
       ],
       "publishedAt": "2026-03-30T05:22:23.000Z",
       "updatedAt": "2026-09-22T14:01:08.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 25241,
+      "metricValue": 25247,
       "rankScore": 25
     },
     {
@@ -1798,10 +2782,74 @@
       ],
       "publishedAt": "2024-02-04T05:53:30.000Z",
       "updatedAt": "2026-09-22T06:41:48.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 151,
       "rankScore": 64
+    },
+    {
+      "id": "ebcdecc4fdbfb725690a",
+      "title": "QwenLM/RecreationWorld",
+      "url": "https://github.com/QwenLM/RecreationWorld",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "RecreationWorld: Scalable and Verifiable Environments for Hybrid Computer-Use Agents",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "Agent",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-18T04:23:07.000Z",
+      "updatedAt": "2026-09-21T05:02:19.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 90,
+      "rankScore": 79
+    },
+    {
+      "id": "d51e64f283de44928500",
+      "title": "QwenLM/Omnilingua-Bench",
+      "url": "https://github.com/QwenLM/Omnilingua-Bench",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "该项目暂未提供描述，访问仓库了解详情。",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-16T10:31:13.000Z",
+      "updatedAt": "2026-09-21T02:30:28.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 8,
+      "rankScore": 76
+    },
+    {
+      "id": "b82e9e71582874892689",
+      "title": "MoonshotAI/MoonEP",
+      "url": "https://github.com/MoonshotAI/MoonEP",
+      "sourceId": "cn-official-MoonshotAI",
+      "sourceName": "MoonshotAI · 官方开源",
+      "summary": "MoonEP: A Perfectly Balanced Expert Parallelism Library via Dynamic Redundant Experts",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Kimi",
+        "开源项目"
+      ],
+      "publishedAt": "2026-07-24T09:07:21.000Z",
+      "updatedAt": "2026-09-20T07:20:40.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 1159,
+      "rankScore": 94
     },
     {
       "id": "b02dba448db72934509f",
@@ -1816,11 +2864,13 @@
         "tips"
       ],
       "tags": [
+        "Skills",
+        "MCP",
         "官方博客"
       ],
       "publishedAt": "2026-09-18T15:00:00.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 80
@@ -1836,6 +2886,9 @@
         "skills"
       ],
       "tags": [
+        "Claude",
+        "Agent",
+        "Skills",
         "agent-skills",
         "ai-agents",
         "antigravity",
@@ -1843,10 +2896,53 @@
       ],
       "publishedAt": "2025-10-17T07:15:01.000Z",
       "updatedAt": "2026-09-18T07:16:11.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 76358,
+      "metricValue": 76374,
       "rankScore": 88
+    },
+    {
+      "id": "397339d4c8c4217551da",
+      "title": "MoonshotAI/Kimi-Vendor-Verifier",
+      "url": "https://github.com/MoonshotAI/Kimi-Vendor-Verifier",
+      "sourceId": "cn-official-MoonshotAI",
+      "sourceName": "MoonshotAI · 官方开源",
+      "summary": "Kimi-Vendor-Verifier",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Kimi",
+        "开源项目"
+      ],
+      "publishedAt": "2026-01-02T05:43:58.000Z",
+      "updatedAt": "2026-09-17T09:09:22.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 165,
+      "rankScore": 91
+    },
+    {
+      "id": "fbe6b8e1fdddf30adb53",
+      "title": "deepseek-ai/awesome-deepseek-agent",
+      "url": "https://github.com/deepseek-ai/awesome-deepseek-agent",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "该项目暂未提供描述，访问仓库了解详情。",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "Agent",
+        "开源项目"
+      ],
+      "publishedAt": "2026-04-27T06:37:38.000Z",
+      "updatedAt": "2026-09-17T03:21:52.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 6171,
+      "rankScore": 64
     },
     {
       "id": "71ca52f40c8e50d8b84b",
@@ -1860,11 +2956,12 @@
         "dev"
       ],
       "tags": [
+        "Agent",
         "官方博客"
       ],
       "publishedAt": "2026-09-17T00:26:43.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 77
@@ -1887,10 +2984,52 @@
       ],
       "publishedAt": "2023-05-17T07:23:44.000Z",
       "updatedAt": "2026-09-16T02:01:36.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 6359,
+      "metricValue": 6360,
       "rankScore": 97
+    },
+    {
+      "id": "be370c2cbbed991f920e",
+      "title": "MoonshotAI/checkpoint-engine",
+      "url": "https://github.com/MoonshotAI/checkpoint-engine",
+      "sourceId": "cn-official-MoonshotAI",
+      "sourceName": "MoonshotAI · 官方开源",
+      "summary": "Checkpoint-engine is a simple middleware to update model weights in LLM inference engines",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Kimi",
+        "开源项目"
+      ],
+      "publishedAt": "2025-09-08T08:04:20.000Z",
+      "updatedAt": "2026-09-15T12:15:53.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 1006,
+      "rankScore": 88
+    },
+    {
+      "id": "b434d0636a9481479c39",
+      "title": "MoonshotAI/walle",
+      "url": "https://github.com/MoonshotAI/walle",
+      "sourceId": "cn-official-MoonshotAI",
+      "sourceName": "MoonshotAI · 官方开源",
+      "summary": "该项目暂未提供描述，访问仓库了解详情。",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "Kimi",
+        "开源项目"
+      ],
+      "publishedAt": "2025-07-18T12:58:43.000Z",
+      "updatedAt": "2026-09-15T04:02:12.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 30,
+      "rankScore": 85
     },
     {
       "id": "b92602274d6abd3d8afe",
@@ -1903,6 +3042,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skill-repository",
         "agent-skills",
         "agentic-skills",
@@ -1910,9 +3051,9 @@
       ],
       "publishedAt": "2026-03-01T23:33:44.000Z",
       "updatedAt": "2026-09-14T21:15:33.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 26726,
+      "metricValue": 26727,
       "rankScore": 31
     },
     {
@@ -1926,6 +3067,7 @@
         "apps"
       ],
       "tags": [
+        "OpenAI",
         "cli",
         "gradio",
         "langchain",
@@ -1933,10 +3075,32 @@
       ],
       "publishedAt": "2024-03-21T10:40:29.000Z",
       "updatedAt": "2026-09-14T11:15:22.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 126,
       "rankScore": 58
+    },
+    {
+      "id": "e41135b63fad114cd4ff",
+      "title": "QwenLM/E-CommerceBench",
+      "url": "https://github.com/QwenLM/E-CommerceBench",
+      "sourceId": "cn-official-QwenLM",
+      "sourceName": "QwenLM · 官方开源",
+      "summary": "Long-horizon benchmark where 18 LLM agents got ¥100,000 each and ran simulated online stores for 365 days on real market data: negotiating with suppliers, pricing, managing inventory, keeping cash flow alive.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "通义千问",
+        "Agent",
+        "开源项目"
+      ],
+      "publishedAt": "2026-08-26T06:10:37.000Z",
+      "updatedAt": "2026-09-13T04:58:29.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 107,
+      "rankScore": 73
     },
     {
       "id": "30a36306f538ac1af96f",
@@ -1954,7 +3118,7 @@
       ],
       "publishedAt": "2026-09-11T18:26:10.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 74
@@ -1971,11 +3135,13 @@
         "dev"
       ],
       "tags": [
+        "Agent",
+        "教程",
         "官方博客"
       ],
       "publishedAt": "2026-09-10T21:31:19.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 71
@@ -1991,6 +3157,8 @@
         "skills"
       ],
       "tags": [
+        "Agent",
+        "Skills",
         "agent-skills",
         "claude-skills",
         "codex-skills",
@@ -1998,10 +3166,31 @@
       ],
       "publishedAt": "2026-01-13T03:04:56.000Z",
       "updatedAt": "2026-09-10T15:13:43.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 26252,
+      "metricValue": 26264,
       "rankScore": 28
+    },
+    {
+      "id": "00a1c944eb560a6a9a75",
+      "title": "deepseek-ai/deepseek-recipe",
+      "url": "https://github.com/deepseek-ai/deepseek-recipe",
+      "sourceId": "cn-official-deepseek-ai",
+      "sourceName": "deepseek-ai · 官方开源",
+      "summary": "该项目暂未提供描述，访问仓库了解详情。",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "DeepSeek",
+        "开源项目"
+      ],
+      "publishedAt": "2026-09-10T05:36:48.000Z",
+      "updatedAt": "2026-09-10T10:44:49.000Z",
+      "collectedAt": "2026-10-03T02:27:29.580Z",
+      "metricLabel": "stars",
+      "metricValue": 373,
+      "rankScore": 61
     },
     {
       "id": "c008eaa3584e3bf973bb",
@@ -2021,7 +3210,7 @@
       ],
       "publishedAt": "2021-04-09T00:26:49.000Z",
       "updatedAt": "2026-09-08T17:38:03.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 2129,
       "rankScore": 88
@@ -2037,6 +3226,7 @@
         "apps"
       ],
       "tags": [
+        "Kimi",
         "ace-step",
         "ai",
         "audio-generation",
@@ -2044,9 +3234,9 @@
       ],
       "publishedAt": "2023-04-27T18:32:26.000Z",
       "updatedAt": "2026-09-07T08:54:58.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
-      "metricValue": 3280,
+      "metricValue": 3282,
       "rankScore": 91
     },
     {
@@ -2067,7 +3257,7 @@
       ],
       "publishedAt": "2026-01-15T06:01:37.000Z",
       "updatedAt": "2026-09-05T00:03:59.000Z",
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": "stars",
       "metricValue": 1063,
       "rankScore": 82
@@ -2085,11 +3275,13 @@
         "models"
       ],
       "tags": [
+        "AI 编程",
+        "模型动态",
         "官方博客"
       ],
       "publishedAt": "2026-09-04T16:04:14.000Z",
       "updatedAt": null,
-      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "collectedAt": "2026-10-03T02:25:17.513Z",
       "metricLabel": null,
       "metricValue": null,
       "rankScore": 68

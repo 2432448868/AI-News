@@ -1,4 +1,6 @@
 import './style.css';
+import './motion.css';
+import { initMotion } from './motion';
 import shell from './shell.html?raw';
 import { CATEGORY_LABELS, escapeHtml as esc, filterItems, validateFeed } from './data.mjs';
 import type { Category, Feed, Item } from './types';
@@ -75,6 +77,8 @@ const saved = readSaved();
 let feed: Feed | null = null;
 let category: Category | 'all' = 'all';
 let query = '';
+let tag = '';
+let chinaOnly = false;
 let days = 0;
 let sort = 'latest';
 let savedOnly = false;
@@ -191,6 +195,23 @@ function saveButton(item: Item) {
     '</button>'
   );
 }
+function tagButtons(item: Item) {
+  return item.tags
+    .slice(0, 4)
+    .map(
+      (t) =>
+        '<button class="topic-tag" data-action="tag" data-tag="' +
+        esc(t) +
+        '" aria-pressed="' +
+        (tag === t) +
+        '" title="筛选标签：' +
+        esc(t) +
+        '">' +
+        esc(t) +
+        '</button>',
+    )
+    .join('');
+}
 function card(item: Item) {
   const primary = item.categories[0] ?? 'news';
   return (
@@ -212,10 +233,7 @@ function card(item: Item) {
     '</a><p class="card-summary">' +
     esc(item.summary) +
     '</p><div class="card-tags">' +
-    item.tags
-      .slice(0, 2)
-      .map((t) => '<span>' + esc(t) + '</span>')
-      .join('') +
+    tagButtons(item) +
     '</div><div class="card-bottom"><span class="source-name"><span class="source-dot source-' +
     primary +
     '"></span>' +
@@ -258,7 +276,9 @@ function renderHighlights() {
       esc(featured.title) +
       '</h2></a><p>' +
       esc(featured.summary) +
-      '</p><div class="feature-bottom"><span>' +
+      '</p><div class="card-tags">' +
+      tagButtons(featured) +
+      '</div><div class="feature-bottom"><span>' +
       esc(featured.sourceName) +
       '<span class="feature-separator">/</span>' +
       dateText(featured.publishedAt) +
@@ -302,10 +322,23 @@ function renderHighlights() {
 function renderResults() {
   renderTabs();
   syncSaved();
+  get('#china-filter').setAttribute('aria-pressed', String(chinaOnly));
+  get('#active-tag').hidden = !tag;
+  get('#active-tag').textContent = tag ? '标签：' + tag + ' ×' : '';
+  get('#clear-filters').hidden = !(
+    tag ||
+    chinaOnly ||
+    query ||
+    category !== 'all' ||
+    days ||
+    savedOnly
+  );
   get('#sort-note').hidden = sort !== 'hot';
   if (!feed) return;
   const filtered = filterItems(feed.items, {
     query,
+    tag,
+    chinaOnly,
     category,
     days,
     sort,
@@ -318,7 +351,9 @@ function renderResults() {
     (savedOnly ? '本地收藏 · ' : '') +
     filtered.length +
     ' 条值得探索的信号' +
-    (query ? ' · 搜索「' + query + '」' : '');
+    (query ? ' · 搜索「' + query + '」' : '') +
+    (chinaOnly ? ' · 中国 AI 相关' : '') +
+    (tag ? ' · ' + tag : '');
   const grid = get('#feed-grid');
   grid.setAttribute('aria-busy', 'false');
   grid.innerHTML = filtered.length
@@ -426,6 +461,8 @@ async function load() {
 function reset() {
   category = 'all';
   query = '';
+  tag = '';
+  chinaOnly = false;
   days = 0;
   sort = 'latest';
   savedOnly = false;
@@ -447,6 +484,24 @@ document.addEventListener('click', (event) => {
       : null;
   if (!target) return;
   switch (target.dataset.action) {
+    case 'china':
+      chinaOnly = !chinaOnly;
+      limit = 12;
+      renderResults();
+      break;
+    case 'tag':
+      tag = target.dataset.tag || '';
+      limit = 12;
+      renderResults();
+      get('#active-tag').focus({ preventScroll: true });
+      scrollToDiscover();
+      break;
+    case 'clear-tag':
+      tag = '';
+      limit = 12;
+      renderResults();
+      get('#china-filter').focus({ preventScroll: true });
+      break;
     case 'theme':
       document.documentElement.dataset.theme =
         document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
@@ -578,4 +633,5 @@ matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) =>
 syncTheme();
 renderTabs();
 syncSaved();
+initMotion();
 void load();

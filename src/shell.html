@@ -1,3 +1,4 @@
+<div class="reading-progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="header-inner">
     <a class="brand" href="./" aria-label="Signal AI 日报首页"
@@ -41,7 +42,7 @@
       ><span class="hero-note">保持好奇，每日更新</span>
     </div>
     <div class="hero-art" aria-hidden="true">
-      {{orbit}}<span class="orbit-label orbit-label-top"
+      <span class="hero-orbit-ring"></span>{{orbit}}<span class="orbit-label orbit-label-top"
         >{{icon:code}} Open source <span>↗</span></span
       ><span class="orbit-label orbit-label-bottom"
         >{{icon:spark}} The next big thing<span class="mini-dot"></span></span
@@ -84,6 +85,15 @@
     </div>
     <div class="filter-bar">
       <div id="categories" class="category-tabs" role="group" aria-label="资讯分类"></div>
+    </div>
+    <div class="topic-toolbar" role="group" aria-label="关注主题">
+      <span class="topic-caption">关注范围</span>
+      <button id="china-filter" class="topic-filter" data-action="china" aria-pressed="false">
+        中国 AI
+      </button>
+      <button id="active-tag" class="topic-filter" data-action="clear-tag" hidden></button>
+      <button id="clear-filters" class="text-link" data-action="reset" hidden>清除筛选</button>
+      <span class="topic-hint">按品牌与内容重点探索 · 点击文章标签聚合阅读</span>
     </div>
     <div class="results-toolbar">
       <p id="result-count" role="status" aria-live="polite">正在加载资讯…</p>
@@ -133,7 +143,7 @@
     <span class="closing-icon">{{icon:globe}}</span>
     <div>
       <h3>好信息，不该有门槛。</h3>
-      <p>来自开放社区与官方信源。保留出处，直达原文，不制造噪声。</p>
+      <p>来自开放社区、官方信源与 AI 媒体。保留出处，直达原文，不制造噪声。</p>
     </div>
     <button class="text-link" data-action="sources">了解我们的来源 {{icon:arrow}}</button>
   </section>
@@ -168,6 +178,11 @@
     <p>
       GitHub 按近期活跃仓库的累计 stars 排序；Hugging Face
       按来源热门榜发现。模型更新不等于正式发布，项目上榜不构成安全背书。
+    </p>
+    <strong>标签与中国 AI 关注范围</strong>
+    <p>
+      标签由标题、简介与源站标签进行免费规则匹配，代表内容提及，不代表官方发布或项目归属。中国 AI
+      筛选包含已识别国内品牌的内容及已核验的国内官方开源组织；中文媒体中的海外报道不会自动归入。覆盖不保证完整。
     </p>
     <strong>每天更新，但不伪装实时。</strong>
     <p>

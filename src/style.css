@@ -1748,3 +1748,57 @@ dialog::backdrop {
     scroll-behavior: auto !important;
   }
 }
+
+/* Topic chips remain independent of article links, with touch-sized hit areas. */
+.topic-toolbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 18px 0 4px;
+}
+.topic-caption,
+.topic-hint {
+  color: var(--muted);
+  font-size: 11px;
+}
+.topic-hint {
+  margin-left: auto;
+}
+.topic-filter,
+.topic-tag {
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  border-radius: 20px;
+  padding: 7px 12px;
+  font-size: 11px;
+  min-height: 32px;
+  transition:
+    background 0.2s,
+    border-color 0.2s;
+}
+.topic-filter[aria-pressed='true'],
+.topic-tag[aria-pressed='true'] {
+  background: var(--text);
+  color: var(--bg);
+}
+.topic-filter:hover,
+.topic-tag:hover {
+  border-color: var(--muted);
+}
+.card-tags .topic-tag {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+@media (max-width: 640px) {
+  .topic-hint {
+    width: 100%;
+    margin-left: 0;
+  }
+  .topic-filter,
+  .topic-tag {
+    min-height: 40px;
+  }
+}
