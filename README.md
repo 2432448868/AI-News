@@ -2,6 +2,12 @@
 
 少一点噪声，多一点新知。一个无需后端、使用免费数据源、每日更新的 AI 资讯发现站。
 
+**在线访问：https://2432448868.github.io/AI-News/**
+
+代码仓库：https://github.com/2432448868/AI-News
+
+2026-10-03 首次 Actions 部署通过，7/7 免费来源同步成功，首发线上快照 164 条。
+
 ## 功能
 - AI 动态、开源项目、Agent Skills、模型动态、实用技巧、趣味应用和开发实践。
 - 关键词搜索、分类/时间组合筛选、最新/热度排序、分批加载。
@@ -28,7 +34,7 @@ npm run preview         # 预览 dist；先运行 npm run build
 ~~~
 
 ## 发布到 GitHub Pages
-1. 创建 **公开仓库**，将本项目提交到默认分支 main 或 master。作者不会代你 commit/push。
+1. 创建 **公开仓库**，将本项目提交到默认分支 main 或 master。本仓库已在用户授权后完成首次提交与推送；以下供重新部署或 fork 使用。
 2. 在仓库 Settings → Pages → Build and deployment 中选择 **GitHub Actions**。
 3. 在 Actions 中允许工作流运行；进入 **Daily update & deploy**，手动 Run workflow。
 4. 首次运行保持 use_snapshot 不勾选。成功后的 deploy environment 显示站点地址。
@@ -98,7 +104,7 @@ docs/requirements/ai-news/ 需求、选型、评审、实现与验收记录
 - https://docs.github.com/en/rest/search/search#search-repositories
 - https://huggingface.co/docs/hub/api
 
-当前仓库仅完成本地工程；远程仓库权限、首次部署与真实定时触发需在发布后验证。
+当前仓库已完成首次远程构建、浏览器验收与 Pages 发布；尚未观察到后续 schedule 触发，需持续关注 Actions 运行记录。
 
 > 故障保留例外：失败来源沿用上次成功快照，文章可能超过 30 天；保留原始日期并标记来源失败，不伪装成新内容。
 
