@@ -1,0 +1,43 @@
+{
+  "name": "signal-ai-news",
+  "main": "worker/index.mjs",
+  "compatibility_date": "2026-10-03",
+  "account_id": "babd1f9106669bb17d05f8dcae2c8fb0",
+  "workers_dev": true,
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "kv_namespaces": [
+    {
+      "binding": "NEWS",
+      "id": "ce7940dd81364795b6db2cc6039dceec"
+    }
+  ],
+  "vars": {
+    "FEED_URL": "https://2432448868.github.io/AI-News/data/feed.json",
+    "APP_ORIGIN": "https://signal-ai-news.stock-backend-wkl.workers.dev"
+  },
+  "triggers": {
+    "crons": ["15 */6 * * *"]
+  },
+  "observability": {
+    "enabled": true,
+    "redact_query_string": true
+  },
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "USERS",
+        "class_name": "UserAccount"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "users-v1",
+      "new_sqlite_classes": ["UserAccount"]
+    }
+  ]
+}

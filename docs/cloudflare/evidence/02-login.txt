@@ -1,0 +1,22 @@
+npm exec wrangler -- whoami
+
+
+ ⛅️ wrangler 4.147.0
+────────────────────
+Getting User settings...
+👋 You are logged in with an OAuth Token, associated with the email [账户邮箱已遮盖].
+🔐 Credentials are stored in: [本地项目路径]
+┌─────────────────────────────┬──────────────────────────────────┐
+│ Account Name                │ Account ID                       │
+├─────────────────────────────┼──────────────────────────────────┤
+│ [账户邮箱已遮盖]'s Account │ [ACCOUNT_ID] │
+└─────────────────────────────┴──────────────────────────────────┘
+🔓 Token Permissions:
+Scope (Access)
+- user (read)
+- offline_access
+- account (read)
+- workers (write)
+- workers_kv (write)
+- workers_scripts (write)
+- workers_tail (read)

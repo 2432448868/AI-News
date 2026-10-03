@@ -14,8 +14,14 @@
     "test": "node --test tests/*.test.mjs",
     "test:e2e": "playwright test",
     "check": "npm run format:check && npm test && npm run build",
-    "format": "prettier --write src scripts tests *.ts *.json *.html .github/workflows/*.yml",
-    "format:check": "prettier --check src scripts tests *.ts *.json *.html .github/workflows/*.yml"
+    "format": "prettier --write src scripts tests worker *.ts *.json *.html .github/workflows/*.yml",
+    "format:check": "prettier --check src scripts tests worker *.ts *.json *.html .github/workflows/*.yml",
+    "build:cloudflare": "tsc --noEmit && vite build --mode cloudflare",
+    "dev:cloudflare": "npm run build:cloudflare && wrangler dev",
+    "deploy:cloudflare": "npm run build:cloudflare && wrangler deploy",
+    "seed:cloudflare": "node --use-env-proxy scripts/seed-cloudflare.mjs",
+    "test:runtime": "node tests/runtime/accounts.mjs",
+    "test:accounts": "npm run build:cloudflare && playwright test --config playwright.account.config.ts"
   },
   "dependencies": {
     "fast-xml-parser": "5.11.2"
@@ -23,8 +29,10 @@
   "devDependencies": {
     "@axe-core/playwright": "4.13.0",
     "@playwright/test": "1.63.0",
+    "miniflare": "5.20261001.0-alpha",
     "prettier": "3.9.9",
     "typescript": "7.0.2",
-    "vite": "8.3.2"
+    "vite": "8.3.2",
+    "wrangler": "4.147.0"
   }
 }

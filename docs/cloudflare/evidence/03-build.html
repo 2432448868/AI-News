@@ -1,0 +1,51 @@
+<!doctype html><meta charset="utf-8"><title>03 · 编译与部署预检</title><style>body{background:#f5f5f7;color:#1d1d1f;font:16px system-ui;margin:36px}h1{font-size:25px}small{color:#666}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;border:1px solid #ddd;border-radius:16px;padding:22px;font:14px/1.55 Consolas,monospace}</style><h1>03 · 编译与部署预检</h1><small>2026-10-03 · 实际命令输出摘录展示（非终端/控制台原生界面）· 敏感信息已遮盖</small><pre>npm run check &amp;&amp; npm run build:cloudflare &amp;&amp; npm exec wrangler -- deploy --dry-run
+
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 259.7591
+
+&gt; signal-ai-news@1.0.0 build
+&gt; tsc --noEmit &amp;&amp; vite build
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 10 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  1.39 kB │ gzip:  0.86 kB
+dist/assets/index-wf63PetF.css  28.34 kB │ gzip:  6.89 kB
+dist/assets/index-CYVOvO0W.js   31.45 kB │ gzip: 12.34 kB
+
+✓ built in 91ms
+
+&gt; signal-ai-news@1.0.0 build:cloudflare
+&gt; tsc --noEmit &amp;&amp; vite build --mode cloudflare
+
+vite v8.3.2 building client environment for cloudflare...
+transforming...
+✓ 10 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  1.39 kB │ gzip:  0.86 kB
+dist/assets/index-wf63PetF.css  28.34 kB │ gzip:  6.89 kB
+dist/assets/index-7YhLTemS.js   31.44 kB │ gzip: 12.34 kB
+
+✓ built in 104ms
+
+ ⛅️ wrangler 4.147.0
+────────────────────
+✨ Read 7 files from the assets directory [本地项目路径]
+Total Upload: 8.85 KiB / gzip: 3.45 KiB
+Your Worker has access to the following bindings:
+Binding                                                        Resource
+env.NEWS ([KV_NAMESPACE_ID])                    KV Namespace
+env.ASSETS                                                     Assets
+env.FEED_URL ("https://2432448868.github.io/AI-News/...")      Environment Variable
+
+--dry-run: exiting now.
+</pre>

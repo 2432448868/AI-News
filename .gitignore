@@ -10,3 +10,8 @@ test-results/
 # Local validation output and agent notes
 artifacts/
 .learnings/
+
+# Cloudflare local state and secrets
+.wrangler/
+.dev.vars*
+!.env.cloudflare

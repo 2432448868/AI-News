@@ -1,3 +1,4 @@
+import { initAccount } from './account';
 import './style.css';
 import './motion.css';
 import { initMotion } from './motion';
@@ -73,7 +74,7 @@ function readSaved(): Set<string> {
     return new Set();
   }
 }
-const saved = readSaved();
+let saved = readSaved();
 let feed: Feed | null = null;
 let category: Category | 'all' = 'all';
 let query = '';
@@ -320,6 +321,7 @@ function renderHighlights() {
     : '<p class="empty-trending">开源榜暂未同步，稍后再来看看。</p>';
 }
 function renderResults() {
+  get('#follow-active-tag').hidden = !tag;
   renderTabs();
   syncSaved();
   get('#china-filter').setAttribute('aria-pressed', String(chinaOnly));
@@ -425,10 +427,13 @@ async function load() {
   const reload = document.querySelector<HTMLButtonElement>('[data-action="reload"]');
   if (reload) reload.disabled = true;
   try {
-    const response = await fetch(import.meta.env.BASE_URL + 'data/feed.json', {
-      cache: 'no-cache',
-      signal: AbortSignal.timeout(15000),
-    });
+    const response = await fetch(
+      import.meta.env.VITE_FEED_URL || import.meta.env.BASE_URL + 'data/feed.json',
+      {
+        cache: 'no-cache',
+        signal: AbortSignal.timeout(15000),
+      },
+    );
     if (!response.ok) throw new Error('HTTP ' + response.status);
     feed = validateFeed(await response.json());
     renderHealth();
@@ -484,6 +489,9 @@ document.addEventListener('click', (event) => {
       : null;
   if (!target) return;
   switch (target.dataset.action) {
+    case 'follow-tag':
+      account.follow(tag);
+      break;
     case 'china':
       chinaOnly = !chinaOnly;
       limit = 12;
@@ -545,6 +553,7 @@ document.addEventListener('click', (event) => {
     case 'save': {
       const id = target.dataset.id;
       if (!id) break;
+      if (account.save(id)) break;
       const saveScope = target.closest('#featured') ? '#featured' : '#feed-grid';
       if (saved.has(id)) saved.delete(id);
       else saved.add(id);
@@ -603,6 +612,7 @@ document.addEventListener('keydown', (event) => {
     !event.metaKey &&
     !event.altKey &&
     !get<HTMLDialogElement>('#sources-dialog').open &&
+    !get<HTMLDialogElement>('#account-dialog').open &&
     !(event.target instanceof HTMLInputElement) &&
     !(event.target instanceof HTMLTextAreaElement) &&
     !(event.target instanceof HTMLSelectElement)
@@ -634,4 +644,19 @@ syncTheme();
 renderTabs();
 syncSaved();
 initMotion();
+const account = initAccount({
+  saved(ids) {
+    saved = ids === null ? readSaved() : new Set(ids);
+    renderHighlights();
+    renderResults();
+    syncSaved();
+  },
+  tag(value) {
+    tag = value;
+    limit = 12;
+    renderResults();
+    scrollToDiscover();
+  },
+  toast,
+});
 void load();

@@ -1,0 +1,16 @@
+GET http://127.0.0.1:8787/api/health
+
+{
+  "status": "ok",
+  "generatedAt": "2026-10-03T03:16:04.899Z",
+  "itemCount": 208,
+  "sourceCount": 12,
+  "healthySources": 12,
+  "sync": {
+    "ok": true,
+    "checkedAt": "2026-10-03T03:39:41.847Z",
+    "upstreamGeneratedAt": "2026-10-03T03:16:04.899Z"
+  },
+  "schedule": "15 */6 * * * (UTC)",
+  "collection": "GitHub Actions → GitHub Pages → Cloudflare KV"
+}

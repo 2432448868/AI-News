@@ -1,0 +1,29 @@
+npm run deploy:cloudflare
+
+🌀 Building list of assets...
+✨ Read 7 files from the assets directory [本地项目路径]
+🌀 Starting asset upload...
+🌀 Found 5 new or modified static assets to upload. Proceeding with upload...
++ /favicon.svg
++ /assets/index-7YhLTemS.js
++ /index.html
++ /data/feed.json
++ /assets/index-wf63PetF.css
+Uploaded 1 of 5 assets
+Uploaded 3 of 5 assets
+Uploaded 5 of 5 assets
+✨ Success! Uploaded 5 files (1.47 sec)
+
+Total Upload: 8.85 KiB / gzip: 3.45 KiB
+Worker Startup Time: 1 ms
+Your Worker has access to the following bindings:
+Binding                                                        Resource
+env.NEWS ([KV_NAMESPACE_ID])                    KV Namespace
+env.ASSETS                                                     Assets
+env.FEED_URL ("https://2432448868.github.io/AI-News/...")      Environment Variable
+
+Uploaded signal-ai-news (4.27 sec)
+Deployed signal-ai-news triggers (1.08 sec)
+  https://signal-ai-news.stock-backend-wkl.workers.dev
+  schedule: 15 */6 * * *
+Current Version ID: 80905e64-6c9e-49b9-b5eb-d691db0829dc

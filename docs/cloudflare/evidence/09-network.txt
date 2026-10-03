@@ -1,0 +1,7 @@
+node --use-env-proxy artifacts/cloudflare/verify-live.mjs
+
+{"path":"/","error":"fetch failed","cause":"UND_ERR_CONNECT_TIMEOUT"}
+{"path":"/api/health","error":"fetch failed","cause":"UND_ERR_CONNECT_TIMEOUT"}
+{"path":"/api/items?chinaOnly=true&limit=3","error":"fetch failed","cause":"UND_ERR_CONNECT_TIMEOUT"}
+{"path":"/api/feed","error":"fetch failed","cause":"UND_ERR_CONNECT_TIMEOUT"}
+{"path":"/api/items?limit=-1","error":"fetch failed","cause":"UND_ERR_CONNECT_TIMEOUT"}

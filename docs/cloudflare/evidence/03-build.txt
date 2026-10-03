@@ -1,0 +1,50 @@
+npm run check && npm run build:cloudflare && npm exec wrangler -- deploy --dry-run
+
+ℹ tests 36
+ℹ suites 0
+ℹ pass 36
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 259.7591
+
+> signal-ai-news@1.0.0 build
+> tsc --noEmit && vite build
+
+vite v8.3.2 building client environment for production...
+transforming...
+✓ 10 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  1.39 kB │ gzip:  0.86 kB
+dist/assets/index-wf63PetF.css  28.34 kB │ gzip:  6.89 kB
+dist/assets/index-CYVOvO0W.js   31.45 kB │ gzip: 12.34 kB
+
+✓ built in 91ms
+
+> signal-ai-news@1.0.0 build:cloudflare
+> tsc --noEmit && vite build --mode cloudflare
+
+vite v8.3.2 building client environment for cloudflare...
+transforming...
+✓ 10 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                  1.39 kB │ gzip:  0.86 kB
+dist/assets/index-wf63PetF.css  28.34 kB │ gzip:  6.89 kB
+dist/assets/index-7YhLTemS.js   31.44 kB │ gzip: 12.34 kB
+
+✓ built in 104ms
+
+ ⛅️ wrangler 4.147.0
+────────────────────
+✨ Read 7 files from the assets directory [本地项目路径]
+Total Upload: 8.85 KiB / gzip: 3.45 KiB
+Your Worker has access to the following bindings:
+Binding                                                        Resource
+env.NEWS ([KV_NAMESPACE_ID])                    KV Namespace
+env.ASSETS                                                     Assets
+env.FEED_URL ("https://2432448868.github.io/AI-News/...")      Environment Variable
+
+--dry-run: exiting now.
