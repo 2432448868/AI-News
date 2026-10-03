@@ -1,0 +1,184 @@
+<header class="site-header">
+  <div class="header-inner">
+    <a class="brand" href="./" aria-label="Signal AI 日报首页"
+      ><span class="brand-mark">{{logo}}</span><span>signal<span class="brand-dot">.</span></span
+      ><span class="brand-divider"></span><span class="brand-sub">AI 日报</span></a
+    >
+    <nav class="top-nav" aria-label="主导航">
+      <a href="#discover" class="nav-link active">发现</a
+      ><button class="nav-link" data-action="saved" aria-pressed="false">
+        我的收藏 <span id="saved-count">0</span></button
+      ><button class="nav-link" data-action="sources">关于与来源 {{icon:arrow}}</button>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-button mobile-saved" data-action="saved" aria-label="查看我的收藏">
+        {{icon:bookmark}}</button
+      ><span class="header-rule"></span
+      ><button
+        id="theme-toggle"
+        class="icon-button"
+        data-action="theme"
+        aria-label="切换主题"
+      ></button>
+    </div>
+  </div>
+</header>
+<main class="page-shell">
+  <div class="edition-line">
+    <span class="edition"
+      ><span class="live-dot"></span> THE DAILY SIGNAL <span class="edition-slash">/</span>
+      <span id="edition-date"></span></span
+    ><button data-action="sources" class="edition-status" id="edition-status">
+      正在连接今日灵感 {{icon:chevron}}
+    </button>
+  </div>
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-copy">
+      <span class="eyebrow">CURATED FOR THE CURIOUS</span>
+      <h1 id="hero-title">少一点噪声，<br />多一点<span>新知。</span></h1>
+      <p>AI 世界，值得关注的都在这里。<br />从开源灵感到下一代模型，每天发现一点新可能。</p>
+      <a href="#discover" class="primary-button">开始探索 {{icon:arrow}}</a
+      ><span class="hero-note">保持好奇，每日更新</span>
+    </div>
+    <div class="hero-art" aria-hidden="true">
+      {{orbit}}<span class="orbit-label orbit-label-top"
+        >{{icon:code}} Open source <span>↗</span></span
+      ><span class="orbit-label orbit-label-bottom"
+        >{{icon:spark}} The next big thing<span class="mini-dot"></span></span
+      ><span class="art-caption">NEW IDEAS. REAL POSSIBILITIES.</span>
+    </div>
+    <span class="hero-corner">01 — THE DISCOVERY EDITION</span>
+  </section>
+  <div id="health-notice" class="health-notice" hidden></div>
+  <section class="highlights" aria-label="本期精选">
+    <div id="featured" class="feature-card skeleton" aria-busy="true">
+      <span>正在整理值得一读的内容…</span>
+    </div>
+    <aside class="trending-card">
+      <div class="section-kicker">
+        <span>{{icon:bolt}} 开源风向标</span><span class="small-label">累计 STARS</span>
+      </div>
+      <div id="trending">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+      </div>
+      <button class="text-link" data-action="projects">发现更多开源项目 {{icon:arrow}}</button>
+    </aside>
+  </section>
+  <section id="discover" class="discover-section" aria-labelledby="discover-title">
+    <div class="discover-heading">
+      <div>
+        <span class="eyebrow muted">YOUR DAILY DISCOVERY</span>
+        <h2 id="discover-title">发现新鲜事<span class="heading-dot">.</span></h2>
+      </div>
+      <label class="search-box"
+        >{{icon:search}}<input
+          id="search"
+          type="search"
+          placeholder="搜索项目、模型、灵感…"
+          autocomplete="off"
+          aria-label="搜索资讯"
+        /><kbd>/</kbd></label
+      >
+    </div>
+    <div class="filter-bar">
+      <div id="categories" class="category-tabs" role="group" aria-label="资讯分类"></div>
+    </div>
+    <div class="results-toolbar">
+      <p id="result-count" role="status" aria-live="polite">正在加载资讯…</p>
+      <div class="select-controls">
+        <label
+          ><span class="sr-only">时间范围</span
+          ><select id="time-filter">
+            <option value="0">全部时间</option>
+            <option value="1">最近 24 小时</option>
+            <option value="7">最近 7 天</option>
+            <option value="30">最近 30 天</option>
+          </select></label
+        ><span class="control-divider"></span
+        ><label
+          ><span class="sr-only">排序方式</span
+          ><select id="sort">
+            <option value="latest">最新动态</option>
+            <option value="hot">热度参考</option>
+          </select></label
+        >
+      </div>
+    </div>
+    <p class="sort-note" id="sort-note" hidden>
+      热度参考为各来源榜单名次的归一化排序，不代表跨平台真实热度或今日增长。
+    </p>
+    <div id="feed-grid" class="feed-grid" aria-busy="true">
+      <div class="news-card skeleton">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+      </div>
+      <div class="news-card skeleton">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+      </div>
+      <div class="news-card skeleton">
+        <div class="skeleton-line"></div>
+        <div class="skeleton-line"></div>
+      </div>
+    </div>
+    <div class="load-more-wrap">
+      <button id="load-more" class="secondary-button" data-action="more" hidden>
+        再看一些 {{icon:chevron}}</button
+      ><span id="end-note" class="end-note" hidden>你已经捕捉到这一期的全部信号。</span>
+    </div>
+  </section>
+  <section class="closing-note">
+    <span class="closing-icon">{{icon:globe}}</span>
+    <div>
+      <h3>好信息，不该有门槛。</h3>
+      <p>来自开放社区与官方信源。保留出处，直达原文，不制造噪声。</p>
+    </div>
+    <button class="text-link" data-action="sources">了解我们的来源 {{icon:arrow}}</button>
+  </section>
+</main>
+<footer class="site-footer">
+  <div class="footer-inner">
+    <a class="brand footer-brand" href="./"
+      ><span class="brand-mark">{{logo}}</span><span>signal.</span></a
+    ><span>保持好奇，明天见。</span
+    ><button data-action="sources">免费公开来源 · 每日自动整理 {{icon:arrow}}</button>
+  </div>
+  <div class="footer-fine">
+    <span id="updated-at">正在读取快照…</span><span>NO HYPE. JUST SIGNAL.</span>
+  </div>
+</footer>
+<dialog id="sources-dialog" aria-labelledby="sources-title">
+  <div class="dialog-heading">
+    <div>
+      <span class="eyebrow muted">OPEN SOURCES, OPEN POSSIBILITIES</span>
+      <h2 id="sources-title">信息从哪里来？</h2>
+    </div>
+    <button class="icon-button" data-action="close-dialog" aria-label="关闭来源面板">
+      {{icon:close}}
+    </button>
+  </div>
+  <p class="dialog-intro">
+    只使用免费公开 API 与 RSS，不调用付费 AI 或翻译服务。标题与简介保留原文，所有内容都能追溯来源。
+  </p>
+  <div id="source-list"></div>
+  <div class="method-note">
+    <strong>如何理解这里的“热门”？</strong>
+    <p>
+      GitHub 按近期活跃仓库的累计 stars 排序；Hugging Face
+      按来源热门榜发现。模型更新不等于正式发布，项目上榜不构成安全背书。
+    </p>
+    <strong>每天更新，但不伪装实时。</strong>
+    <p>
+      计划北京时间 08:23、14:23 采集；免费调度可能延迟。单源失败保留旧快照，超过 36
+      小时提示过期。长期无仓库活动时，管理员需要检查 Actions 是否被停用。
+    </p>
+    <p>
+      收藏仅保存在当前浏览器。外部项目的使用费用与安全性请在原站确认；本站免费采集不代表第三方产品永久免费。
+    </p>
+  </div>
+  <button class="secondary-button" data-action="reload">{{icon:refresh}} 重新加载网站快照</button>
+  <p class="reload-note">这不会触发远端采集；维护者可在 GitHub Actions 手动运行更新。</p>
+</dialog>
+<div id="toast" class="toast" role="status" aria-live="polite"></div>

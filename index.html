@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Signal · AI 日报。每天发现值得关注的 AI 新闻、开源项目、模型、Agent Skills 与开发实践。免费来源，直达原文。"
+    />
+    <meta name="theme-color" content="#f7f8fa" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Signal · AI 日报 — 少一点噪声，多一点新知</title>
+    <script>
+      try {
+        const t = localStorage.getItem('signal-theme');
+        document.documentElement.dataset.theme =
+          t === 'dark' || t === 'light'
+            ? t
+            : matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light';
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#discover">跳转到资讯</a>
+    <div id="app"></div>
+    <noscript
+      >Signal 需要启用 JavaScript 来筛选资讯。数据来自免费公开 API 与 RSS，原始快照可在
+      data/feed.json 查看。</noscript
+    >
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

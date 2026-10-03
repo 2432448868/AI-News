@@ -1,0 +1,2098 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-02T19:51:24.688Z",
+  "sources": [
+    {
+      "id": "github-projects",
+      "name": "GitHub",
+      "homepage": "https://github.com/topics/llm",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "itemCount": 29,
+      "error": null
+    },
+    {
+      "id": "github-skills",
+      "name": "GitHub Skills",
+      "homepage": "https://github.com/topics/agent-skills",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "itemCount": 30,
+      "error": null
+    },
+    {
+      "id": "github-apps",
+      "name": "GitHub Demos",
+      "homepage": "https://github.com/topics/gradio",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "itemCount": 20,
+      "error": null
+    },
+    {
+      "id": "hf-models",
+      "name": "Hugging Face Models",
+      "homepage": "https://huggingface.co/models",
+      "status": "error",
+      "lastSuccessAt": null,
+      "itemCount": 0,
+      "error": "fetch failed"
+    },
+    {
+      "id": "hf-spaces",
+      "name": "Hugging Face Spaces",
+      "homepage": "https://huggingface.co/spaces",
+      "status": "error",
+      "lastSuccessAt": null,
+      "itemCount": 0,
+      "error": "fetch failed"
+    },
+    {
+      "id": "hf-blog",
+      "name": "Hugging Face Blog",
+      "homepage": "https://huggingface.co/blog",
+      "status": "error",
+      "lastSuccessAt": null,
+      "itemCount": 0,
+      "error": "fetch failed"
+    },
+    {
+      "id": "github-blog",
+      "name": "GitHub Blog",
+      "homepage": "https://github.blog/ai-and-ml/",
+      "status": "ok",
+      "lastSuccessAt": "2026-10-02T19:51:24.688Z",
+      "itemCount": 10,
+      "error": null
+    }
+  ],
+  "items": [
+    {
+      "id": "7fc08de27bce1b0c7e7a",
+      "title": "Significant-Gravitas/AutoGPT",
+      "url": "https://github.com/Significant-Gravitas/AutoGPT",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "AutoGPT is the vision of accessible AI for everyone, to use and to build on. Our mission is to provide the tools, so that you can focus on what matters.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agentic-ai",
+        "agents",
+        "ai",
+        "artificial-intelligence"
+      ],
+      "publishedAt": "2023-03-16T09:21:07.000Z",
+      "updatedAt": "2026-10-02T19:51:11.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 187641,
+      "rankScore": 91
+    },
+    {
+      "id": "b5a44c85aa7745855c3c",
+      "title": "OpenHands/OpenHands",
+      "url": "https://github.com/OpenHands/OpenHands",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🙌 OpenHands: AI-Driven Development",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "artificial-intelligence",
+        "chatgpt",
+        "claude-ai"
+      ],
+      "publishedAt": "2024-03-13T03:33:31.000Z",
+      "updatedAt": "2026-10-02T19:45:36.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 89807,
+      "rankScore": 46
+    },
+    {
+      "id": "1970f2aab6a882fb2b18",
+      "title": "unslothai/unsloth",
+      "url": "https://github.com/unslothai/unsloth",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Local UI to run and train LLMs and diffusion models. Supports GGUF, MLX, Qwen3.8, DeepSeek-V4, MiniMax-H3, Gemma 4, FLUX and more.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "ai",
+        "chatgpt",
+        "deepseek"
+      ],
+      "publishedAt": "2023-11-29T16:50:09.000Z",
+      "updatedAt": "2026-10-02T19:45:34.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 77135,
+      "rankScore": 28
+    },
+    {
+      "id": "53d940334a2a5afd27d7",
+      "title": "huggingface/transformers",
+      "url": "https://github.com/huggingface/transformers",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🤗 Transformers: the model-definition framework for state-of-the-art machine learning models in text, vision, audio, and multimodal models, for both inference and training.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "audio",
+        "deep-learning",
+        "deepseek",
+        "gemma"
+      ],
+      "publishedAt": "2018-10-29T13:56:00.000Z",
+      "updatedAt": "2026-10-02T19:44:43.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 166904,
+      "rankScore": 82
+    },
+    {
+      "id": "e8ba7172314e48e96a3e",
+      "title": "vllm-project/vllm",
+      "url": "https://github.com/vllm-project/vllm",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "A high-throughput and memory-efficient inference and serving engine for LLMs",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "amd",
+        "blackwell",
+        "cuda",
+        "deepseek"
+      ],
+      "publishedAt": "2023-02-09T11:23:20.000Z",
+      "updatedAt": "2026-10-02T19:43:34.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 93075,
+      "rankScore": 49
+    },
+    {
+      "id": "ec2b8bd43eefd65f9cb1",
+      "title": "NousResearch/hermes-agent",
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "The agent that grows with you",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "ai-agent",
+        "ai-agents",
+        "anthropic"
+      ],
+      "publishedAt": "2025-07-22T22:22:28.000Z",
+      "updatedAt": "2026-10-02T19:43:12.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 250737,
+      "rankScore": 97
+    },
+    {
+      "id": "c5a32632e586ab2c7c9c",
+      "title": "langchain-ai/langchain",
+      "url": "https://github.com/langchain-ai/langchain",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "The agent engineering platform.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agents",
+        "ai",
+        "ai-agents",
+        "anthropic"
+      ],
+      "publishedAt": "2022-10-17T02:58:36.000Z",
+      "updatedAt": "2026-10-02T19:42:46.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 147384,
+      "rankScore": 70
+    },
+    {
+      "id": "dc992f11fd8132fbfd34",
+      "title": "Woolverine94/biniou",
+      "url": "https://github.com/Woolverine94/biniou",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "a self-hosted webui for 30+ generative ai",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "animatediff",
+        "audiocraft",
+        "bark",
+        "controlnet"
+      ],
+      "publishedAt": "2023-09-26T15:21:12.000Z",
+      "updatedAt": "2026-10-02T19:40:13.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 1151,
+      "rankScore": 85
+    },
+    {
+      "id": "c1af6b58492f9bf434d2",
+      "title": "browser-use/browser-use",
+      "url": "https://github.com/browser-use/browser-use",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Agents that use the browser.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai-agents",
+        "ai-tools",
+        "browser-automation",
+        "browser-use"
+      ],
+      "publishedAt": "2024-10-31T16:00:56.000Z",
+      "updatedAt": "2026-10-02T19:29:38.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 117000,
+      "rankScore": 61
+    },
+    {
+      "id": "e1ae8aa0ded84424cccf",
+      "title": "pascalorg/editor",
+      "url": "https://github.com/pascalorg/editor",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Open-source 3D architectural editor with a local CLI, MCP tools, and practical workflows for humans and AI agents.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "3d",
+        "agent-skills",
+        "ai-agents",
+        "architecture"
+      ],
+      "publishedAt": "2025-10-16T19:35:06.000Z",
+      "updatedAt": "2026-10-02T19:27:34.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 24564,
+      "rankScore": 22
+    },
+    {
+      "id": "97dcab4759c83fdbf316",
+      "title": "langgenius/dify",
+      "url": "https://github.com/langgenius/dify",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Build Agentic workflows, RAG pipelines, with rich AI model and tool support on one collaborative workspace. Deploy on cloud, VPC, or self-hosted, so teams move from prototype to production without rebuilding the stack.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "agentic-framework",
+        "agentic-workflow"
+      ],
+      "publishedAt": "2023-04-12T07:40:24.000Z",
+      "updatedAt": "2026-10-02T19:05:00.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 157726,
+      "rankScore": 79
+    },
+    {
+      "id": "85b23a6c94bb0832d062",
+      "title": "Mintplex-Labs/anything-llm",
+      "url": "https://github.com/Mintplex-Labs/anything-llm",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Stop renting your intelligence. Own it with AnythingLLM. Everything you need for a powerful local-first agent experience",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent-computer",
+        "agent-harness",
+        "agent-orchestration",
+        "agentic-ai"
+      ],
+      "publishedAt": "2023-06-04T02:29:14.000Z",
+      "updatedAt": "2026-10-02T19:01:24.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 66668,
+      "rankScore": 16
+    },
+    {
+      "id": "77b4be38215d4c711f40",
+      "title": "ollama/ollama",
+      "url": "https://github.com/ollama/ollama",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Get up and running with Kimi, GLM, MiniMax, DeepSeek, gpt-oss, Qwen, Gemma and other models.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "deepseek",
+        "gemma",
+        "gemma3",
+        "glm"
+      ],
+      "publishedAt": "2023-06-26T19:39:32.000Z",
+      "updatedAt": "2026-10-02T18:52:29.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 182059,
+      "rankScore": 88
+    },
+    {
+      "id": "98255810d4c42dd8fd40",
+      "title": "NVIDIA/SkillSpector",
+      "url": "https://github.com/NVIDIA/SkillSpector",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Security scanner for AI agent skills. Detect vulnerabilities, malicious patterns, security risks, prompt injection, data exfiltration, and supply-chain risks in Claude Code, Codex, and MCP skills before you install them.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-security",
+        "agent-skills",
+        "agentic-ai",
+        "ai-security"
+      ],
+      "publishedAt": "2026-03-21T00:28:43.000Z",
+      "updatedAt": "2026-10-02T18:40:00.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 19080,
+      "rankScore": 16
+    },
+    {
+      "id": "e9dbf459bd01dca31193",
+      "title": "firecrawl/firecrawl",
+      "url": "https://github.com/firecrawl/firecrawl",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🔥 Supercharge your AI agents with data from the web and beyond. A web data API to search, scrape, and access more sources.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "ai-agents",
+        "ai-crawler",
+        "ai-scraping"
+      ],
+      "publishedAt": "2024-04-15T21:02:29.000Z",
+      "updatedAt": "2026-10-02T18:14:34.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 187893,
+      "rankScore": 94
+    },
+    {
+      "id": "7765e623bebd57da6be9",
+      "title": "hesreallyhim/awesome-claude-code",
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC. A delectable showcase of top tier skills, ambidextrou",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "agentic-code",
+        "agentic-coding",
+        "ai-workflow-optimization"
+      ],
+      "publishedAt": "2025-04-19T20:55:59.000Z",
+      "updatedAt": "2026-10-02T18:13:50.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 54955,
+      "rankScore": 79
+    },
+    {
+      "id": "7d16a85b7e307034e306",
+      "title": "DrewThomasson/ebook2audiobook",
+      "url": "https://github.com/DrewThomasson/ebook2audiobook",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Generate audiobooks from e-books, voice cloning & 1158+ languages!",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "audiobook",
+        "audiobooks",
+        "chinese",
+        "colab-notebook"
+      ],
+      "publishedAt": "2024-01-22T23:49:55.000Z",
+      "updatedAt": "2026-10-02T18:13:43.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 20261,
+      "rankScore": 100
+    },
+    {
+      "id": "668711a6e10728221dfc",
+      "title": "headroomlabs-ai/headroom",
+      "url": "https://github.com/headroomlabs-ai/headroom",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Compress tool outputs, logs, files, and RAG chunks before they reach the LLM. 20% fewer tokens for coding agents, 60-95% fewer tokens for JSON, same answers. Library, proxy, MCP server.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "ai",
+        "anthropic",
+        "claude-code"
+      ],
+      "publishedAt": "2026-01-07T19:58:51.000Z",
+      "updatedAt": "2026-10-02T18:00:16.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 74286,
+      "rankScore": 22
+    },
+    {
+      "id": "d399d99ef4e490b63f51",
+      "title": "topoteretes/cognee",
+      "url": "https://github.com/topoteretes/cognee",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Cognee is the open-source AI memory platform for agents. Give your AI agents persistent long-term memory with small models for free",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-memory",
+        "agent-skills",
+        "ai",
+        "ai-agents"
+      ],
+      "publishedAt": "2023-08-16T16:16:33.000Z",
+      "updatedAt": "2026-10-02T17:57:14.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 31303,
+      "rankScore": 40
+    },
+    {
+      "id": "b1b1542da472edd24925",
+      "title": "CherryHQ/cherry-studio",
+      "url": "https://github.com/CherryHQ/cherry-studio",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "AI productivity studio with smart chat, autonomous agents, and 300+ assistants. Unified access to frontier LLMs",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agent",
+        "claude-code",
+        "codex"
+      ],
+      "publishedAt": "2024-05-24T01:56:26.000Z",
+      "updatedAt": "2026-10-02T17:51:24.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 52324,
+      "rankScore": 70
+    },
+    {
+      "id": "bb9a7497c136f753139e",
+      "title": "career-ops-hq/career-ops",
+      "url": "https://github.com/career-ops-hq/career-ops",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Open-source AI job search agent and job finder: scan job boards, score each job 1-5 against your CV before you apply, tailor an ATS-friendly resume and cover letter, get interview prep and a job application tracker. It helps you fill in eac",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agent",
+        "ai-job-search",
+        "ats"
+      ],
+      "publishedAt": "2026-04-04T18:21:18.000Z",
+      "updatedAt": "2026-10-02T17:50:04.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 73298,
+      "rankScore": 82
+    },
+    {
+      "id": "ce7a336e4c6d8cb5842c",
+      "title": "VoltAgent/awesome-openclaw-skills",
+      "url": "https://github.com/VoltAgent/awesome-openclaw-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "The awesome collection of OpenClaw skills. 5,400+ skills filtered and categorized from the official OpenClaw Skills Registry.🦞",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "awesome",
+        "awesome-list",
+        "awesome-lists"
+      ],
+      "publishedAt": "2026-01-25T09:22:32.000Z",
+      "updatedAt": "2026-10-02T17:28:46.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 52910,
+      "rankScore": 73
+    },
+    {
+      "id": "ccc01d626405ebd72ba2",
+      "title": "VoltAgent/awesome-agent-skills",
+      "url": "https://github.com/VoltAgent/awesome-agent-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "A curated collection of 1000+ agent skills from official dev teams and the community, compatible with Claude Code, Codex, Gemini CLI, Cursor, and more.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "awesome",
+        "awesome-list"
+      ],
+      "publishedAt": "2025-10-28T08:55:32.000Z",
+      "updatedAt": "2026-10-02T17:24:52.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 35122,
+      "rankScore": 46
+    },
+    {
+      "id": "38c3408d933af173aa2e",
+      "title": "DietrichGebert/ponytail",
+      "url": "https://github.com/DietrichGebert/ponytail",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Makes your AI agent think like the laziest senior dev in the room. The best code is the code you never wrote.",
+      "categories": [
+        "projects",
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code"
+      ],
+      "publishedAt": "2026-06-12T00:52:37.000Z",
+      "updatedAt": "2026-10-02T16:22:48.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 151555,
+      "rankScore": 97
+    },
+    {
+      "id": "d07066251c23560c4586",
+      "title": "rtk-ai/rtk",
+      "url": "https://github.com/rtk-ai/rtk",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "CLI proxy that reduces LLM token consumption by 60-90% on common dev commands. Single Rust binary, zero dependencies",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agentic-coding",
+        "ai-coding",
+        "anthropic",
+        "claude-code"
+      ],
+      "publishedAt": "2026-01-22T16:54:16.000Z",
+      "updatedAt": "2026-10-02T16:22:42.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 82239,
+      "rankScore": 37
+    },
+    {
+      "id": "c290a2acf859c75ba018",
+      "title": "Graphify-Labs/graphify",
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai-agents",
+        "antigravity",
+        "ast",
+        "claude-code"
+      ],
+      "publishedAt": "2026-04-03T15:49:07.000Z",
+      "updatedAt": "2026-10-02T16:20:43.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 123292,
+      "rankScore": 64
+    },
+    {
+      "id": "302d92cf5bb4ba842b45",
+      "title": "timoncool/ACE-Step-Studio",
+      "url": "https://github.com/timoncool/ACE-Step-Studio",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Portable AI music generator — full songs with vocals, covers, music videos. One-click install, 100% offline, NVIDIA GPU.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ace-step",
+        "ai-music",
+        "gradio",
+        "local-ai"
+      ],
+      "publishedAt": "2026-04-10T23:34:01.000Z",
+      "updatedAt": "2026-10-02T15:57:53.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 372,
+      "rankScore": 76
+    },
+    {
+      "id": "16389f32495280ea98c7",
+      "title": "bytedance/deer-flow",
+      "url": "https://github.com/bytedance/deer-flow",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "An open-source long-horizon SuperAgent harness that researches, codes, and creates. With the help of sandboxes, memories, tools, skill, subagents and message gateway, it handles different levels of tasks that could take minutes to hours.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "agentic",
+        "agentic-framework",
+        "agentic-workflow"
+      ],
+      "publishedAt": "2025-05-07T02:50:19.000Z",
+      "updatedAt": "2026-10-02T15:49:22.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 83330,
+      "rankScore": 40
+    },
+    {
+      "id": "3adf82e6716a48e97371",
+      "title": "AI is changing developer work. Here are three skills to strengthen.",
+      "url": "https://github.blog/ai-and-ml/ai-is-rewriting-the-developer-career-ladder-heres-how-to-stand-out",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "Learn to direct AI agents, critically review their output, and keep technical judgment at the center of your workflow. The post AI is changing developer work. Here are three skills to strengthen. appeared first on The GitHub Blog .",
+      "categories": [
+        "news",
+        "dev",
+        "tips"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-10-02T15:00:00.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 95
+    },
+    {
+      "id": "e0cbbf211a55e79f34a8",
+      "title": "rasbt/LLMs-from-scratch",
+      "url": "https://github.com/rasbt/LLMs-from-scratch",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "artificial-intelligence",
+        "attention-mechanism",
+        "deep-learning"
+      ],
+      "publishedAt": "2023-07-23T18:15:57.000Z",
+      "updatedAt": "2026-10-02T14:55:52.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 105889,
+      "rankScore": 52
+    },
+    {
+      "id": "2c673fba284c5c531163",
+      "title": "betagouv/ComparIA",
+      "url": "https://github.com/betagouv/ComparIA",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Open source LLM arena created by the French Government",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "arena",
+        "fastapi",
+        "gradio",
+        "llm"
+      ],
+      "publishedAt": "2024-06-05T15:41:15.000Z",
+      "updatedAt": "2026-10-02T14:36:50.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 85,
+      "rankScore": 49
+    },
+    {
+      "id": "26de699d3e5c651e05d3",
+      "title": "tt-a1i/archify",
+      "url": "https://github.com/tt-a1i/archify",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Agent skill for beautiful, verifiable architecture, workflow, sequence, data-flow, and lifecycle diagrams—self-contained HTML with motion and crisp export.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "architecture-as-code",
+        "architecture-diagram",
+        "claude-skill"
+      ],
+      "publishedAt": "2026-04-15T05:27:37.000Z",
+      "updatedAt": "2026-10-02T14:08:03.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 76207,
+      "rankScore": 85
+    },
+    {
+      "id": "e8a7d399fdede5110e41",
+      "title": "sickn33/agentic-awesome-skills",
+      "url": "https://github.com/sickn33/agentic-awesome-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "AAS Core is the local, agent-first control plane for complete catalog discovery, agent-owned selection, stack validation, and planning, backed by 2,400+ agentic skills. Includes CLI, local MCP, catalog, plugins, and Workbench.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "agentic-skills",
+        "ai-agent-skills",
+        "ai-agents"
+      ],
+      "publishedAt": "2026-01-14T17:48:09.000Z",
+      "updatedAt": "2026-10-02T13:37:12.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 47190,
+      "rankScore": 64
+    },
+    {
+      "id": "ebbf4c9b837ca6d0f06a",
+      "title": "reactive-resume/reactive-resume",
+      "url": "https://github.com/reactive-resume/reactive-resume",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "A one-of-a-kind resume builder that keeps your privacy in mind. Completely secure, customizable, portable, open-source and free forever. Try it out today!",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai",
+        "dsh-plugin",
+        "hacktoberfest"
+      ],
+      "publishedAt": "2020-03-25T14:08:22.000Z",
+      "updatedAt": "2026-10-02T12:39:44.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 43701,
+      "rankScore": 61
+    },
+    {
+      "id": "0604d6a7a7d7afd21105",
+      "title": "harry0703/MoneyPrinterTurbo",
+      "url": "https://github.com/harry0703/MoneyPrinterTurbo",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "利用 AI 大模型和自动化工作流，根据主题或关键词一键生成高清短视频。Generate HD short videos from a topic or keyword with an automated AI workflow.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai-video-generator",
+        "content-creation",
+        "ffmpeg",
+        "instagram-reels"
+      ],
+      "publishedAt": "2024-03-11T02:57:34.000Z",
+      "updatedAt": "2026-10-02T10:28:45.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 128063,
+      "rankScore": 67
+    },
+    {
+      "id": "d8ff876dfb1eadf08a10",
+      "title": "nexu-io/open-design",
+      "url": "https://github.com/nexu-io/open-design",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "🎨 Best DeepSeek Harness Design Plugin. The open-source Claude Design alternative. 🖥️ Local-first desktop app. 🖼️ Your coding agent becomes the design engine: prototypes, landing pages, dashboards, slides, images & video — real files, HTM",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-design",
+        "byok",
+        "claude-code-for-design"
+      ],
+      "publishedAt": "2026-04-28T04:25:20.000Z",
+      "updatedAt": "2026-10-02T09:44:20.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 99173,
+      "rankScore": 91
+    },
+    {
+      "id": "2f9e523e9cef2e1fbb20",
+      "title": "timoncool/HiggsAudio-Studio",
+      "url": "https://github.com/timoncool/HiggsAudio-Studio",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Portable Windows TTS — Higgs Audio v3 + AI text director, podcast & audiobook multi-voice. One-click, 100% offline, RU/EN, NVIDIA GPU.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "audiobook",
+        "gradio",
+        "higgs-audio",
+        "offline"
+      ],
+      "publishedAt": "2026-06-13T11:42:44.000Z",
+      "updatedAt": "2026-10-02T09:43:29.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 86,
+      "rankScore": 52
+    },
+    {
+      "id": "a7fb24973e445da888bc",
+      "title": "mason369/music-to-midi",
+      "url": "https://github.com/mason369/music-to-midi",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "音乐转MIDI转换器 - Convert audio to multi-track MIDI with lyrics embedding",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ai-music",
+        "audio-to-midi",
+        "automatic-music-transcription",
+        "colab"
+      ],
+      "publishedAt": "2026-01-24T07:52:17.000Z",
+      "updatedAt": "2026-10-02T09:33:56.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 199,
+      "rankScore": 70
+    },
+    {
+      "id": "7c94eb734f17ebfcce72",
+      "title": "open-webui/open-webui",
+      "url": "https://github.com/open-webui/open-webui",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "User-friendly AI Interface (Supports Ollama, OpenAI API, ...)",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "llm",
+        "llm-ui",
+        "llm-webui"
+      ],
+      "publishedAt": "2023-10-06T22:08:27.000Z",
+      "updatedAt": "2026-10-02T04:50:55.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 153806,
+      "rankScore": 76
+    },
+    {
+      "id": "dae9f02535f7c22f84f1",
+      "title": "addyosmani/agent-skills",
+      "url": "https://github.com/addyosmani/agent-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Production-grade engineering skills for AI coding agents.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "antigravity",
+        "claude-code",
+        "codex"
+      ],
+      "publishedAt": "2026-02-15T20:20:26.000Z",
+      "updatedAt": "2026-10-02T03:29:29.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 100482,
+      "rankScore": 94
+    },
+    {
+      "id": "edb3a626875732de5c9b",
+      "title": "affaan-m/ECC",
+      "url": "https://github.com/affaan-m/ECC",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai-agents",
+        "anthropic",
+        "claude",
+        "claude-code"
+      ],
+      "publishedAt": "2026-01-18T00:51:51.000Z",
+      "updatedAt": "2026-10-02T02:01:14.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 271112,
+      "rankScore": 100
+    },
+    {
+      "id": "c8f3d928a400ca537089",
+      "title": "K-Dense-AI/scientific-agent-skills",
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discove",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-scientist",
+        "bioinformatics",
+        "chemoinformatics"
+      ],
+      "publishedAt": "2025-10-19T20:54:15.000Z",
+      "updatedAt": "2026-10-01T22:42:43.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 47365,
+      "rankScore": 67
+    },
+    {
+      "id": "f2c662a213abb1869f18",
+      "title": "github/awesome-copilot",
+      "url": "https://github.com/github/awesome-copilot",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Community-contributed instructions, agents, skills, and configurations to help you make the most of GitHub Copilot.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "agents",
+        "ai",
+        "awesome"
+      ],
+      "publishedAt": "2025-06-11T16:57:39.000Z",
+      "updatedAt": "2026-10-01T22:22:02.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 39631,
+      "rankScore": 49
+    },
+    {
+      "id": "c489e6fb5febf2abff16",
+      "title": "alibaba/open-code-review",
+      "url": "https://github.com/alibaba/open-code-review",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Secure, fast, efficient, battle-tested at Alibaba's scale. Hybrid architecture code review tool: deterministic pipelines + LLM Agent, precise line-level comments, built-in multi-language ruleset (NPE, thread-safety, XSS, SQL injection), Ope",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent",
+        "agent-skills",
+        "code-review",
+        "code-review-assistant"
+      ],
+      "publishedAt": "2026-05-18T02:16:36.000Z",
+      "updatedAt": "2026-10-01T20:40:46.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 43334,
+      "rankScore": 58
+    },
+    {
+      "id": "cddc9a2d075a51037ba4",
+      "title": "mem0ai/mem0",
+      "url": "https://github.com/mem0ai/mem0",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "The Memory Layer for AI Agents - Drop-in memory infrastructure for AI agents and apps. Context that persists. Built for production.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agentic-memory",
+        "agentic-memory-system",
+        "agents",
+        "ai"
+      ],
+      "publishedAt": "2023-06-20T08:58:36.000Z",
+      "updatedAt": "2026-10-01T20:07:39.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 66483,
+      "rankScore": 13
+    },
+    {
+      "id": "b3778d13e98ac6bac239",
+      "title": "OthmanAdi/planning-with-files",
+      "url": "https://github.com/OthmanAdi/planning-with-files",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Persistent file-based planning for AI coding agents and long-running tasks. Crash-proof markdown plans, session recovery after /clear and compaction, per-turn re-injection against context rot, deterministic completion gate. Manus-style. Ins",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "autonomous-agents",
+        "claude",
+        "claude-code"
+      ],
+      "publishedAt": "2026-01-03T07:37:28.000Z",
+      "updatedAt": "2026-10-01T19:57:49.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 27261,
+      "rankScore": 34
+    },
+    {
+      "id": "bac657e60ae022eb6406",
+      "title": "JuliusBrussee/caveman",
+      "url": "https://github.com/JuliusBrussee/caveman",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "🪨 why use many token when few token do trick. Viral skill + proxy for coding agents that cuts 65% of tokens by talking like a caveman.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "anthropic",
+        "caveman",
+        "claude"
+      ],
+      "publishedAt": "2026-04-04T10:03:00.000Z",
+      "updatedAt": "2026-10-01T19:57:24.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 109007,
+      "rankScore": 55
+    },
+    {
+      "id": "31661aae5fd34dec93b2",
+      "title": "wshobson/agents",
+      "url": "https://github.com/wshobson/agents",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Multi-harness agentic plugin marketplace for Claude Code, Codex, Cursor, OpenCode, GitHub Copilot, Google Antigravity, and Pi",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "agentic-ai",
+        "ai-agents",
+        "anthropic"
+      ],
+      "publishedAt": "2025-07-24T23:28:14.000Z",
+      "updatedAt": "2026-10-01T19:08:25.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 40157,
+      "rankScore": 52
+    },
+    {
+      "id": "9c939c7199afd9a60700",
+      "title": "cathrynlavery/diagram-design",
+      "url": "https://github.com/cathrynlavery/diagram-design",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Editorial diagram design for Claude Code, Codex, GitHub Copilot, Factory Droid, and Pi. 42 diagram types. Self-contained HTML + SVG. No shadows. No Mermaid slop.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "data-visualization"
+      ],
+      "publishedAt": "2026-04-16T18:01:16.000Z",
+      "updatedAt": "2026-10-01T17:03:07.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 43083,
+      "rankScore": 55
+    },
+    {
+      "id": "5f599dbaa10cf9fa6cce",
+      "title": "GiovanniPasq/agentic-rag-for-dummies",
+      "url": "https://github.com/GiovanniPasq/agentic-rag-for-dummies",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A modular Agentic RAG built with LangGraph — learn Retrieval-Augmented Generation Agents in minutes.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "agent",
+        "agentic-ai",
+        "agentic-rag",
+        "agents"
+      ],
+      "publishedAt": "2025-10-13T18:51:41.000Z",
+      "updatedAt": "2026-10-01T13:58:18.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 4221,
+      "rankScore": 94
+    },
+    {
+      "id": "223708bc50ca802e2db5",
+      "title": "KKKKhazix/khazix-skills",
+      "url": "https://github.com/KKKKhazix/khazix-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "数字生命卡兹克开源的 AI Skills 合集 | Agent Skills: leader（帮你定义目标）, neat-freak 洁癖, hv-analysis, khazix-writer & more — Claude Code, Codex & 40+ agents",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "claude",
+        "claude-code"
+      ],
+      "publishedAt": "2026-04-06T07:37:02.000Z",
+      "updatedAt": "2026-10-01T13:15:32.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 21103,
+      "rankScore": 19
+    },
+    {
+      "id": "1643157b768c76e76ecc",
+      "title": "f/prompts.chat",
+      "url": "https://github.com/f/prompts.chat",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with complete privacy.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "artificial-intelligence",
+        "awesome-list",
+        "chatgpt"
+      ],
+      "publishedAt": "2022-12-05T13:54:13.000Z",
+      "updatedAt": "2026-10-01T09:59:16.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 171855,
+      "rankScore": 85
+    },
+    {
+      "id": "1a4ab127f103d0c4abdd",
+      "title": "light-and-ray/Minimalistic-Comfy-Wrapper-WebUI",
+      "url": "https://github.com/light-and-ray/Minimalistic-Comfy-Wrapper-WebUI",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "MCWW: Additional non-node based UI for ComfyUI focused on inference. Stable UI states; presets; and advanced queue. Based on Gradio",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ai",
+        "artificial-intelligence",
+        "audio-generation",
+        "comfyui"
+      ],
+      "publishedAt": "2025-09-08T12:43:37.000Z",
+      "updatedAt": "2026-10-01T09:04:21.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 142,
+      "rankScore": 61
+    },
+    {
+      "id": "716cf9e2237ac9dba9f7",
+      "title": "asgeirtj/system_prompts_leaks",
+      "url": "https://github.com/asgeirtj/system_prompts_leaks",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Documented system prompts from Anthropic - Claude Fable 5.1, Opus 5.5, Claude Design, Claude Code. OpenAI - ChatGPT GPT-6-Astra, Codex. Google - Gemini 3.8 Flash, 3.1 Pro, Antigravity. xAI - Grok, Grok Bot, Cursor, Kimi and more! Updated re",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "ai-agents",
+        "ai-prompts",
+        "anthropic"
+      ],
+      "publishedAt": "2025-05-03T02:43:56.000Z",
+      "updatedAt": "2026-10-01T02:59:15.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 68766,
+      "rankScore": 19
+    },
+    {
+      "id": "cabcb55992524bec0eb4",
+      "title": "mituan-ai/PaperBanana-CN",
+      "url": "https://github.com/mituan-ai/PaperBanana-CN",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Scientific figure workbench with independent VLM/image connections, Chinese UI, and unified size controls.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "academic-figures",
+        "bilingual",
+        "gradio",
+        "image-generation"
+      ],
+      "publishedAt": "2026-04-24T07:40:10.000Z",
+      "updatedAt": "2026-10-01T02:11:51.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 83,
+      "rankScore": 46
+    },
+    {
+      "id": "b533a22530b3aba914af",
+      "title": "EveningStudy/asmr-dubber",
+      "url": "https://github.com/EveningStudy/asmr-dubber",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "日语／英语／中文音视频 → 中文/英文配音与字幕。支持音色克隆、批量处理、仅字幕导出、双语混音、RTF 空间处理和人声分离。JA/EN/ZH media → Chinese/English dubbing & subtitles. Voice cloning, batch processing, subtitle-only export, bilingual mixing, RTF spatial processing & vocal separation.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ai-dubbing",
+        "asmr",
+        "asr",
+        "audio-processing"
+      ],
+      "publishedAt": "2026-07-23T18:16:47.000Z",
+      "updatedAt": "2026-10-01T00:45:05.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 222,
+      "rankScore": 73
+    },
+    {
+      "id": "3757de6abc6b2720815b",
+      "title": "microsoft/SkillOpt",
+      "url": "https://github.com/microsoft/SkillOpt",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "SkillOpt is a text-space optimizer that trains reusable natural-language skills for frozen LLM agents through trajectory-driven edits, validation-gated updates, and deployable best_skill.md artifacts.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "self-evolving-agents"
+      ],
+      "publishedAt": "2026-05-08T06:41:01.000Z",
+      "updatedAt": "2026-09-30T23:37:09.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 17954,
+      "rankScore": 13
+    },
+    {
+      "id": "0c7bfaeee1422a868c27",
+      "title": "waybarrios/opencode-power-pack",
+      "url": "https://github.com/waybarrios/opencode-power-pack",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "54 rigorous skills for Codex, OpenCode, and Pi: code review, security audit, feature development, frontend design, MCP tools, Hugging Face ML/training, and more.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ai-agents",
+        "anthropic",
+        "claude-code",
+        "code-review"
+      ],
+      "publishedAt": "2026-04-26T17:13:11.000Z",
+      "updatedAt": "2026-09-30T19:10:27.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 531,
+      "rankScore": 79
+    },
+    {
+      "id": "46293e1fc3f7a57f631d",
+      "title": "daniandtheweb/sd.cpp-webui",
+      "url": "https://github.com/daniandtheweb/sd.cpp-webui",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A lightweight Gradio WebUI for stable-diffusion.cpp.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ai",
+        "gradio",
+        "local-ai",
+        "python"
+      ],
+      "publishedAt": "2024-02-14T03:03:29.000Z",
+      "updatedAt": "2026-09-29T23:21:30.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 161,
+      "rankScore": 67
+    },
+    {
+      "id": "16a73b8e53c5832aba4b",
+      "title": "virgiliojr94/book-to-skill",
+      "url": "https://github.com/virgiliojr94/book-to-skill",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Turn any technical book PDF into a Claude Code skill — ready to study, reference, and use while you work.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "book-to-skill",
+        "context-engineering"
+      ],
+      "publishedAt": "2026-05-01T02:09:39.000Z",
+      "updatedAt": "2026-09-29T14:08:33.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 33299,
+      "rankScore": 43
+    },
+    {
+      "id": "ee7e0e584b2626a327b1",
+      "title": "datawhalechina/hello-agents",
+      "url": "https://github.com/datawhalechina/hello-agents",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "📚 《从零开始构建智能体》——从零开始的智能体原理与实践教程",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "llm",
+        "rag",
+        "tutorial"
+      ],
+      "publishedAt": "2025-09-07T09:50:24.000Z",
+      "updatedAt": "2026-09-29T11:53:44.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 81540,
+      "rankScore": 34
+    },
+    {
+      "id": "626a5e4fcb233d8d7ffe",
+      "title": "TauricResearch/TradingAgents",
+      "url": "https://github.com/TauricResearch/TradingAgents",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "TradingAgents: Multi-Agents LLM Financial Trading Framework",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "finance",
+        "llm",
+        "multiagent"
+      ],
+      "publishedAt": "2024-12-28T03:31:08.000Z",
+      "updatedAt": "2026-09-29T06:15:10.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 109510,
+      "rankScore": 58
+    },
+    {
+      "id": "82a901da1b9bedec6f38",
+      "title": "anthropics/skills",
+      "url": "https://github.com/anthropics/skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Public repository for Agent Skills",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills"
+      ],
+      "publishedAt": "2025-09-22T15:53:31.000Z",
+      "updatedAt": "2026-09-29T02:20:07.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 179395,
+      "rankScore": 100
+    },
+    {
+      "id": "3b2109415e6b0da54f8f",
+      "title": "seanpedrick-case/doc_redaction",
+      "url": "https://github.com/seanpedrick-case/doc_redaction",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Redact PDF/image-based documents, Word, or CSV/XLSX files using a graphical user interface. Demo: https://huggingface.co/spaces/seanpedrickcase/document_redaction or with try with VLMs: https://huggingface.co/spaces/seanpedrickcase/document",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "documents",
+        "gradio",
+        "nlp",
+        "pdf"
+      ],
+      "publishedAt": "2024-04-25T13:14:15.000Z",
+      "updatedAt": "2026-09-28T19:54:12.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 63,
+      "rankScore": 43
+    },
+    {
+      "id": "9b8fb32d5892ba24a300",
+      "title": "shareAI-lab/learn-claude-code",
+      "url": "https://github.com/shareAI-lab/learn-claude-code",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Bash is all you need - A nano claude code–like 「agent harness」, built from 0 to 1",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "agent-development",
+        "ai-agent",
+        "claude"
+      ],
+      "publishedAt": "2025-06-29T15:34:15.000Z",
+      "updatedAt": "2026-09-28T13:49:16.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 77919,
+      "rankScore": 31
+    },
+    {
+      "id": "56e7a87ac2df016caa93",
+      "title": "hiyouga/LlamaFactory",
+      "url": "https://github.com/hiyouga/LlamaFactory",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Unified Efficient Fine-Tuning of 100+ LLMs & VLMs (ACL 2024)",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "agent",
+        "ai",
+        "deepseek",
+        "fine-tuning"
+      ],
+      "publishedAt": "2023-05-28T10:09:12.000Z",
+      "updatedAt": "2026-09-28T09:10:59.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 75279,
+      "rankScore": 25
+    },
+    {
+      "id": "2db4f7d2d7de0ea292a7",
+      "title": "blader/humanizer",
+      "url": "https://github.com/blader/humanizer",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Agent skill that removes signs of AI-generated writing from text",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-humanizer",
+        "ai-writing",
+        "chatgpt"
+      ],
+      "publishedAt": "2026-01-18T05:30:15.000Z",
+      "updatedAt": "2026-09-28T05:55:12.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 53579,
+      "rankScore": 76
+    },
+    {
+      "id": "7d128752a2cf63b44ec1",
+      "title": "GitHub Copilot app for Beginners: How to build custom workflows with canvases",
+      "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-how-to-build-custom-workflows-with-canvases",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "Describe the interface you need in plain English, then let the agent build a live surface you can both use and update—so you spend less time adapting to tools and more time getting work done. The post GitHub Copilot app for Beginners: How t",
+      "categories": [
+        "news",
+        "dev",
+        "tips"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-25T18:00:00.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 92
+    },
+    {
+      "id": "d46d1480c37c463a902b",
+      "title": "unclecode/crawl4ai",
+      "url": "https://github.com/unclecode/crawl4ai",
+      "sourceId": "github-projects",
+      "sourceName": "GitHub",
+      "summary": "Open-source web crawler and scraper for LLMs and AI agents: any website into clean, LLM-ready Markdown. Run it yourself, or use Crawl4AI Cloud with one key.",
+      "categories": [
+        "projects"
+      ],
+      "tags": [
+        "ai",
+        "ai-agents",
+        "crawler",
+        "data-extraction"
+      ],
+      "publishedAt": "2024-05-09T09:48:50.000Z",
+      "updatedAt": "2026-09-25T06:37:14.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 84645,
+      "rankScore": 43
+    },
+    {
+      "id": "fd10a37123d5e227f4e6",
+      "title": "RioShiina47/comfy-webui",
+      "url": "https://github.com/RioShiina47/comfy-webui",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A recipe-driven WaaS platform for ComfyUI that turns complex workflows (Image, Audio, Video, 3D) into intuitive Gradio UIs, high-level semantic APIs, and MCP tools for LLMs & AI Agents.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "agent",
+        "comfyui",
+        "gradio",
+        "llm"
+      ],
+      "publishedAt": "2025-11-10T09:21:05.000Z",
+      "updatedAt": "2026-09-24T23:23:41.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 107,
+      "rankScore": 55
+    },
+    {
+      "id": "4135fa3a00799524e73b",
+      "title": "When chat is the wrong UI",
+      "url": "https://github.blog/ai-and-ml/github-copilot/when-chat-is-the-wrong-ui",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "What is a developer to do when they need something more tangible than a chat box? Enter canvases. The post When chat is the wrong UI appeared first on The GitHub Blog .",
+      "categories": [
+        "news",
+        "dev"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-24T20:00:00.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 89
+    },
+    {
+      "id": "2690558920b683f43670",
+      "title": "AI-powered fuzzing with the GitHub Security Lab Taskflow Agent",
+      "url": "https://github.blog/security/application-security/ai-powered-fuzzing-with-the-github-security-lab-taskflow-agent",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "In this blog post, I explain how to use the new fuzzing taskflow based on the GitHub Security Lab Taskflow Agent AI framework. The post AI-powered fuzzing with the GitHub Security Lab Taskflow Agent appeared first on The GitHub Blog .",
+      "categories": [
+        "news",
+        "dev"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-24T18:26:12.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 86
+    },
+    {
+      "id": "b9d2abdd810b52f872c0",
+      "title": "googleworkspace/cli",
+      "url": "https://github.com/googleworkspace/cli",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Google Workspace CLI — one command-line tool for Drive, Gmail, Calendar, Sheets, Docs, Chat, Admin, and more. Dynamically built from Google Discovery Service. Includes AI agent skills.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agent",
+        "automation",
+        "cli"
+      ],
+      "publishedAt": "2026-03-02T19:46:06.000Z",
+      "updatedAt": "2026-09-24T05:09:29.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 31237,
+      "rankScore": 37
+    },
+    {
+      "id": "adfc9716558ca6b5ec06",
+      "title": "Rendering huge pull requests in the GitHub Copilot app",
+      "url": "https://github.blog/engineering/user-experience/rendering-huge-pull-requests-in-the-github-copilot-app",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "How we rebuilt the diff surface in the GitHub Copilot app to open a million-line pull request with hundreds of inline review comments. The post Rendering huge pull requests in the GitHub Copilot app appeared first on The GitHub Blog .",
+      "categories": [
+        "news",
+        "dev"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-23T18:29:49.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 83
+    },
+    {
+      "id": "d8e4157cda306facd3f9",
+      "title": "titanwings/distilly",
+      "url": "https://github.com/titanwings/distilly",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "Distilly — Distill how they think into reusable Skills for any Agent or Bot. Formerly Colleague Skill（原同事 Skill）.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "agentic-ai",
+        "ai-agent",
+        "ai-agents"
+      ],
+      "publishedAt": "2026-03-30T05:22:23.000Z",
+      "updatedAt": "2026-09-22T14:01:08.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 25241,
+      "rankScore": 25
+    },
+    {
+      "id": "2983191a4949582ccd15",
+      "title": "modelscope/modelscope-studio",
+      "url": "https://github.com/modelscope/modelscope-studio",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A third-party component library based on Gradio. Integrates Ant Design, Ant Design X, Monaco Editor and more advanced components to help you build applications efficiently.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ant-design",
+        "ant-design-x",
+        "chatbot",
+        "gradio"
+      ],
+      "publishedAt": "2024-02-04T05:53:30.000Z",
+      "updatedAt": "2026-09-22T06:41:48.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 151,
+      "rankScore": 64
+    },
+    {
+      "id": "b02dba448db72934509f",
+      "title": "Should you read the code, is RAG dead, and did Skills kill MCP?",
+      "url": "https://github.blog/ai-and-ml/should-you-read-the-code-is-rag-dead-and-did-skills-kill-mcp",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "We dive into these questions and other AI hot takes on the latest episode of the GitHub Podcast. The post Should you read the code, is RAG dead, and did Skills kill MCP? appeared first on The GitHub Blog .",
+      "categories": [
+        "news",
+        "dev",
+        "tips"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-18T15:00:00.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 80
+    },
+    {
+      "id": "438a9b54b319a0a78846",
+      "title": "ComposioHQ/awesome-claude-skills",
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "ai-agents",
+        "antigravity",
+        "automation"
+      ],
+      "publishedAt": "2025-10-17T07:15:01.000Z",
+      "updatedAt": "2026-09-18T07:16:11.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 76358,
+      "rankScore": 88
+    },
+    {
+      "id": "71ca52f40c8e50d8b84b",
+      "title": "Migrating the GitHub Copilot runtime to Rust, using Copilot",
+      "url": "https://github.blog/ai-and-ml/generative-ai/migrating-the-github-copilot-runtime-to-rust-using-copilot",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "A rewrite this size wasn't affordable before agents. Here's what porting the Copilot agent runtime to 800,000 lines of production Rust actually took. The post Migrating the GitHub Copilot runtime to Rust, using Copilot appeared first on The",
+      "categories": [
+        "news",
+        "dev"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-17T00:26:43.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 77
+    },
+    {
+      "id": "3ff4721d786b52488fe1",
+      "title": "modelscope/FunClip",
+      "url": "https://github.com/modelscope/FunClip",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "FunASR-powered video transcription, subtitle generation, and LLM-assisted clipping tool with a local Gradio UI.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ai-tools",
+        "ai-video-editing",
+        "asr",
+        "auto-subtitles"
+      ],
+      "publishedAt": "2023-05-17T07:23:44.000Z",
+      "updatedAt": "2026-09-16T02:01:36.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 6359,
+      "rankScore": 97
+    },
+    {
+      "id": "b92602274d6abd3d8afe",
+      "title": "phuryn/pm-skills",
+      "url": "https://github.com/phuryn/pm-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "PM Skills Marketplace: 100+ agentic skills, commands, and plugins — from discovery to strategy, execution, launch, and growth.",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skill-repository",
+        "agent-skills",
+        "agentic-skills",
+        "claude-code-marketplace"
+      ],
+      "publishedAt": "2026-03-01T23:33:44.000Z",
+      "updatedAt": "2026-09-14T21:15:33.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 26726,
+      "rankScore": 31
+    },
+    {
+      "id": "f89d45b11f83dc35af8a",
+      "title": "cobanov/websum",
+      "url": "https://github.com/cobanov/websum",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "Summarize web pages and YouTube videos with pluggable LLM backends (Ollama, OpenAI). CLI, library, and Gradio UI.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "cli",
+        "gradio",
+        "langchain",
+        "llm"
+      ],
+      "publishedAt": "2024-03-21T10:40:29.000Z",
+      "updatedAt": "2026-09-14T11:15:22.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 126,
+      "rankScore": 58
+    },
+    {
+      "id": "30a36306f538ac1af96f",
+      "title": "Marketing ops as code: Automating events from planning to follow-up on GitHub",
+      "url": "https://github.blog/ai-and-ml/github-copilot/marketing-ops-as-code-automating-events-from-planning-to-follow-up-on-github",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "If you can write down how you do your work, you can automate it. Here's what I did to support GitHub's APAC marketing team. The post Marketing ops as code: Automating events from planning to follow-up on GitHub appeared first on The GitHub ",
+      "categories": [
+        "news",
+        "dev"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-11T18:26:10.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 74
+    },
+    {
+      "id": "e9d0ce4e62f9dc498b6a",
+      "title": "GitHub Copilot app for Beginners: Using the diff, terminal, and browser",
+      "url": "https://github.blog/ai-and-ml/github-copilot/github-copilot-app-for-beginners-using-the-diff-terminal-and-browser",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "Checking agent-generated code usually means hopping between tabs. Learn how to view diffs, run terminal commands, and preview web apps side by side in the GitHub Copilot app. The post GitHub Copilot app for Beginners: Using the diff, termin",
+      "categories": [
+        "news",
+        "dev"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-10T21:31:19.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 71
+    },
+    {
+      "id": "196bc41f30b977b88a45",
+      "title": "JimLiu/baoyu-skills",
+      "url": "https://github.com/JimLiu/baoyu-skills",
+      "sourceId": "github-skills",
+      "sourceName": "GitHub Skills",
+      "summary": "该项目暂未提供描述，访问仓库了解详情。",
+      "categories": [
+        "skills"
+      ],
+      "tags": [
+        "agent-skills",
+        "claude-skills",
+        "codex-skills",
+        "openclaw-skills"
+      ],
+      "publishedAt": "2026-01-13T03:04:56.000Z",
+      "updatedAt": "2026-09-10T15:13:43.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 26252,
+      "rankScore": 28
+    },
+    {
+      "id": "c008eaa3584e3bf973bb",
+      "title": "Mukosame/Anime2Sketch",
+      "url": "https://github.com/Mukosame/Anime2Sketch",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A sketch extractor for anime/illustration.",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "anime",
+        "comic",
+        "computer-vision",
+        "deep-learning"
+      ],
+      "publishedAt": "2021-04-09T00:26:49.000Z",
+      "updatedAt": "2026-09-08T17:38:03.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 2129,
+      "rankScore": 88
+    },
+    {
+      "id": "0ca1fd24e50e8994f1f1",
+      "title": "rsxdalv/TTS-WebUI",
+      "url": "https://github.com/rsxdalv/TTS-WebUI",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A single Gradio + React WebUI with extensions for ACE-Step, OmniVoice, Kimi Audio, Piper TTS, GPT-SoVITS, CosyVoice, XTTSv2, DIA, Kokoro, OpenVoice, ParlerTTS, Stable Audio, MMS, StyleTTS2, MAGNet, AudioGen, MusicGen, Tortoise, RVC, Vocos, ",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "ace-step",
+        "ai",
+        "audio-generation",
+        "cosyvoice"
+      ],
+      "publishedAt": "2023-04-27T18:32:26.000Z",
+      "updatedAt": "2026-09-07T08:54:58.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 3280,
+      "rankScore": 91
+    },
+    {
+      "id": "540ab3560b1341839b05",
+      "title": "lumina-layer-studio/Lumina-Layers",
+      "url": "https://github.com/lumina-layer-studio/Lumina-Layers",
+      "sourceId": "github-apps",
+      "sourceName": "GitHub Demos",
+      "summary": "A physics-based multi-material FDM color system. Converts images to full-color 3D prints via calibrated light-transmission mixing. Supports 2-8 color systems with slicer-ready 3MF export (BambuStudio/OrcaSlicer).",
+      "categories": [
+        "apps"
+      ],
+      "tags": [
+        "3d-printing",
+        "3mf",
+        "bambulab",
+        "calibration"
+      ],
+      "publishedAt": "2026-01-15T06:01:37.000Z",
+      "updatedAt": "2026-09-05T00:03:59.000Z",
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": "stars",
+      "metricValue": 1063,
+      "rankScore": 82
+    },
+    {
+      "id": "2ff277e441a4b0dab8ec",
+      "title": "Project HydraFusion: Frontier quality via multi-model orchestration",
+      "url": "https://github.blog/ai-and-ml/github-copilot/project-hydrafusion-frontier-quality-via-multi-model-orchestration",
+      "sourceId": "github-blog",
+      "sourceName": "GitHub Blog",
+      "summary": "In controlled offline evaluations, HydraFusion’s selective coding workflows matched or exceeded the evaluated Opus 5 baseline while reducing estimated workflow cost. Now available as a research preview in GitHub Copilot. The post Project Hy",
+      "categories": [
+        "news",
+        "dev",
+        "models"
+      ],
+      "tags": [
+        "官方博客"
+      ],
+      "publishedAt": "2026-09-04T16:04:14.000Z",
+      "updatedAt": null,
+      "collectedAt": "2026-10-02T19:51:24.688Z",
+      "metricLabel": null,
+      "metricValue": null,
+      "rankScore": 68
+    }
+  ]
+}

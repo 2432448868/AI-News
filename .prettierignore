@@ -1,0 +1,4 @@
+package-lock.json
+public/data/
+dist/
+node_modules/
