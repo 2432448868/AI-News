@@ -13,7 +13,6 @@ from pyodide.ffi import to_js
 
 from api import handle_api
 from auth import handle_account_request
-from collector import run_collection
 
 _INTERNAL_ERROR = {
     'status': 500,
@@ -97,5 +96,9 @@ class Default(WorkerEntrypoint):
             return build_response(_INTERNAL_ERROR, 'GET')
 
     async def scheduled(self, controller, env=None, ctx=None):
+        # One source per invocation via the COLLECT_SOURCES_PER_RUN cursor
+        # (free-plan 10ms CPU cap); crons every 2h roll all 12 sources daily.
+        from collector import run_collection
+
         env = env if env is not None else self.env
-        await run_collection(env)
+        await run_collection(env, allow_cursor=True)

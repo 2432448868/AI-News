@@ -29,7 +29,7 @@
 
 ~~~mermaid
 flowchart LR
-  A[免费 API / RSS<br/>国内外 AI 来源] --> B[Python Worker<br/>Cron 每 30 分钟滚动采集]
+  A[免费 API / RSS<br/>国内外 AI 来源] --> B[Python Worker<br/>Cron 每 2 小时滚动采集 1 源]
   B -->|每次 1 源·分批写入| C[(Cloudflare D1<br/>文章 + 用户数据)]
   C --> D[Worker API<br/>/api/feed /api/items]
   E[Workers Static Assets<br/>前端页面] --> D

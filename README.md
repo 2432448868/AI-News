@@ -120,7 +120,7 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 
 [完整实战教程（含实际截图）](docs/cloudflare/README.md)覆盖本地运行、设备授权、发布和日常维护。
 
-2026-10-04 后端已重写为 Python Worker：采集（12 源）、文章数据与用户系统全部落在 Cloudflare D1，由 Worker Cron 每 30 分钟滚动更新（每次 1 源，适配免费版 CPU 限额）；手动触发走 `POST /api/sync`。
+2026-10-04 后端已重写为 Python Worker：采集（12 源）、文章数据与用户系统全部落在 Cloudflare D1，由 Worker Cron 每 2 小时滚动更新（每次 1 源，12 源每 24 小时各轮一次，适配免费版 CPU 限额）；手动触发走 `POST /api/sync`。
 现有 GitHub Pages 工作流继续保留，作为免费静态镜像。
 
 ## 用户系统
