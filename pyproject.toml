@@ -1,0 +1,18 @@
+[project]
+name = "signal-ai-news"
+version = "2.0.0"
+description = "Signal AI News backend — Python Cloudflare Worker + D1"
+requires-python = ">=3.13"
+dependencies = [
+    "requests",
+]
+
+[dependency-groups]
+dev = [
+    "workers-py",
+    "pytest",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests/backend"]
+pythonpath = ["."]

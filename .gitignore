@@ -12,8 +12,18 @@ artifacts/
 .learnings/
 .playwright-mcp/
 
+# Python
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+
 # Cloudflare local state and secrets
 .wrangler/
 .dev.vars*
 !.env.cloudflare
 .secrets.local.txt
+
+# pywrangler build output
+python_modules/
+pylock.toml

@@ -1,6 +1,6 @@
 {
   "name": "signal-ai-news",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -12,15 +12,16 @@
     "preview": "vite preview --host 127.0.0.1",
     "collect": "node --use-env-proxy scripts/collect.mjs",
     "test": "node --test tests/*.test.mjs",
+    "test:backend": "uv run pytest tests/backend -q",
     "test:e2e": "playwright test",
-    "check": "npm run format:check && npm test && npm run build",
-    "format": "prettier --write src scripts tests worker *.ts *.json *.html .github/workflows/*.yml",
-    "format:check": "prettier --check src scripts tests worker *.ts *.json *.html .github/workflows/*.yml",
+    "check": "npm run format:check && npm run test:backend && npm test && npm run build",
+    "format": "prettier --write src scripts tests *.ts *.json *.html .github/workflows/*.yml",
+    "format:check": "prettier --check src scripts tests *.ts *.json *.html .github/workflows/*.yml",
     "build:cloudflare": "tsc --noEmit && vite build --mode cloudflare",
-    "dev:cloudflare": "npm run build:cloudflare && wrangler dev",
-    "deploy:cloudflare": "npm run build:cloudflare && wrangler deploy",
-    "seed:cloudflare": "node --use-env-proxy scripts/seed-cloudflare.mjs",
-    "test:runtime": "node tests/runtime/accounts.mjs",
+    "dev:cloudflare": "npm run build:cloudflare && uv run pywrangler dev",
+    "deploy:cloudflare": "npm run build:cloudflare && uv run pywrangler deploy",
+    "seed:d1": "node scripts/seed-d1.mjs && wrangler d1 execute signal-ai-news --remote --file .cache/seed.sql",
+    "d1:migrate": "wrangler d1 migrations apply signal-ai-news --remote",
     "test:accounts": "npm run build:cloudflare && playwright test --config playwright.account.config.ts"
   },
   "dependencies": {

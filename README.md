@@ -91,10 +91,12 @@ GitHub 的免费调度不是强 SLA：任务可能延迟或丢弃；公开仓库
 ## 工程结构
 ~~~text
 src/                    界面、主题与共享数据规则
-scripts/                免费采集器与严格子路径测试服务器
+backend/                Python Worker（API、采集、OAuth，Cloudflare 端）
+migrations/             D1 数据库建表语句
+scripts/                免费采集器与 D1 首灌脚本
 public/data/feed.json   真实数据种子快照
 .github/workflows/      定时更新/部署与 PR 验证
-tests/                 数据边界与浏览器验收
+tests/                  数据边界、Python 后端与浏览器验收
 docs/requirements/ai-news/ 需求、选型、评审、实现与验收记录
 ~~~
 
@@ -116,12 +118,12 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 
 ## Cloudflare 前后端部署
 
-[完整实战教程（含实际截图）](docs/cloudflare/README.md)覆盖本地运行、设备授权、KV、发布和日常维护。
+[完整实战教程（含实际截图）](docs/cloudflare/README.md)覆盖本地运行、设备授权、发布和日常维护。
 
-2026-10-03 已发布 Worker、静态前端、KV 和 Cron；2026-10-04 经外部节点验证公网可达（本机直连 workers.dev 超时属本地网络限制）。
-现有 GitHub Pages 工作流继续承担免费采集；Cloudflare 发布与 GitHub 推送分别进行。
+2026-10-04 后端已重写为 Python Worker：采集（12 源）、文章数据与用户系统全部落在 Cloudflare D1，由 Worker Cron 每 30 分钟滚动更新（每次 1 源，适配免费版 CPU 限额）；手动触发走 `POST /api/sync`。
+现有 GitHub Pages 工作流继续保留，作为免费静态镜像。
 
 ## 用户系统
 
-新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；Pages 保持本地模式。
+新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；Pages 保持本地模式，Cloudflare 端存 D1。
 [用户系统说明与配置教程](docs/accounts/README.md)。2026-10-04 已配置 OAuth 密钥并完成真实 GitHub 登录验收，账号系统上线。
