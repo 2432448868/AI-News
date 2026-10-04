@@ -118,10 +118,10 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 
 [完整实战教程（含实际截图）](docs/cloudflare/README.md)覆盖本地运行、设备授权、KV、发布和日常维护。
 
-2026-10-03 已发布 Worker、静态前端、KV 和 Cron；当前网络访问 workers.dev 超时，公网验收待完成。
+2026-10-03 已发布 Worker、静态前端、KV 和 Cron；2026-10-04 经外部节点验证公网可达（本机直连 workers.dev 超时属本地网络限制）。
 现有 GitHub Pages 工作流继续承担免费采集；Cloudflare 发布与 GitHub 推送分别进行。
 
 ## 用户系统
 
 新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；Pages 保持本地模式。
-[用户系统说明与配置教程](docs/accounts/README.md)。真实 OAuth 需配置密钥并发布新 Worker 后验收，目前不能视为已上线。
+[用户系统说明与配置教程](docs/accounts/README.md)。2026-10-04 已配置 OAuth 密钥并完成真实 GitHub 登录验收，账号系统上线。
