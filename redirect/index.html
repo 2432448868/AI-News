@@ -8,26 +8,37 @@
     <link rel="canonical" href="https://signal-ai-news.stock-backend-wkl.workers.dev/" />
     <link
       rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 20h7L21 7h5M6 26h7l8-13h5' fill='none' stroke='%232e6b4a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M6 20h7L21 7h5M6 26h7l8-13h5' fill='none' stroke='%23427154' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E"
     />
     <style>
+      /* 与主站 src/tokens.css 同源，迁址启事页共用一套墨与纸 */
       :root {
         color-scheme: light dark;
         --bg: #f7f8fa;
-        --fg: #1f2a24;
-        --muted: #5c6b60;
-        --accent: #2e6b4a;
-        --card: #ffffff;
-        --line: #dfe4de;
+        --card: #fff;
+        --text: #222823;
+        --secondary: #626b62;
+        --muted: #626b62;
+        --border: #e5e8e3;
+        --soft: #f0f2ee;
+        --accent: #427154;
+        --ink-button: #263b2e;
+        --button-text: #fafbf6;
+        --focus: #66905d;
       }
       @media (prefers-color-scheme: dark) {
         :root {
           --bg: #141917;
-          --fg: #e8ede8;
-          --muted: #97a89c;
-          --accent: #b5db91;
-          --card: #1c2320;
-          --line: #2c3630;
+          --card: #1c221f;
+          --text: #e6eae3;
+          --secondary: #a4afa4;
+          --muted: #94a396;
+          --border: #2b352e;
+          --soft: #232c25;
+          --accent: #accb94;
+          --ink-button: #b8d3a1;
+          --button-text: #172316;
+          --focus: #accb94;
         }
       }
       * {
@@ -35,124 +46,264 @@
       }
       body {
         margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        padding: 24px;
+        min-height: 100svh;
         background: var(--bg);
-        color: var(--fg);
+        color: var(--text);
+        /* avoid-ai-design-ignore: T1 T7 — 沿用主站 src/style.css 的字体栈契约（主站同样不内嵌字体文件，访客实际渲染系统字体） */
         font-family:
-          system-ui,
+          Inter,
           -apple-system,
+          BlinkMacSystemFont,
           'Segoe UI',
           'PingFang SC',
           'Microsoft YaHei',
           sans-serif;
+        font-size: 14px;
         line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
       }
-      main {
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--focus);
+        outline-offset: 4px;
+      }
+      a,
+      button {
+        transition:
+          background 0.2s,
+          color 0.2s,
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      button {
+        font: inherit;
+        cursor: pointer;
+        border: 0;
+        background: none;
+        color: inherit;
+      }
+      .sheet {
         max-width: 560px;
+        min-height: 100svh;
+        margin: 0 auto;
+        padding: 15vh 24px 28px;
+        display: flex;
+        flex-direction: column;
+      }
+      .edition {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 0;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        color: var(--muted);
+      }
+      .live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #79a377;
+        box-shadow: 0 0 0 4px #82a97d14;
+        flex-shrink: 0;
+      }
+      .edition .slash {
+        color: var(--border);
+        margin: 0 2px;
+      }
+      .edition .date {
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+      }
+      /* 签名细节：报头细线随倒计时耗尽 */
+      .drain-rule {
+        height: 2px;
+        margin: 12px 0 0;
+        background: var(--soft);
+        border-radius: 1px;
+        overflow: hidden;
+      }
+      .drain-rule .remaining {
+        display: block;
+        height: 100%;
         width: 100%;
-        background: var(--card);
-        border: 1px solid var(--line);
-        border-radius: 16px;
-        padding: 40px 36px;
-        text-align: center;
+        background: var(--accent);
+        border-radius: 1px;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .drain-rule .remaining {
+          transition: none;
+        }
+      }
+      .notice {
+        margin-top: 52px;
       }
       .eyebrow {
-        font-size: 12px;
-        letter-spacing: 0.22em;
+        margin: 0;
+        font-size: 10px;
+        letter-spacing: 1.5px;
         color: var(--muted);
-        text-transform: uppercase;
-      }
-      .mark {
-        display: inline-block;
-        margin: 18px 0 10px;
-        font-size: 28px;
-        font-weight: 700;
-      }
-      .mark .dot {
-        color: var(--accent);
       }
       h1 {
-        margin: 0 0 12px;
-        font-size: 26px;
+        margin: 10px 0 0;
+        font-size: 31px;
+        line-height: 1.25;
+        letter-spacing: 0.2px;
       }
-      p {
-        margin: 0 0 8px;
+      .lede {
+        margin: 16px 0 0;
+        max-width: 46ch;
+        color: var(--secondary);
+      }
+      .newsite {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-top: 26px;
+        padding: 15px 2px;
+        border-top: 1px solid var(--border);
+        border-bottom: 1px solid var(--border);
+      }
+      .newsite .label {
+        font-size: 10px;
+        letter-spacing: 1.5px;
         color: var(--muted);
-        font-size: 15px;
+        flex-shrink: 0;
       }
-      p strong {
-        color: var(--fg);
-      }
-      .url {
+      .newsite .url {
+        flex: 1;
+        min-width: 0;
         overflow-wrap: anywhere;
+        color: var(--accent);
+        font-size: 15px;
+        font-weight: 550;
+      }
+      .newsite:hover .url {
+        text-decoration: underline;
+        text-underline-offset: 3px;
+      }
+      .newsite svg {
+        width: 16px;
+        height: 16px;
+        flex-shrink: 0;
+        color: var(--accent);
       }
       .actions {
         margin-top: 26px;
         display: flex;
-        gap: 12px;
-        justify-content: center;
+        align-items: center;
+        gap: 18px;
         flex-wrap: wrap;
       }
-      a.primary,
-      button {
-        font: inherit;
-        border-radius: 999px;
-        padding: 12px 26px;
-        cursor: pointer;
-        border: 1px solid transparent;
-        text-decoration: none;
+      .primary {
+        display: inline-flex;
+        align-items: center;
+        background: var(--ink-button);
+        color: var(--button-text);
+        padding: 11px 20px;
+        border-radius: 8px;
+        font-size: 12px;
+        font-weight: 550;
       }
-      a.primary {
+      .primary:hover {
         background: var(--accent);
-        color: var(--bg);
-        font-weight: 600;
+        color: var(--button-text);
+        transform: translateY(-2px);
       }
-      button {
-        background: transparent;
-        color: var(--muted);
-        border-color: var(--line);
+      .ghost {
+        padding: 10px 2px;
+        font-size: 12px;
+        color: var(--secondary);
+        border-bottom: 1px solid transparent;
+      }
+      .ghost:hover {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
       }
       #count {
-        margin-top: 18px;
-        font-size: 13px;
-        color: var(--muted);
-        min-height: 1.4em;
-      }
-      footer {
-        margin-top: 26px;
+        margin: 18px 0 0;
         font-size: 12px;
         color: var(--muted);
-        letter-spacing: 0.14em;
+        min-height: 1.6em;
+      }
+      .fine {
+        margin-top: auto;
+        padding-top: 40px;
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 8px;
+        color: var(--muted);
+      }
+      .fine span:last-child {
+        letter-spacing: 1.8px;
+        overflow-wrap: anywhere;
       }
     </style>
   </head>
   <body>
-    <main>
-      <span class="eyebrow">Signal · AI 日报</span>
-      <div class="mark">signal<span class="dot">.</span></div>
-      <h1>我们搬新家了。</h1>
-      <p>
-        为了提供<strong>账号登录、云端收藏与关注标签</strong>，并让数据每小时自动更新， 站点已升级为云端版。这个
-        GitHub Pages 地址不再更新内容。
-      </p>
-      <p class="url">新地址：https://signal-ai-news.stock-backend-wkl.workers.dev</p>
-      <div class="actions">
-        <a class="primary" href="https://signal-ai-news.stock-backend-wkl.workers.dev/"
-          >立即前往新站 ↗</a
-        >
-        <button type="button" id="cancel">留在此页</button>
-      </div>
-      <p id="count" role="status"></p>
-      <footer>NO HYPE. JUST SIGNAL.</footer>
+    <main class="sheet">
+      <header>
+        <p class="edition">
+          <span class="live-dot" aria-hidden="true"></span>
+          THE DAILY SIGNAL<span class="slash" aria-hidden="true">/</span><span class="date"></span>
+        </p>
+        <div class="drain-rule" aria-hidden="true"><span class="remaining"></span></div>
+      </header>
+      <section class="notice">
+        <p class="eyebrow">NOTICE OF RELOCATION · 迁址公告</p>
+        <h1>我们搬新家了。</h1>
+        <p class="lede">
+          为了提供账号登录、云端收藏与关注标签，并让数据每小时自动更新，站点已升级为云端版。这个
+          GitHub Pages 地址不再更新内容。
+        </p>
+        <a class="newsite" href="https://signal-ai-news.stock-backend-wkl.workers.dev/">
+          <span class="label">新地址</span>
+          <span class="url">signal-ai-news.stock-backend-wkl.workers.dev</span>
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.6"
+            aria-hidden="true"
+          >
+            <path d="M7 17 17 7M7 7h10v10" />
+          </svg>
+        </a>
+        <div class="actions">
+          <a class="primary" href="https://signal-ai-news.stock-backend-wkl.workers.dev/"
+            >前往新站</a
+          >
+          <button type="button" id="cancel">留在此页</button>
+        </div>
+        <p id="count" role="status"></p>
+      </section>
+      <footer class="fine">
+        <span>2432448868.GITHUB.IO</span><span>NO HYPE. JUST SIGNAL.</span>
+      </footer>
     </main>
     <script>
       (function () {
         var target = 'https://signal-ai-news.stock-backend-wkl.workers.dev/';
-        var left = 6;
+        var seconds = 10;
+        var left = seconds;
         var el = document.getElementById('count');
+        var bar = document.querySelector('.drain-rule .remaining');
+        var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        document.querySelector('.date').textContent = new Intl.DateTimeFormat('zh-CN', {
+          month: 'long',
+          day: 'numeric',
+          weekday: 'long',
+        }).format(new Date());
+        function render() {
+          el.textContent = left + ' 秒后自动前往新站；点击「留在此页」可以取消。';
+        }
         var timer = setInterval(function () {
           left -= 1;
           if (left <= 0) {
@@ -160,19 +311,30 @@
             window.location.replace(target);
             return;
           }
-          el.textContent = left + ' 秒后自动前往新站，点击「留在此页」可取消。';
+          render();
         }, 1000);
-        el.textContent = left + ' 秒后自动前往新站，点击「留在此页」可取消。';
+        render();
+        if (!reduced) {
+          bar.style.transition = 'width ' + seconds + 's linear';
+          requestAnimationFrame(function () {
+            bar.style.width = '0%';
+          });
+        }
         document.getElementById('cancel').addEventListener('click', function () {
           clearInterval(timer);
-          el.textContent = '已取消自动跳转，需要时可点击上方按钮前往新站。';
+          if (!reduced) {
+            bar.style.transition = 'none';
+            bar.style.width = getComputedStyle(bar).width;
+          }
+          el.textContent = '已取消自动跳转；需要时点击「前往新站」。';
         });
       })();
     </script>
     <noscript>
       <p>
-        请
-        <a href="https://signal-ai-news.stock-backend-wkl.workers.dev/">点击前往新站</a>（浏览器不支持自动跳转）。
+        浏览器未启用脚本，请<a href="https://signal-ai-news.stock-backend-wkl.workers.dev/"
+          >点击前往新站</a
+        >。
       </p>
     </noscript>
   </body>
