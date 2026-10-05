@@ -320,6 +320,12 @@ p {
   width: 16px;
   height: 16px;
 }
+.hero-cta {
+  /* 按钮与小注同行；不包这层，flex 纵排会把 <a> 拉成整行宽 */
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
 .hero-note {
   font-size: 10px;
   color: var(--muted);
