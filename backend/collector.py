@@ -546,6 +546,7 @@ async def run_collection(env, only=None, allow_cursor=True, now_ms=None):
     now_ms = now_ms if now_ms is not None else int(time.time() * 1000)
     now = now_iso(now_ms)
     sources = build_sources(now_ms)
+    cycle_complete = False
     if only:
         wanted = set(only)
         sources = [s for s in sources if s['id'] in wanted]
@@ -553,6 +554,7 @@ async def run_collection(env, only=None, allow_cursor=True, now_ms=None):
         sources, next_cursor = await _select_sources(env, sources)
         if next_cursor is not None:
             await set_meta(env, 'collect_cursor', str(next_cursor))
+            cycle_complete = next_cursor == 0
 
     results = []
     ok_count = 0
@@ -581,4 +583,14 @@ async def run_collection(env, only=None, allow_cursor=True, now_ms=None):
 
     status = {'ranAt': now, 'ok': ok_count, 'failed': len(sources) - ok_count, 'sources': results}
     await set_meta(env, 'sync_status', json.dumps(status, ensure_ascii=False, separators=(',', ':')))
+    if cycle_complete:
+        # The 12-source cycle just wrapped (≈ Beijing 08:05): send the daily
+        # digest. Email problems must never look like collection problems.
+        try:
+            from notify import send_daily_report
+
+            status['mail'] = await send_daily_report(env, now_ms)
+        except Exception as error:  # noqa: BLE001 — best-effort only
+            print('daily report failed:', error)
+            status['mail'] = {'ok': False, 'error': str(error)[:200]}
     return status
