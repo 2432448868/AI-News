@@ -44,9 +44,9 @@ export function initAccount(hooks: Hooks) {
     }
     if (!state.user) {
       content.innerHTML =
-        '<div class="account-welcome"><span class="account-symbol" aria-hidden="true">S.</span><h3>为好奇心留一个位置</h3><p>云端收藏 · 关注标签 · 跨设备同步</p></div>' +
+        '<div class="account-welcome"><span class="account-symbol" aria-hidden="true">S.</span><h3>为好奇心留一个位置</h3><p>云端收藏、关注标签、跨设备同步</p></div>' +
         (state.available
-          ? '<a class="primary-button account-login" href="/api/auth/github">使用 GitHub 登录 <span aria-hidden="true">↗</span></a><p class="account-note">仅使用 GitHub 公开身份，不申请仓库或邮箱权限。登录即创建本站账户。</p>'
+          ? '<a class="primary-button account-login" href="/api/auth/github">使用 GitHub 登录</a><p class="account-note">仅使用 GitHub 公开身份，不申请仓库或邮箱权限。登录即创建本站账户。</p>'
           : '<p class="account-note">' +
             (cloud
               ? '管理员尚未启用 GitHub 登录。收藏与关注标签暂不可用。'
@@ -64,7 +64,7 @@ export function initAccount(hooks: Hooks) {
       esc(state.user.displayName) +
       '</h3><p>@' +
       esc(state.user.login) +
-      ' · GitHub 已连接</p></div><span class="account-connected">已同步</span></div>' +
+      '（GitHub 已连接）</p></div><span class="account-connected">已同步</span></div>' +
       '<div class="account-stats"><div><strong>' +
       state.favorites.length +
       '</strong><span>云端收藏 / 200</span></div><div><strong>' +

@@ -101,6 +101,12 @@ const fullDate = new Intl.DateTimeFormat('zh-CN', {
   hour12: false,
 });
 const compact = new Intl.NumberFormat('en', { notation: 'compact', maximumFractionDigits: 1 });
+const stampTime = new Intl.DateTimeFormat('zh-CN', {
+  timeZone: 'Asia/Shanghai',
+  hour: '2-digit',
+  minute: '2-digit',
+  hour12: false,
+});
 const dateText = (date: string | null) => (date ? dateFormat.format(new Date(date)) : '日期未提供');
 const stamp = (date: string | null) =>
   date ? fullDate.format(new Date(date)) + ' 北京时间' : '尚无成功记录';
@@ -112,28 +118,8 @@ const metric = (i: Item) =>
       (i.metricLabel === 'stars' ? 'stars' : i.metricLabel === 'downloads' ? 'downloads' : 'likes');
 const logo =
   '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 20h7L21 7h5M6 26h7l8-13h5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-const orbit =
-  '<svg class="orbit" viewBox="0 0 440 350" aria-hidden="true"><defs><radialGradient id="orb"><stop stop-color="#c4d9b6" stop-opacity=".1"/><stop offset="1" stop-color="#9bb886" stop-opacity=".22"/></radialGradient></defs><circle cx="220" cy="175" r="123" fill="url(#orb)" stroke="currentColor" stroke-opacity=".25"/>' +
-  [25, 50, 80, 108]
-    .map(
-      (r) =>
-        '<ellipse cx="220" cy="175" rx="' +
-        r +
-        '" ry="123" fill="none" stroke="currentColor" stroke-opacity=".27" transform="rotate(-28 220 175)"/>',
-    )
-    .join('') +
-  [30, 62, 95]
-    .map(
-      (r) =>
-        '<ellipse cx="220" cy="175" rx="123" ry="' +
-        r +
-        '" fill="none" stroke="currentColor" stroke-opacity=".26" transform="rotate(-28 220 175)"/>',
-    )
-    .join('') +
-  '<ellipse cx="220" cy="175" rx="193" ry="65" transform="rotate(-28 220 175)" fill="none" stroke="currentColor" stroke-opacity=".55"/><circle cx="55" cy="225" r="7" fill="#b5db91"/><circle cx="388" cy="120" r="5" fill="#234a3b"/></svg>';
 get('#app').innerHTML = shell
   .replaceAll('{{logo}}', logo)
-  .replace('{{orbit}}', orbit)
   .replace(/\{\{icon:(\w+)\}\}/g, (_, name: IconName) => icon(name));
 get('#edition-date').textContent = new Intl.DateTimeFormat('zh-CN', {
   timeZone: 'Asia/Shanghai',
@@ -260,6 +246,43 @@ function card(item: Item) {
     '</article>'
   );
 }
+function renderPaper(featuredId?: string, excludeIds: string[] = []) {
+  if (!feed) return;
+  get('#paper-stamp').textContent = feed.generatedAt
+    ? '付印 ' + stampTime.format(new Date(feed.generatedAt))
+    : '';
+  // 头条卡与开源榜已各自展示的条目不再上要目，避免同屏重复
+  const picks = (filterItems(feed.items, { sort: 'latest' }) as Item[]).filter(
+    (i) => i.id !== featuredId && !excludeIds.includes(i.id),
+  );
+  const lead = picks[0];
+  const rest = picks.slice(1, 5);
+  get('#paper-list').innerHTML = lead
+    ? '<li class="paper-lead"><a href="' +
+      esc(lead.url) +
+      '" target="_blank" rel="noopener noreferrer"><span class="paper-flag">头条</span><strong>' +
+      esc(lead.title) +
+      '</strong><span class="paper-meta">' +
+      esc(lead.sourceName) +
+      ' ' +
+      dateText(lead.publishedAt) +
+      '</span></a></li>' +
+      rest
+        .map(
+          (i) =>
+            '<li><a class="paper-item" href="' +
+            esc(i.url) +
+            '" target="_blank" rel="noopener noreferrer"><span class="paper-item-title">' +
+            esc(i.title) +
+            '</span><span class="paper-item-src">' +
+            esc(i.sourceName) +
+            '</span></a></li>',
+        )
+        .join('')
+    : '<li class="paper-empty">今日要目暂无可读内容。</li>';
+  get('#paper-foot').textContent =
+    feed.sources.length + ' 个公开来源，共 ' + feed.items.length + ' 条信号';
+}
 function renderHighlights() {
   if (!feed) return;
   const featured = filterItems(feed.items, { category: 'news', sort: 'latest' })[0] as
@@ -269,7 +292,7 @@ function renderHighlights() {
   feature.setAttribute('aria-busy', 'false');
   if (featured) {
     feature.innerHTML =
-      '<div class="feature-top"><span class="feature-eyebrow"><span class="live-dot"></span> 本期 · 值得一读</span>' +
+      '<div class="feature-top"><span class="feature-eyebrow"><span class="live-dot"></span> 本期值得一读</span>' +
       saveButton(featured) +
       '</div><a class="feature-title" href="' +
       esc(featured.url) +
@@ -292,7 +315,7 @@ function renderHighlights() {
       '</a></div>';
   } else {
     feature.innerHTML =
-      '<span class="feature-eyebrow">本期 · 值得一读</span><h2>好内容，值得等一等。</h2><p>新闻来源暂时没有可用内容。下方仍可发现已成功采集的项目，或查看来源状态。</p><button class="feature-read" data-action="sources">查看来源状态 ' +
+      '<span class="feature-eyebrow">本期值得一读</span><h2>好内容，值得等一等。</h2><p>新闻来源暂时没有可用内容。下方仍可发现已成功采集的项目，或查看来源状态。</p><button class="feature-read" data-action="sources">查看来源状态 ' +
       icon('arrow') +
       '</button>';
   }
@@ -319,6 +342,10 @@ function renderHighlights() {
         )
         .join('')
     : '<p class="empty-trending">开源榜暂未同步，稍后再来看看。</p>';
+  renderPaper(
+    featured?.id,
+    trending.map((i) => i.id),
+  );
 }
 function renderResults() {
   get('#follow-active-tag').hidden = !tag;
@@ -350,12 +377,12 @@ function renderResults() {
   get('#discover-title').innerHTML =
     (savedOnly ? '我的收藏' : '发现新鲜事') + '<span class="heading-dot">.</span>';
   get('#result-count').textContent =
-    (savedOnly ? '收藏 · ' : '') +
+    (savedOnly ? '收藏，' : '') +
     filtered.length +
     ' 条值得探索的信号' +
-    (query ? ' · 搜索「' + query + '」' : '') +
-    (chinaOnly ? ' · 中国 AI 相关' : '') +
-    (tag ? ' · ' + tag : '');
+    (query ? '，搜索「' + query + '」' : '') +
+    (chinaOnly ? '，中国 AI 相关' : '') +
+    (tag ? '，' + tag : '');
   const grid = get('#feed-grid');
   grid.setAttribute('aria-busy', 'false');
   grid.innerHTML = filtered.length
@@ -395,7 +422,7 @@ function renderHealth() {
         ? '部分信号暂时离线：' + failed.length + ' 个来源本轮未同步，已保留可用快照。'
         : '部分来源的数据已超过 36 小时未更新。') +
     '</span><button data-action="sources">查看状态 ' +
-    icon('arrow') +
+    icon('chevron') +
     '</button>';
   get('#updated-at').textContent = '快照生成于 ' + stamp(feed.generatedAt);
   get('#source-list').innerHTML = feed.sources
@@ -454,6 +481,8 @@ async function load() {
       get('#featured').setAttribute('aria-busy', 'false');
       get('#featured').innerHTML = '<h2>稍等，好内容正在路上。</h2><p>请重新加载网站快照。</p>';
       get('#trending').innerHTML = '<p class="empty-trending">等待数据加载。</p>';
+      get('#paper-list').innerHTML = '<li class="paper-empty">要目暂未送达，请重新加载。</li>';
+      get('#paper-foot').textContent = '';
       get('#source-list').textContent = '无法读取来源状态，请重新加载。';
       get('#updated-at').textContent = '尚未读取到可用快照';
     }

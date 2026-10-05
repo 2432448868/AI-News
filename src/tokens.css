@@ -10,9 +10,6 @@
   --accent: #427154;
   --hero: #eef1e9;
   --hero-border: #e4e9de;
-  --orb: #6c855e;
-  --glass: #ffffffb3;
-  --glass-border: #ffffffce;
   --header: #f7f8fae8;
   --ink-button: #263b2e;
   --button-text: #fafbf6;
@@ -30,22 +27,23 @@
   --notice: #f3f1e9;
   --notice-text: #75683f;
   --notice-border: #e9e4d6;
+  /* 圆角只分三档：小=徽章/小控件，中=按钮/输入，大=卡片/弹窗；药丸仅用于筛选 chip */
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 16px;
 }
 :root[data-theme='dark'] {
   color-scheme: dark;
   --bg: #141917;
   --card: #1c221f;
   --text: #e6eae3;
-  --secondary: #a4afa4;
-  --muted: #94a396;
+  --secondary: #aeb9ae;
+  --muted: #9faa9f;
   --border: #2b352e;
   --soft: #232c25;
   --accent: #accb94;
   --hero: #202b22;
-  --hero-border: #303d2e;
-  --orb: #a0ba8b;
-  --glass: #29392bc4;
-  --glass-border: #40533b;
+  --hero-border: #32402f;
   --header: #141917e8;
   --ink-button: #b8d3a1;
   --button-text: #172316;

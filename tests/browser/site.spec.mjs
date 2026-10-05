@@ -182,9 +182,11 @@ test('mobile widths never overflow and reduced motion is respected', async ({ pa
       await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth),
     ).toBe(true);
   }
-  expect(await page.locator('.orbit').evaluate((el) => getComputedStyle(el).animationName)).toBe(
-    'none',
-  );
+  expect(
+    await page
+      .locator('.hero-paper .live-dot')
+      .evaluate((el) => getComputedStyle(el).animationName),
+  ).toBe('none');
 });
 test('keyboard search shortcut and dialog accessibility', async ({ page }) => {
   await mock(page);
@@ -234,7 +236,9 @@ test('pointer decoration respects touch and reduced-motion preferences', async (
   await page.emulateMedia({ reducedMotion: 'reduce' });
   await expect(hero).not.toHaveClass(/pointer-active/);
   expect(
-    await page.locator('.hero-orbit-ring').evaluate((el) => getComputedStyle(el).animationName),
+    await page
+      .locator('.hero-paper .live-dot')
+      .evaluate((el) => getComputedStyle(el).animationName),
   ).toBe('none');
   expect(
     await page.evaluate(

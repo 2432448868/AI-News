@@ -13,7 +13,7 @@
 #account-dialog {
   width: min(560px, calc(100vw - 32px));
   padding: 30px;
-  border-radius: 24px;
+  border-radius: var(--radius-l);
 }
 #account-dialog h2 {
   font-size: 28px;
@@ -32,7 +32,7 @@
   height: 56px;
   background: var(--soft);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--radius-l);
   font-size: 26px;
   font-weight: 700;
   margin-bottom: 12px;
@@ -82,7 +82,7 @@
 .account-stats > div {
   background: var(--soft);
   border: 1px solid var(--border);
-  border-radius: 16px;
+  border-radius: var(--radius-l);
   padding: 16px;
 }
 .account-stats strong {
@@ -107,7 +107,7 @@
   flex: 1;
   padding: 10px 12px;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius-m);
   background: var(--soft);
   color: var(--text);
 }

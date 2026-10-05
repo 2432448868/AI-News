@@ -21,7 +21,7 @@
 }
 .hero {
   isolation: isolate;
-  background-image: radial-gradient(ellipse at 95% 0%, #adc69b20, transparent 65%);
+  background-image: radial-gradient(ellipse at 95% 0%, #adc69b14, transparent 65%);
 }
 .hero::before {
   content: '';
@@ -40,39 +40,11 @@
 .hero.pointer-active::before {
   opacity: 1;
 }
-.hero-art {
+.hero-paper {
   transition: translate 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
-.hero.pointer-active .hero-art {
+.hero.pointer-active .hero-paper {
   translate: var(--hero-x, 0px) var(--hero-y, 0px);
-}
-.hero-orbit-ring {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  border: 1px dashed #819a703b;
-  border-radius: 50%;
-  animation: signal-orbit 65s linear infinite;
-  pointer-events: none;
-}
-.hero-orbit-ring::before,
-.hero-orbit-ring::after {
-  content: '';
-  position: absolute;
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: var(--accent);
-  box-shadow: 0 0 0 5px #93b17b16;
-  left: 50%;
-  top: -4px;
-}
-.hero-orbit-ring::after {
-  top: auto;
-  bottom: -4px;
-  width: 4px;
-  height: 4px;
-  opacity: 0.55;
 }
 .news-card {
   position: relative;
@@ -103,15 +75,11 @@
     box-shadow: 0 16px 36px #1420180d;
     border-color: var(--hover-border);
   }
-  .primary-button:hover .icon {
-    transform: translate(2px, -2px);
-  }
   .brand:hover .brand-mark {
     transform: rotate(-8deg);
   }
 }
-.brand-mark,
-.primary-button .icon {
+.brand-mark {
   transition: transform 0.3s cubic-bezier(0.2, 0.7, 0.2, 1);
 }
 .category-tab {
@@ -143,11 +111,6 @@ dialog[open] {
 dialog[open]::backdrop {
   animation: backdrop-in 0.28s ease-out;
 }
-@keyframes signal-orbit {
-  to {
-    transform: rotate(360deg);
-  }
-}
 @keyframes panel-in {
   from {
     opacity: 0;
@@ -168,23 +131,14 @@ dialog[open]::backdrop {
     opacity: 1;
   }
 }
-@media (max-width: 700px) {
-  .hero-orbit-ring {
-    width: 170px;
-    height: 170px;
-    bottom: 20px;
-    opacity: 0.55;
-  }
-}
 @media (prefers-reduced-motion: reduce) {
-  .hero-art,
+  .hero-paper,
   .news-card,
   .primary-button,
   .brand-mark {
     transform: none !important;
     translate: none !important;
   }
-  .hero-orbit-ring,
   dialog[open],
   dialog[open]::backdrop {
     animation: none !important;

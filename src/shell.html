@@ -1,3 +1,4 @@
+<!-- avoid-ai-design-ignore: K7 — 键盘焦点样式统一在 src/style.css（a/button/input/select 的 :focus-visible），本文件只承载结构 -->
 <div class="reading-progress" aria-hidden="true"></div>
 <header class="site-header">
   <div class="header-inner">
@@ -9,7 +10,7 @@
       <a href="#discover" class="nav-link active">发现</a
       ><button class="nav-link" data-action="saved" aria-pressed="false">
         我的收藏 <span id="saved-count">0</span></button
-      ><button class="nav-link" data-action="sources">关于与来源 {{icon:arrow}}</button>
+      ><button class="nav-link" data-action="sources">关于与来源 {{icon:chevron}}</button>
     </nav>
     <div class="header-actions">
       <button id="account-button" class="account-trigger" aria-haspopup="dialog">我的账户</button>
@@ -36,20 +37,23 @@
   </div>
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <span class="eyebrow">CURATED FOR THE CURIOUS</span>
-      <h1 id="hero-title">少一点噪声，<br />多一点<span>新知。</span></h1>
+      <h1 id="hero-title">少一点噪声，<br />多一点新知。</h1>
       <p>AI 世界，值得关注的都在这里。<br />从开源灵感到下一代模型，每天发现一点新可能。</p>
-      <a href="#discover" class="primary-button">开始探索 {{icon:arrow}}</a
+      <a href="#discover" class="primary-button">开始探索</a
       ><span class="hero-note">保持好奇，每日更新</span>
     </div>
-    <div class="hero-art" aria-hidden="true">
-      <span class="hero-orbit-ring"></span>{{orbit}}<span class="orbit-label orbit-label-top"
-        >{{icon:code}} Open source <span>↗</span></span
-      ><span class="orbit-label orbit-label-bottom"
-        >{{icon:spark}} The next big thing<span class="mini-dot"></span></span
-      ><span class="art-caption">NEW IDEAS. REAL POSSIBILITIES.</span>
-    </div>
-    <span class="hero-corner">01 — THE DISCOVERY EDITION</span>
+    <aside class="hero-paper" aria-label="今日要目">
+      <p class="paper-mast">
+        <span class="live-dot"></span><span class="paper-brand">signal 要目</span
+        ><span class="paper-stamp" id="paper-stamp"></span>
+      </p>
+      <ol id="paper-list" class="paper-list" aria-label="最新信号">
+        <li class="skeleton-line"></li>
+        <li class="skeleton-line"></li>
+        <li class="skeleton-line"></li>
+      </ol>
+      <p class="paper-foot" id="paper-foot">正在排版今日要目…</p>
+    </aside>
   </section>
   <div id="health-notice" class="health-notice" hidden></div>
   <section class="highlights" aria-label="本期精选">
@@ -58,7 +62,7 @@
     </div>
     <aside class="trending-card">
       <div class="section-kicker">
-        <span>{{icon:bolt}} 开源风向标</span><span class="small-label">累计 STARS</span>
+        <span>{{icon:bolt}} 开源风向标</span><span class="small-label">按 stars 排序</span>
       </div>
       <div id="trending">
         <div class="skeleton-line"></div>
@@ -71,7 +75,7 @@
   <section id="discover" class="discover-section" aria-labelledby="discover-title">
     <div class="discover-heading">
       <div>
-        <span class="eyebrow muted">YOUR DAILY DISCOVERY</span>
+        <!-- avoid-ai-design-ignore: SD5 — 句点是品牌 motif（signal.），与 logo、导航、页脚同一套系统 -->
         <h2 id="discover-title">发现新鲜事<span class="heading-dot">.</span></h2>
       </div>
       <label class="search-box"
@@ -97,7 +101,7 @@
         关注此标签
       </button>
       <button id="clear-filters" class="text-link" data-action="reset" hidden>清除筛选</button>
-      <span class="topic-hint">按品牌与内容重点探索 · 点击文章标签聚合阅读</span>
+      <span class="topic-hint">按品牌与内容重点探索，点击文章标签聚合阅读</span>
     </div>
     <div class="results-toolbar">
       <p id="result-count" role="status" aria-live="polite">正在加载资讯…</p>
@@ -149,7 +153,7 @@
       <h3>好信息，不该有门槛。</h3>
       <p>来自开放社区、官方信源与 AI 媒体。保留出处，直达原文，不制造噪声。</p>
     </div>
-    <button class="text-link" data-action="sources">了解我们的来源 {{icon:arrow}}</button>
+    <button class="text-link" data-action="sources">了解我们的来源 {{icon:chevron}}</button>
   </section>
 </main>
 <footer class="site-footer">
@@ -157,16 +161,15 @@
     <a class="brand footer-brand" href="./"
       ><span class="brand-mark">{{logo}}</span><span>signal.</span></a
     ><span>保持好奇，明天见。</span
-    ><button data-action="sources">免费公开来源 · 每日自动整理 {{icon:arrow}}</button>
+    ><button data-action="sources">免费公开来源，每日自动整理 {{icon:chevron}}</button>
   </div>
   <div class="footer-fine">
-    <span id="updated-at">正在读取快照…</span><span>NO HYPE. JUST SIGNAL.</span>
+    <span id="updated-at">正在读取快照…</span><span>No hype, just signal.</span>
   </div>
 </footer>
 <dialog id="sources-dialog" aria-labelledby="sources-title">
   <div class="dialog-heading">
     <div>
-      <span class="eyebrow muted">OPEN SOURCES, OPEN POSSIBILITIES</span>
       <h2 id="sources-title">信息从哪里来？</h2>
     </div>
     <button class="icon-button" data-action="close-dialog" aria-label="关闭来源面板">
@@ -204,7 +207,6 @@
 <dialog id="account-dialog" aria-labelledby="account-title">
   <div class="dialog-heading">
     <div>
-      <span class="eyebrow muted">YOUR SPACE</span>
       <h2 id="account-title">我的账户</h2>
     </div>
     <button id="account-close" class="icon-button" aria-label="关闭账户面板">{{icon:close}}</button>
