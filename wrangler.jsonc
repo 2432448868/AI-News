@@ -22,7 +22,7 @@
     "COLLECT_SOURCES_PER_RUN": "1"
   },
   "triggers": {
-    "crons": ["5 */2 * * *"]
+    "crons": ["5 13-23,0 * * *"]
   },
   "migrations": [
     { "tag": "users-v1", "new_sqlite_classes": ["UserAccount"] },

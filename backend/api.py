@@ -17,7 +17,7 @@ _BASE_HEADERS = [
     ('Content-Type', 'application/json; charset=utf-8'),
     ('X-Content-Type-Options', 'nosniff'),
 ]
-SCHEDULE = '5 */2 * * * (UTC, 1 source/run)'
+SCHEDULE = '5 13-23,0 * * * (UTC; hourly overnight, 1 source/run, full pass ends 08:05 Beijing)'
 COLLECTION = 'Cloudflare Worker (Python) → D1'
 DAY_MS = 86400000
 
