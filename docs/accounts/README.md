@@ -3,7 +3,7 @@
 ## 交付边界
 
 代码包含 GitHub 登录、退出、昵称修改、云端收藏、标签关注；2026-10-04 已配置 OAuth 密钥并完成真实 GitHub 登录验收。
-GitHub Pages 仍是静态站，只提供本地收藏；云端功能通过 Cloudflare 同源站点使用，云端收藏与关注标签需要登录。
+GitHub Pages 地址已改为迁移提示页；云端功能通过 Cloudflare 同源站点使用，云端收藏与关注标签需要登录。
 
 ```mermaid
 flowchart LR

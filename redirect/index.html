@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>signal. AI 日报 — 站点已迁移</title>
+    <meta name="description" content="Signal AI 日报已迁移到云端版，即将跳转。" />
+    <link rel="canonical" href="https://signal-ai-news.stock-backend-wkl.workers.dev/" />
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #f7f8fa;
+        --fg: #1f2a24;
+        --muted: #5c6b60;
+        --accent: #2e6b4a;
+        --card: #ffffff;
+        --line: #dfe4de;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --bg: #141917;
+          --fg: #e8ede8;
+          --muted: #97a89c;
+          --accent: #b5db91;
+          --card: #1c2320;
+          --line: #2c3630;
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        padding: 24px;
+        background: var(--bg);
+        color: var(--fg);
+        font-family:
+          system-ui,
+          -apple-system,
+          'Segoe UI',
+          'PingFang SC',
+          'Microsoft YaHei',
+          sans-serif;
+        line-height: 1.6;
+      }
+      main {
+        max-width: 560px;
+        width: 100%;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 40px 36px;
+        text-align: center;
+      }
+      .eyebrow {
+        font-size: 12px;
+        letter-spacing: 0.22em;
+        color: var(--muted);
+        text-transform: uppercase;
+      }
+      .mark {
+        display: inline-block;
+        margin: 18px 0 10px;
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .mark .dot {
+        color: var(--accent);
+      }
+      h1 {
+        margin: 0 0 12px;
+        font-size: 26px;
+      }
+      p {
+        margin: 0 0 8px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+      p strong {
+        color: var(--fg);
+      }
+      .url {
+        overflow-wrap: anywhere;
+      }
+      .actions {
+        margin-top: 26px;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      a.primary,
+      button {
+        font: inherit;
+        border-radius: 999px;
+        padding: 12px 26px;
+        cursor: pointer;
+        border: 1px solid transparent;
+        text-decoration: none;
+      }
+      a.primary {
+        background: var(--accent);
+        color: var(--bg);
+        font-weight: 600;
+      }
+      button {
+        background: transparent;
+        color: var(--muted);
+        border-color: var(--line);
+      }
+      #count {
+        margin-top: 18px;
+        font-size: 13px;
+        color: var(--muted);
+        min-height: 1.4em;
+      }
+      footer {
+        margin-top: 26px;
+        font-size: 12px;
+        color: var(--muted);
+        letter-spacing: 0.14em;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <span class="eyebrow">Signal · AI 日报</span>
+      <div class="mark">signal<span class="dot">.</span></div>
+      <h1>我们搬新家了。</h1>
+      <p>
+        为了提供<strong>账号登录、云端收藏与关注标签</strong>，并让数据每小时自动更新， 站点已升级为云端版。这个
+        GitHub Pages 地址不再更新内容。
+      </p>
+      <p class="url">新地址：https://signal-ai-news.stock-backend-wkl.workers.dev</p>
+      <div class="actions">
+        <a class="primary" href="https://signal-ai-news.stock-backend-wkl.workers.dev/"
+          >立即前往新站 ↗</a
+        >
+        <button type="button" id="cancel">留在此页</button>
+      </div>
+      <p id="count" role="status"></p>
+      <footer>NO HYPE. JUST SIGNAL.</footer>
+    </main>
+    <script>
+      (function () {
+        var target = 'https://signal-ai-news.stock-backend-wkl.workers.dev/';
+        var left = 6;
+        var el = document.getElementById('count');
+        var timer = setInterval(function () {
+          left -= 1;
+          if (left <= 0) {
+            clearInterval(timer);
+            window.location.replace(target);
+            return;
+          }
+          el.textContent = left + ' 秒后自动前往新站，点击「留在此页」可取消。';
+        }, 1000);
+        el.textContent = left + ' 秒后自动前往新站，点击「留在此页」可取消。';
+        document.getElementById('cancel').addEventListener('click', function () {
+          clearInterval(timer);
+          el.textContent = '已取消自动跳转，需要时可点击上方按钮前往新站。';
+        });
+      })();
+    </script>
+    <noscript>
+      <p>
+        请
+        <a href="https://signal-ai-news.stock-backend-wkl.workers.dev/">点击前往新站</a>（浏览器不支持自动跳转）。
+      </p>
+    </noscript>
+  </body>
+</html>

@@ -2,8 +2,9 @@
 
 少一点噪声，多一点新知。一个使用免费数据源、每日更新的 AI 资讯发现站，支持 GitHub Pages 静态部署和 Cloudflare 前后端部署。
 
-**在线访问：https://2432448868.github.io/AI-News/**
+**在线访问（主站）：https://signal-ai-news.stock-backend-wkl.workers.dev**
 
+旧地址 https://2432448868.github.io/AI-News/ 已改为迁移提示页，自动跳转到主站。
 代码仓库：https://github.com/2432448868/AI-News
 
 2026-10-03 首次 Actions 部署通过，7/7 免费来源同步成功，首发线上快照 164 条。
@@ -37,33 +38,18 @@ npm run preview         # 预览 dist；先运行 npm run build
 
 ## 发布到 GitHub Pages
 
-1. 创建 **公开仓库**，将本项目提交到默认分支 main 或 master。本仓库已在用户授权后完成首次提交与推送；以下供重新部署或 fork 使用。
-2. 在仓库 Settings → Pages → Build and deployment 中选择 **GitHub Actions**。
-3. 在 Actions 中允许工作流运行；进入 **Daily update & deploy**，手动 Run workflow。
-4. 首次运行保持 use_snapshot 不勾选。成功后的 deploy environment 显示站点地址。
-5. 不需要手动创建 secrets；工作流自动使用只读 GITHUB_TOKEN 获取 GitHub 公共信息。
-6. 若默认分支不是 main/master，修改 deploy.yml 的 push 分支设置，并确认 Pages environment 允许该分支。
+GitHub Pages 地址（https://2432448868.github.io/AI-News/）现为**迁移提示页**：
+`.github/workflows/deploy.yml` 在 push main 时把 `redirect/index.html` 部署上去，提示访客前往 Cloudflare 主站；不再采集数据，也没有定时任务。
 
-Vite 使用相对 base，兼容项目路径（例如 /AI-News/）与用户主页域名；无客户端路由深链接问题。
-前端不会直接调用 GitHub/Hugging Face API，不会把 token 发给访客。
+- 在仓库 Settings → Pages → Build and deployment 中选择 **GitHub Actions** 后，push 即自动部署跳转页。
+- 若 fork 后想恢复完整的采集 + 静态站流水线，参考 2026-10-05 之前的历史版本（旧 deploy.yml 与 scripts/collect.mjs）。
+- 前端不会直接调用 GitHub/Hugging Face API，不会把 token 发给访客。
 
 ## 更新与免费边界
 
-| 项目       | 约定                                                            |
-| ---------- | --------------------------------------------------------------- |
-| 每日计划   | 北京时间 08:23 与 14:23，第二次用于增加成功机会                 |
-| 收费服务   | 无；无付费 API、LLM、代理、翻译、数据库或服务端                 |
-| 托管前提   | 公开仓库、GitHub 标准托管 runner、默认 Pages 域名               |
-| 数据历史   | 近 30 天文章；最近项目榜单快照；不提供永久归档                  |
-| 单源故障   | 标记失败，保留该源上次快照；其他源正常更新                      |
-| 全源故障   | 工作流失败，不写新快照、不覆盖上次线上站点                      |
-| 快照过期   | 超过 36 小时在页面显式提醒                                      |
-| 数据持久化 | Actions cache；无需工作流 commit/push；缓存失效回退仓库种子快照 |
+主站数据全部由 Cloudflare Worker Cron 每小时滚动更新（见下文 Cloudflare 章节）；GitHub Pages 仅部署静态跳转页，无采集、无后端、无付费服务。
 
-GitHub 的免费调度不是强 SLA：任务可能延迟或丢弃；公开仓库连续 60 天没有活动时可能自动停用计划任务。
-管理员应关注 Actions 失败通知、来源状态以及长时间未更新提示，并在停用后重新启用 workflow。
-日调度依赖仓库默认分支上的工作流；fork 后通常需要自行启用 Actions。
-政策和免费额度以 GitHub 官方说明为准；不要改成付费 runner 或额外付费服务。
+GitHub 的免费调度不是强 SLA：任务可能延迟或丢弃；政策和免费额度以 GitHub 官方说明为准，不要改成付费 runner 或额外付费服务。
 
 ## 数据来源
 
@@ -114,7 +100,7 @@ docs/requirements/ai-news/ 需求、选型、评审、实现与验收记录
 - https://docs.github.com/en/rest/search/search#search-repositories
 - https://huggingface.co/docs/hub/api
 
-当前仓库已完成首次远程构建、浏览器验收与 Pages 发布；尚未观察到后续 schedule 触发，需持续关注 Actions 运行记录。
+当前主站部署在 Cloudflare；GitHub Pages 地址仅提供迁移跳转。
 
 > 故障保留例外：失败来源沿用上次成功快照，文章可能超过 30 天；保留原始日期并标记来源失败，不伪装成新内容。
 
@@ -131,7 +117,7 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 [完整实战教程（含实际截图）](docs/cloudflare/README.md)覆盖本地运行、设备授权、发布和日常维护。
 
 2026-10-04 后端已重写为 Python Worker：采集（12 源）、文章数据与用户系统全部落在 Cloudflare D1，由 Worker Cron 每小时滚动更新 1 源（北京时间 21:05 起到次日 08:05 轮完全部 12 源，适配免费版 CPU 限额，保证早上 9 点前数据全新）；手动触发走 `POST /api/sync`。
-现有 GitHub Pages 工作流继续保留，作为免费静态镜像。
+GitHub Pages 地址已改为迁移提示页，数据获取与用户系统全部由 Cloudflare 承担。
 
 ### D1 数据表（migrations/0001_init.sql，共 9 张）
 
@@ -159,5 +145,5 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 
 ## 用户系统
 
-新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；云端收藏与关注标签需要登录，Pages 保持本地收藏模式，Cloudflare 端存 D1。
+新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；云端收藏与关注标签需要登录，数据存 Cloudflare D1；旧 Pages 地址为迁移提示页。
 [用户系统说明与配置教程](docs/accounts/README.md)。2026-10-04 已配置 OAuth 密钥并完成真实 GitHub 登录验收，账号系统上线。
