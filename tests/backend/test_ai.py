@@ -73,3 +73,25 @@ class TestEditorNote:
         patch_ai(monkeypatch, response='长' * 500)
         result = run(ai_module.editor_note(make_env(d1, AI=NOW_BINDING), TITLES))
         assert len(result) == ai_module.MAX_NOTE_CHARS
+
+    def test_no_think_switch_and_budget(self, d1, monkeypatch):
+        calls = patch_ai(monkeypatch)
+        run(ai_module.editor_note(make_env(d1, AI=NOW_BINDING), TITLES))
+        system = calls[0][1]['messages'][0]['content']
+        assert system.endswith('/no_think')
+        assert calls[0][1]['max_tokens'] == 1024
+
+    def test_think_block_is_stripped(self, d1, monkeypatch):
+        patch_ai(monkeypatch, response='<think>推理过程</think>今日看点：开源强势。')
+        result = run(ai_module.editor_note(make_env(d1, AI=NOW_BINDING), TITLES))
+        assert result == '今日看点：开源强势。'
+
+    def test_truncated_think_falls_back_to_choices(self, d1, monkeypatch):
+        async def fake_run(binding, model, payload):
+            return FakeProxy({
+                'response': '<think>没想完就被截断',
+                'choices': [{'message': {'content': '编者按正文。'}}],
+            })
+        monkeypatch.setattr(ai_module, '_ai_run', fake_run)
+        result = run(ai_module.editor_note(make_env(d1, AI=NOW_BINDING), TITLES))
+        assert result == '编者按正文。'

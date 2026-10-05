@@ -4,15 +4,28 @@ Best-effort by contract: a missing binding or an unusable response means
 "no note this edition", never a digest failure. The FFI lives in _ai_run
 (monkeypatched in tests) so the rest stays plain Python.
 """
+import re
+
 from db import env_get
 
 # qwen1.5-14b-chat-awq left the catalog in the 2026-10 refresh; qwen3-30b-a3b
 # is the strongest Chinese text-generation model on the free tier. Override
 # without redeploying code via the AI_EDITOR_MODEL var.
 DEFAULT_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8'
-SYSTEM = '你是 signal. AI 日报的编辑，用中文报纸编者按口吻写作。'
+# qwen3 thinks by default; a 300-token budget then burns entirely on <think>
+# and the response comes back empty. /no_think is the model's own text-level
+# soft switch, honoured regardless of serving stack.
+SYSTEM = '你是 signal. AI 日报的编辑，用中文报纸编者按口吻写作。/no_think'
 MAX_TITLES = 10
 MAX_NOTE_CHARS = 200
+
+
+def _strip_think(text):
+    text = re.sub(r'<think>.*?</think>', '', text, flags=re.S)
+    head = text.find('<think>')  # unclosed reasoning left by truncation
+    if head != -1:
+        text = text[:head]
+    return text.strip()
 
 
 async def _ai_run(binding, model, payload):
@@ -39,11 +52,16 @@ async def editor_note(env, titles):
             {'role': 'system', 'content': SYSTEM},
             {'role': 'user', 'content': prompt},
         ],
-        'max_tokens': 300,
+        'max_tokens': 1024,
     }
     result = await _ai_run(binding, model, payload)
     data = result.to_py() if hasattr(result, 'to_py') else result
-    text = str((data or {}).get('response') or '').strip()
+    data = data or {}
+    text = _strip_think(str(data.get('response') or ''))
+    if not text:  # OpenAI-style chat shape some models answer with
+        choices = data.get('choices') or []
+        if choices:
+            text = _strip_think(str((choices[0].get('message') or {}).get('content') or ''))
     if not text:
         raise ValueError('AI 空响应')
     return text[:MAX_NOTE_CHARS]
