@@ -123,6 +123,30 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 2026-10-04 后端已重写为 Python Worker：采集（12 源）、文章数据与用户系统全部落在 Cloudflare D1，由 Worker Cron 每小时滚动更新 1 源（北京时间 21:05 起到次日 08:05 轮完全部 12 源，适配免费版 CPU 限额，保证早上 9 点前数据全新）；手动触发走 `POST /api/sync`。
 现有 GitHub Pages 工作流继续保留，作为免费静态镜像。
 
+### D1 数据表（migrations/0001_init.sql，共 9 张）
+
+| 表 | 作用 |
+|---|---|
+| `meta` | 运行时键值对：`generated_at` 快照生成时间、`collect_cursor` 源轮转游标、`sync_status` 最近一次采集结果 JSON |
+| `sources` | 12 个数据源档案：名称、主页、`ok/error` 状态、最后成功时间、条数、失败原因；"关于与来源"面板直接读它 |
+| `items` | 文章/仓库主表：`id`=sha256(规范 URL) 前 20 位、标题、原文链接、摘要、所属源、发布/更新/采集时间、排序时间戳 `item_ts`、热度分 `rank_score`、指标（stars/downloads/likes）、是否中国相关、检索预拼文本；全局上限 500 条 |
+| `item_categories` | 条目↔分类关联，7 个枚举值（news/projects/skills/models/tips/apps/dev） |
+| `item_tags` | 条目↔标签关联；入库时由 `backend/topics.py` 规则富化，每条至多 16 个 |
+| `users` | GitHub 登录用户：`github_id` 主键、login、昵称 |
+| `sessions` | 登录会话：token 哈希、CSRF 令牌、过期时间（7 天）、限流窗口与计数；每账号最多 8 个 |
+| `favorites` | 云端收藏（用户↔条目） |
+| `followed_tags` | 关注的标签（用户↔标签） |
+
+### 运行结果怎么看 / 日志在哪
+
+| 方式 | 内容 |
+|---|---|
+| 站内面板 | 首页"N / 12 来源已同步"；"关于与来源"看每源状态、条数、最后成功时间与失败原因 |
+| `/api/health` | 免登录总览：快照时间、总条数、健康源数、最近一次采集明细（`sync` 字段） |
+| `/api/sources` | 免登录逐源状态 |
+| CF 面板日志 | 登录 [dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → `signal-ai-news` → **Logs**；Observability 已开启，cron 每次执行的记录与采集报错都在，可按时间过滤 |
+| 手动刷新 | `POST /api/sync` 带 `x-admin-token` 请求头（密钥存本地 `.secrets.local.txt`，不入仓库） |
+
 ## 用户系统
 
 新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；Pages 保持本地模式，Cloudflare 端存 D1。
