@@ -594,13 +594,13 @@ async def run_collection(env, only=None, allow_cursor=True, now_ms=None):
     status = {'ranAt': now, 'ok': ok_count, 'failed': len(sources) - ok_count, 'sources': results}
     await set_meta(env, 'sync_status', json.dumps(status, ensure_ascii=False, separators=(',', ':')))
     if cycle_complete:
-        # The 12-source cycle just wrapped (≈ Beijing 08:05): send the daily
-        # digest. Email problems must never look like collection problems.
+        # The 12-source cycle just wrapped (≈ Beijing 08:05): snapshot the
+        # front page, draft the editor's note, send the daily digest — each
+        # step independently guarded inside run_digest.
         try:
-            from notify import send_daily_report
+            from digest import run_digest
 
-            status['mail'] = await send_daily_report(env, now_ms)
+            status.update(await run_digest(env, now_ms))
         except Exception as error:  # noqa: BLE001 — best-effort only
-            print('daily report failed:', error)
-            status['mail'] = {'ok': False, 'error': str(error)[:200]}
+            print('digest failed:', error)
     return status

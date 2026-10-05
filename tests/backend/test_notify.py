@@ -78,6 +78,41 @@ class TestBuildReport:
         assert '全部来源采集正常' in html
 
 
+class TestReportSections:
+    def test_editor_note_renders(self):
+        _, body, html = notify.build_report(
+            ROWS, 42, '2026-10-06T00:05:00.000Z', NOW_MS, editor_note='今日看点：开源持续发力。')
+        assert '编者按：今日看点：开源持续发力。' in body
+        assert '编者按' in html and '今日看点：开源持续发力。' in html
+
+    def test_followed_section(self):
+        followed = [{'title': 'DeepSeek R2', 'url': 'https://a/9', 'sourceName': 'GitHub'}]
+        _, body, html = notify.build_report(
+            ROWS, 42, '2026-10-06T00:05:00.000Z', NOW_MS, followed=followed)
+        assert '关注命中（近 24 小时）：' in body
+        assert '- DeepSeek R2（GitHub）' in body
+        assert 'DeepSeek R2' in html
+
+    def test_sections_omitted_by_default(self):
+        _, body, html = notify.build_report(ROWS, 42, '2026-10-06T00:05:00.000Z', NOW_MS)
+        assert '编者按' not in body and '关注命中' not in body and '上周回顾' not in body
+        assert '编者按' not in html and '关注命中' not in html and '上周回顾' not in html
+
+    def test_weekly_section(self):
+        weekly = {'days': [{'date': '2025-09-29', 'count': 42}], 'headlines': ['t1', 't2', 't3']}
+        _, body, html = notify.build_report(
+            ROWS, 42, '2026-10-06T00:05:00.000Z', NOW_MS, weekly=weekly)
+        assert '- 2025-09-29：42 条' in body
+        assert '上周同日头条：t1 / t2 / t3' in body
+        assert '上周回顾' in html and 't1 / t2 / t3' in html
+
+    def test_weekly_without_headlines(self):
+        weekly = {'days': [{'date': '2025-09-29', 'count': 42}], 'headlines': []}
+        _, body, _ = notify.build_report(ROWS, 42, None, NOW_MS, weekly=weekly)
+        assert '上周同日头条' not in body
+        assert '- 2025-09-29：42 条' in body
+
+
 class TestSendDailyReport:
     def test_disabled_without_secrets(self, d1):
         assert run(notify.send_daily_report(make_env(d1))) is None
@@ -112,6 +147,77 @@ class TestSendDailyReport:
         monkeypatch.setattr(collector, '_http_fetch', fake_fetch)
         with pytest.raises(RuntimeError, match='422'):
             run(notify.send_daily_report(env, NOW_MS))
+
+    def _capture(self, monkeypatch):
+        calls = []
+
+        async def fake_fetch(url, init):
+            calls.append((url, init))
+            return FakeResponse()
+
+        monkeypatch.setattr(collector, '_http_fetch', fake_fetch)
+        return calls
+
+    def test_monday_attaches_weekly(self, d1, monkeypatch):
+        import datetime as dt
+
+        env = seed(d1, RESEND_API_KEY='re_key', MAIL_TO='me@example.com')
+        base = dt.datetime.fromtimestamp((NOW_MS + notify.BEIJING_MS) / 1000, tz=dt.timezone.utc)
+        for offset in range(7, 0, -1):  # last week's seven Beijing days
+            day = (base - dt.timedelta(days=offset)).strftime('%Y-%m-%d')
+            payload = json.dumps({
+                'stats': {'items': 40 + offset},
+                'lead': [{'title': '头条' + day}],
+            })
+            run(db_run(
+                env,
+                'INSERT INTO daily_snapshots (date, generated_at, payload) VALUES (?, ?, ?)',
+                (day, '2025-10-01T00:00:00.000Z', payload),
+            ))
+
+        calls = self._capture(monkeypatch)
+        run(notify.send_daily_report(env, NOW_MS))  # NOW_MS is a Beijing Monday
+        body = json.loads(calls[0][1]['body'])
+        assert '上周回顾' in body['text']
+        assert '- 2025-09-29：47 条' in body['text']  # offset 7 → 40+7
+        assert '头条2025-09-29' in body['text']
+        assert '上周回顾' in body['html']
+
+    def test_non_monday_has_no_weekly(self, d1, monkeypatch):
+        env = seed(d1, RESEND_API_KEY='re_key', MAIL_TO='me@example.com')
+        run(db_run(
+            env,
+            "INSERT INTO daily_snapshots (date, generated_at, payload) VALUES ('2025-10-04', 'x', '{}')",
+            (),
+        ))
+        calls = self._capture(monkeypatch)
+        run(notify.send_daily_report(env, NOW_MS - 2 * 86400000))  # Saturday
+        body = json.loads(calls[0][1]['body'])
+        assert '上周回顾' not in body['text'] and '上周回顾' not in body['html']
+
+    def test_followed_hits_included(self, d1, monkeypatch):
+        env = seed(d1, RESEND_API_KEY='re_key', MAIL_TO='me@example.com')
+        run(db_run(env, "INSERT INTO users (github_id, login, display_name, created_at) "
+                        "VALUES (1, 'lao', 'lao', '2025-10-01T00:00:00.000Z')", ()))
+        run(db_run(env, "INSERT INTO followed_tags (github_id, tag, followed_at) "
+                        "VALUES (1, 'DeepSeek', '2025-10-01T00:00:00.000Z')", ()))
+        run(db_run(env, "INSERT INTO item_tags (item_id, tag) VALUES ('i1', 'DeepSeek')", ()))
+        run(db_run(env, 'UPDATE items SET item_ts = ?', (NOW_MS - 3600000,)))  # within 24h
+
+        calls = self._capture(monkeypatch)
+        run(notify.send_daily_report(env, NOW_MS))
+        body = json.loads(calls[0][1]['body'])
+        assert '关注命中（近 24 小时）：' in body['text']
+        assert '- t1（GitHub）' in body['text']
+        assert '关注命中' in body['html']
+
+    def test_stale_editor_note_meta_ignored(self, d1, monkeypatch):
+        env = seed(d1, RESEND_API_KEY='re_key', MAIL_TO='me@example.com')
+        run(set_meta(env, 'editor_note', 'not-json{{'))
+        calls = self._capture(monkeypatch)
+        run(notify.send_daily_report(env, NOW_MS))
+        body = json.loads(calls[0][1]['body'])
+        assert '编者按' not in body['text']
 
 
 class TestCycleWrapWiring:

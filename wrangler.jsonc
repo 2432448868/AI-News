@@ -17,6 +17,9 @@
       "database_id": "936136c3-3c76-491a-8e6f-37fec5d235f9"
     }
   ],
+  "ai": {
+    "binding": "AI"
+  },
   "vars": {
     "APP_ORIGIN": "https://signal-ai-news.stock-backend-wkl.workers.dev",
     "COLLECT_SOURCES_PER_RUN": "1"
