@@ -117,21 +117,23 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 [完整实战教程（含实际截图）](docs/cloudflare/README.md)覆盖本地运行、设备授权、发布和日常维护。
 
 2026-10-04 后端已重写为 Python Worker：采集（12 源）、文章数据与用户系统全部落在 Cloudflare D1，由 Worker Cron 每小时滚动更新 1 源（北京时间 21:05 起到次日 08:05 轮完全部 12 源，适配免费版 CPU 限额，保证早上 9 点前数据全新）；手动触发走 `POST /api/sync`。
+2026-10-06 二期上线：每轮 12 源收尾时（约 08:05）自动存当日头版快照 → Workers AI（`@cf/qwen/qwen3-30b-a3b-fp8`，可用 `AI_EDITOR_MODEL` 覆盖）写中文编者按 → 发日报邮件（含关注命中段；北京周一附上周回顾），三步各自容错，任一失败不影响采集。
 GitHub Pages 地址已改为迁移提示页，数据获取与用户系统全部由 Cloudflare 承担。
 
-### D1 数据表（migrations/0001_init.sql，共 9 张）
+### D1 数据表（migrations/，共 10 张）
 
 | 表                | 作用                                                                                                                                                                                                                   |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `meta`            | 运行时键值对：`generated_at` 快照生成时间、`collect_cursor` 源轮转游标、`sync_status` 最近一次采集结果 JSON                                                                                                            |
+| `meta`            | 运行时键值对：`generated_at` 快照生成时间、`collect_cursor` 源轮转游标、`sync_status` 最近一次采集结果 JSON、`editor_note` 当日 AI 编者按（JSON，失败即清空）                                                            |
 | `sources`         | 12 个数据源档案：名称、主页、`ok/error` 状态、最后成功时间、条数、失败原因；"关于与来源"面板直接读它                                                                                                                   |
-| `items`           | 文章/仓库主表：`id`=sha256(规范 URL) 前 20 位、标题、原文链接、摘要、所属源、发布/更新/采集时间、排序时间戳 `item_ts`、热度分 `rank_score`、指标（stars/downloads/likes）、是否中国相关、检索预拼文本；全局上限 500 条 |
+| `items`           | 文章/仓库主表：`id`=sha256(规范 URL) 前 20 位、标题、原文链接、摘要、所属源、发布/更新/采集时间、排序时间戳 `item_ts`、热度分 `rank_score`、指标（stars/downloads/likes）及上一轮值 `metric_prev`（涨星排序用）、是否中国相关、检索预拼文本；全局上限 500 条 |
 | `item_categories` | 条目↔分类关联，7 个枚举值（news/projects/skills/models/tips/apps/dev）                                                                                                                                                 |
 | `item_tags`       | 条目↔标签关联；入库时由 `backend/topics.py` 规则富化，每条至多 16 个                                                                                                                                                   |
 | `users`           | GitHub 登录用户：`github_id` 主键、login、昵称                                                                                                                                                                         |
 | `sessions`        | 登录会话：token 哈希、CSRF 令牌、过期时间（7 天）、限流窗口与计数；每账号最多 8 个                                                                                                                                     |
 | `favorites`       | 云端收藏（用户↔条目）                                                                                                                                                                                                  |
 | `followed_tags`   | 关注的标签（用户↔标签）                                                                                                                                                                                                |
+| `daily_snapshots` | 每天头版存档（0003）：北京日期主键、生成时间、头版 JSON（统计+要目+榜）；cycle wrap 时覆盖写当日，供 `/api/archive` 与周一邮件周报回溯                                                                              |
 
 ### 运行结果怎么看 / 日志在哪
 
@@ -140,6 +142,9 @@ GitHub Pages 地址已改为迁移提示页，数据获取与用户系统全部�
 | 站内面板       | 首页"N / 12 来源已同步"；"关于与来源"看每源状态、条数、最后成功时间与失败原因                                                                                                  |
 | `/api/health`  | 免登录总览：快照时间、总条数、健康源数、最近一次采集明细（`sync` 字段）                                                                                                        |
 | `/api/sources` | 免登录逐源状态                                                                                                                                                                 |
+| `/api/archive` | 往期头版：无参列近 90 天，`?date=YYYY-MM-DD` 取单期全文                                                                                                                       |
+| `/api/stats`   | 统计聚合：近 30 天每日条数、分类分布、标签 top10、源健康                                                                                                                      |
+| `/rss`         | 全站 RSS 2.0（`/rss.xml` 同内容），最近 50 条，5 分钟公共缓存                                                                                                                 |
 | CF 面板日志    | 登录 [dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → `signal-ai-news` → **Logs**；Observability 已开启，cron 每次执行的记录与采集报错都在，可按时间过滤 |
 | 手动刷新       | `POST /api/sync` 带 `x-admin-token` 请求头（密钥存本地 `.secrets.local.txt`，不入仓库）                                                                                        |
 

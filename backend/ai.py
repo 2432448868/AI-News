@@ -6,7 +6,10 @@ Best-effort by contract: a missing binding or an unusable response means
 """
 from db import env_get
 
-DEFAULT_MODEL = '@cf/qwen/qwen1.5-14b-chat-awq'  # override via AI_EDITOR_MODEL var
+# qwen1.5-14b-chat-awq left the catalog in the 2026-10 refresh; qwen3-30b-a3b
+# is the strongest Chinese text-generation model on the free tier. Override
+# without redeploying code via the AI_EDITOR_MODEL var.
+DEFAULT_MODEL = '@cf/qwen/qwen3-30b-a3b-fp8'
 SYSTEM = '你是 signal. AI 日报的编辑，用中文报纸编者按口吻写作。'
 MAX_TITLES = 10
 MAX_NOTE_CHARS = 200
