@@ -3,7 +3,7 @@ import json
 from urllib.parse import parse_qsl
 
 import api as api
-from db import db_batch, set_meta
+from db import db_batch, db_run, set_meta
 
 from conftest import make_env, run
 
@@ -123,6 +123,82 @@ class TestHealth:
         assert payload['healthySources'] == 1
         assert payload['sync']['ok'] == 2
         assert 'D1' in payload['collection']
+
+
+def seed_snapshot(env, date, items=42, lead_title='头条'):
+    payload = json.dumps({
+        'stats': {'items': items, 'okSources': 11, 'totalSources': 12},
+        'lead': [{'title': lead_title, 'url': 'https://a/1', 'sourceName': 'GitHub'}],
+        'trending': [],
+    })
+    run(db_run(
+        env,
+        'INSERT INTO daily_snapshots (date, generated_at, payload) VALUES (?, ?, ?)',
+        (date, '2025-10-06T00:05:00.000Z', payload),
+    ))
+
+
+class TestArchive:
+    def test_list_shape(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        seed_snapshot(env, '2025-10-06', 42)
+        seed_snapshot(env, '2025-10-05', 41)
+        payload = body_of(run(api.handle_api(req(path='/api/archive'), env)))
+        assert [day['date'] for day in payload['days']] == ['2025-10-06', '2025-10-05']  # newest first
+        assert payload['days'][0]['stats']['items'] == 42
+
+    def test_single_edition(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        seed_snapshot(env, '2025-10-06', 42, lead_title='大新闻')
+        payload = body_of(run(api.handle_api(req(path='/api/archive', query='date=2025-10-06'), env)))
+        assert payload['lead'][0]['title'] == '大新闻'
+        assert payload['stats']['totalSources'] == 12
+        assert payload['generatedAt'] == '2025-10-06T00:05:00.000Z'
+
+    def test_bad_date_400_missing_404(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        assert run(api.handle_api(req(path='/api/archive', query='date=2025-13-99'), env))['status'] == 400
+        assert run(api.handle_api(req(path='/api/archive', query='date=2020-01-01'), env))['status'] == 404
+
+    def test_empty_list(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        payload = body_of(run(api.handle_api(req(path='/api/archive'), env)))
+        assert payload['days'] == []
+
+
+class TestStats:
+    def test_shape(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        seed_snapshot(env, '2025-10-06', 42)
+        payload = body_of(run(api.handle_api(req(path='/api/stats'), env)))
+        assert payload['days'] == [{'date': '2025-10-06', 'items': 42}]
+        assert payload['categories'] == [{'category': 'news', 'n': 2}, {'category': 'models', 'n': 1}]
+        tags = {row['tag']: row['n'] for row in payload['tags']}
+        assert tags['DeepSeek'] == 1 and len(payload['tags']) <= 10
+        assert {s['id'] for s in payload['sources']} == {'qbitai', 'hf-models'}
+
+
+class TestFeedEditorNote:
+    def test_note_surface(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        run(set_meta(env, 'editor_note', json.dumps({'date': '2025-10-06', 'text': '看点：开源发力。'})))
+        feed = body_of(run(api.handle_api(req(), env)))
+        assert feed['editorNote'] == {'date': '2025-10-06', 'text': '看点：开源发力。'}
+
+    def test_absent_or_garbage_is_none(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        assert body_of(run(api.handle_api(req(), env)))['editorNote'] is None
+        run(set_meta(env, 'editor_note', 'garbage{{'))
+        assert body_of(run(api.handle_api(req(), env)))['editorNote'] is None
+        run(set_meta(env, 'editor_note', ''))  # cleared by digest on failure
+        assert body_of(run(api.handle_api(req(), env)))['editorNote'] is None
 
 
 class TestItems:

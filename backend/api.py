@@ -6,6 +6,7 @@ Req/Resp are plain dicts so tests never touch the Worker runtime:
 """
 import hmac
 import json
+import re
 import time
 
 from db import chunk, db_all, db_first, env_get, get_meta
@@ -101,6 +102,72 @@ async def attach_children(env, items):
 async def load_all_items(env):
     rows = await db_all(env, 'SELECT ' + _ITEM_COLS + ' FROM items ORDER BY item_ts DESC, rank_score DESC, id')
     return await attach_children(env, [_row_to_item(row) for row in rows])
+
+
+# ---------------------------------------------------------------------------
+# /api/archive + /api/stats — 往期归档与聚合统计
+
+
+async def archive(env, query):
+    """One stored front page per Beijing day; list (90) or a single edition."""
+    date = query.get('date')
+    if date:
+        if not re.fullmatch(r'\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])', date):
+            return error_response('Invalid date', 400)
+        row = await db_first(
+            env, 'SELECT generated_at, payload FROM daily_snapshots WHERE date = ?', (date,)
+        )
+        if not row:
+            return error_response('Snapshot not found', 404)
+        try:
+            payload = json.loads(row['payload'])
+        except ValueError:
+            payload = {}
+        payload.update({'date': date, 'generatedAt': row['generated_at']})
+        return json_response(payload)
+    days = []
+    for row in await db_all(
+        env,
+        'SELECT date, generated_at, payload FROM daily_snapshots ORDER BY date DESC LIMIT 90',
+    ):
+        try:
+            stats = json.loads(row['payload']).get('stats') or {}
+        except ValueError:
+            stats = {}
+        days.append({'date': row['date'], 'generatedAt': row['generated_at'], 'stats': stats})
+    return json_response({'days': days})
+
+
+async def stats(env, generated_at):
+    """Aggregates for the stats dialog: per-day counts, category/tag mix, source health."""
+    days = []
+    for row in await db_all(
+        env, 'SELECT date, payload FROM daily_snapshots ORDER BY date DESC LIMIT 30'
+    ):
+        try:
+            count = (json.loads(row['payload']).get('stats') or {}).get('items') or 0
+        except ValueError:
+            count = 0
+        days.append({'date': row['date'], 'items': count})
+    # JOIN items keeps counts honest after the 500-item cap deletes rows.
+    categories = await db_all(
+        env,
+        'SELECT c.category AS category, COUNT(*) AS n FROM item_categories c '
+        'JOIN items i ON i.id = c.item_id GROUP BY 1 ORDER BY n DESC',
+    )
+    tags = await db_all(
+        env,
+        'SELECT t.tag AS tag, COUNT(*) AS n FROM item_tags t '
+        'JOIN items i ON i.id = t.item_id GROUP BY 1 ORDER BY n DESC LIMIT 10',
+    )
+    source_rows = await db_all(env, 'SELECT * FROM sources')
+    return json_response({
+        'generatedAt': generated_at,
+        'days': days,
+        'categories': categories,
+        'tags': tags,
+        'sources': [_source_out(row) for row in source_rows],
+    })
 
 
 # ---------------------------------------------------------------------------
@@ -221,7 +288,7 @@ async def handle_api(req, env):
         return await handle_sync(req, env)
     if req['method'] not in ('GET', 'HEAD'):
         return error_response('Method not allowed', 405, [('Allow', 'GET, HEAD'), NO_STORE])
-    if path not in ('/api/feed', '/api/items', '/api/sources', '/api/health'):
+    if path not in ('/api/feed', '/api/items', '/api/sources', '/api/health', '/api/archive', '/api/stats'):
         return error_response('Not found', 404)
     if len(req['raw_query']) > 1000:
         return error_response('Query too long', 400)
@@ -238,11 +305,17 @@ async def handle_api(req, env):
             order = {sid: i for i, sid in enumerate(source_order())}
             source_rows = await db_all(env, 'SELECT * FROM sources')
             source_rows.sort(key=lambda row: (order.get(row['id'], 99), row['id']))
+            note_raw = await get_meta(env, 'editor_note')
+            try:
+                note = json.loads(note_raw) if note_raw else None
+            except ValueError:
+                note = None
             feed = {
                 'schemaVersion': 1,
                 'generatedAt': generated_at,
                 'sources': [_source_out(row) for row in source_rows],
                 'items': await load_all_items(env),
+                'editorNote': note if isinstance(note, dict) and note.get('text') else None,
             }
             return json_response(feed)
         if path == '/api/sources':
@@ -269,6 +342,10 @@ async def handle_api(req, env):
                 'schedule': SCHEDULE,
                 'collection': COLLECTION,
             })
+        if path == '/api/archive':
+            return await archive(env, req['query'])
+        if path == '/api/stats':
+            return await stats(env, generated_at)
         return await list_items(env, req['query'], generated_at, stale)
     except Exception as error:  # noqa: BLE001 — surface as 503 like the JS worker
         print('API unavailable:', error)
