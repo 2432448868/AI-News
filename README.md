@@ -9,6 +9,7 @@
 2026-10-03 首次 Actions 部署通过，7/7 免费来源同步成功，首发线上快照 164 条。
 
 ## 功能
+
 - AI 动态、开源项目、Agent Skills、模型动态、实用技巧、趣味应用和开发实践。
 - 关键词搜索、分类/时间组合筛选、最新/热度排序、分批加载。
 - 深浅主题、响应式布局、减少动效偏好、键盘导航、浏览器本地收藏。
@@ -16,24 +17,26 @@
 - 原文标题与描述不强制翻译，不需要付费 LLM、搜索或翻译 API。
 
 ## 本地运行
+
 要求 Node.js 24 与 npm。
 
-~~~bash
+```bash
 npm ci
 npm run dev
-~~~
+```
 
 仓库自带真实采集快照，无需连通第三方源即可预览。
 
-~~~bash
+```bash
 npm run collect         # 采集免费 API/RSS，刷新 public/data/feed.json
 npm run check           # 格式检查 + 数据测试 + 类型检查 + 生产构建
 npx playwright install chromium
 npm run test:e2e         # 桌面/移动、无障碍与 Pages 子路径验收
 npm run preview         # 预览 dist；先运行 npm run build
-~~~
+```
 
 ## 发布到 GitHub Pages
+
 1. 创建 **公开仓库**，将本项目提交到默认分支 main 或 master。本仓库已在用户授权后完成首次提交与推送；以下供重新部署或 fork 使用。
 2. 在仓库 Settings → Pages → Build and deployment 中选择 **GitHub Actions**。
 3. 在 Actions 中允许工作流运行；进入 **Daily update & deploy**，手动 Run workflow。
@@ -45,15 +48,16 @@ Vite 使用相对 base，兼容项目路径（例如 /AI-News/）与用户主页
 前端不会直接调用 GitHub/Hugging Face API，不会把 token 发给访客。
 
 ## 更新与免费边界
-| 项目 | 约定 |
-|---|---|
-| 每日计划 | 北京时间 08:23 与 14:23，第二次用于增加成功机会 |
-| 收费服务 | 无；无付费 API、LLM、代理、翻译、数据库或服务端 |
-| 托管前提 | 公开仓库、GitHub 标准托管 runner、默认 Pages 域名 |
-| 数据历史 | 近 30 天文章；最近项目榜单快照；不提供永久归档 |
-| 单源故障 | 标记失败，保留该源上次快照；其他源正常更新 |
-| 全源故障 | 工作流失败，不写新快照、不覆盖上次线上站点 |
-| 快照过期 | 超过 36 小时在页面显式提醒 |
+
+| 项目       | 约定                                                            |
+| ---------- | --------------------------------------------------------------- |
+| 每日计划   | 北京时间 08:23 与 14:23，第二次用于增加成功机会                 |
+| 收费服务   | 无；无付费 API、LLM、代理、翻译、数据库或服务端                 |
+| 托管前提   | 公开仓库、GitHub 标准托管 runner、默认 Pages 域名               |
+| 数据历史   | 近 30 天文章；最近项目榜单快照；不提供永久归档                  |
+| 单源故障   | 标记失败，保留该源上次快照；其他源正常更新                      |
+| 全源故障   | 工作流失败，不写新快照、不覆盖上次线上站点                      |
+| 快照过期   | 超过 36 小时在页面显式提醒                                      |
 | 数据持久化 | Actions cache；无需工作流 commit/push；缓存失效回退仓库种子快照 |
 
 GitHub 的免费调度不是强 SLA：任务可能延迟或丢弃；公开仓库连续 60 天没有活动时可能自动停用计划任务。
@@ -62,16 +66,17 @@ GitHub 的免费调度不是强 SLA：任务可能延迟或丢弃；公开仓库
 政策和免费额度以 GitHub 官方说明为准；不要改成付费 runner 或额外付费服务。
 
 ## 数据来源
-| 来源 | 免费方式 | 说明 |
-|---|---|---|
-| GitHub | Repository Search API | 近 30 天活跃 LLM 仓库，累计 stars 排序 |
-| GitHub Demos | Repository Search API | 近 30 天活跃的 Gradio demo 项目，排除框架本体 |
-| GitHub Skills | Repository Search API | agent-skills topic，非通用编程技能榜 |
-| GitHub Demos | Repository Search API | 活跃 Gradio 应用项目，补充趣味案例 |
-| Hugging Face Models | Hub 公共 API | 来源热门模型榜；创建/修改时间不等于正式发布日期 |
-| Hugging Face Spaces | Hub 公共 API | 来源热门 AI demo；可用性取决于作者 |
-| Hugging Face Blog | 官方 RSS | 新闻、教程、模型动态 |
-| GitHub Blog | 官方 AI & ML RSS | AI 编码与实践 |
+
+| 来源                | 免费方式              | 说明                                            |
+| ------------------- | --------------------- | ----------------------------------------------- |
+| GitHub              | Repository Search API | 近 30 天活跃 LLM 仓库，累计 stars 排序          |
+| GitHub Demos        | Repository Search API | 近 30 天活跃的 Gradio demo 项目，排除框架本体   |
+| GitHub Skills       | Repository Search API | agent-skills topic，非通用编程技能榜            |
+| GitHub Demos        | Repository Search API | 活跃 Gradio 应用项目，补充趣味案例              |
+| Hugging Face Models | Hub 公共 API          | 来源热门模型榜；创建/修改时间不等于正式发布日期 |
+| Hugging Face Spaces | Hub 公共 API          | 来源热门 AI demo；可用性取决于作者              |
+| Hugging Face Blog   | 官方 RSS              | 新闻、教程、模型动态                            |
+| GitHub Blog         | 官方 AI & ML RSS      | AI 编码与实践                                   |
 
 采集限制：每源至多 30 条，总量至多 500 条；响应体至多 2MB；15 秒超时与最多 3 次尝试。
 响应限流时尊重短 Retry-After，长等待留到下次调度；不绕过验证码、登录、付费墙或限流。
@@ -80,6 +85,7 @@ GitHub 的免费调度不是强 SLA：任务可能延迟或丢弃；公开仓库
 外部项目是否收费、是否安全，需要读者在原站确认。
 
 ## 故障排查与回滚
+
 - 某分类为空：打开“关于与来源”，查看对应源是否采集失败；不使用假新闻补位。
 - HF 本机不通：初次开发环境已观察到直连超时；GitHub 来源正常。按来源隔离失败，交由 runner 实测网络。
 - 采集限流：本机可选设置自有 GITHUB_TOKEN 环境变量，仅需要公共只读访问；绝不提交 token。
@@ -89,7 +95,8 @@ GitHub 的免费调度不是强 SLA：任务可能延迟或丢弃；公开仓库
 - 本地缓存：.cache/feed.json 可删除以回退仓库快照；不得删除 public/data/feed.json 后直接离线发布。
 
 ## 工程结构
-~~~text
+
+```text
 src/                    界面、主题与共享数据规则
 backend/                Python Worker（API、采集、OAuth，Cloudflare 端）
 migrations/             D1 数据库建表语句
@@ -98,9 +105,10 @@ public/data/feed.json   真实数据种子快照
 .github/workflows/      定时更新/部署与 PR 验证
 tests/                  数据边界、Python 后端与浏览器验收
 docs/requirements/ai-news/ 需求、选型、评审、实现与验收记录
-~~~
+```
 
 ## 依据
+
 - https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
 - https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule
 - https://docs.github.com/en/rest/search/search#search-repositories
@@ -111,9 +119,11 @@ docs/requirements/ai-news/ 需求、选型、评审、实现与验收记录
 > 故障保留例外：失败来源沿用上次成功快照，文章可能超过 30 天；保留原始日期并标记来源失败，不伪装成新内容。
 
 本机已安装 Chrome 时，可在 Git Bash 使用：
-~~~bash
+
+```bash
 PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.exe' npm run test:e2e
-~~~
+```
+
 测试脚本基于 Chromium 手机尺寸模拟，并非真实 iOS Safari 验证。
 
 ## Cloudflare 前后端部署
@@ -125,27 +135,27 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 
 ### D1 数据表（migrations/0001_init.sql，共 9 张）
 
-| 表 | 作用 |
-|---|---|
-| `meta` | 运行时键值对：`generated_at` 快照生成时间、`collect_cursor` 源轮转游标、`sync_status` 最近一次采集结果 JSON |
-| `sources` | 12 个数据源档案：名称、主页、`ok/error` 状态、最后成功时间、条数、失败原因；"关于与来源"面板直接读它 |
-| `items` | 文章/仓库主表：`id`=sha256(规范 URL) 前 20 位、标题、原文链接、摘要、所属源、发布/更新/采集时间、排序时间戳 `item_ts`、热度分 `rank_score`、指标（stars/downloads/likes）、是否中国相关、检索预拼文本；全局上限 500 条 |
-| `item_categories` | 条目↔分类关联，7 个枚举值（news/projects/skills/models/tips/apps/dev） |
-| `item_tags` | 条目↔标签关联；入库时由 `backend/topics.py` 规则富化，每条至多 16 个 |
-| `users` | GitHub 登录用户：`github_id` 主键、login、昵称 |
-| `sessions` | 登录会话：token 哈希、CSRF 令牌、过期时间（7 天）、限流窗口与计数；每账号最多 8 个 |
-| `favorites` | 云端收藏（用户↔条目） |
-| `followed_tags` | 关注的标签（用户↔标签） |
+| 表                | 作用                                                                                                                                                                                                                   |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `meta`            | 运行时键值对：`generated_at` 快照生成时间、`collect_cursor` 源轮转游标、`sync_status` 最近一次采集结果 JSON                                                                                                            |
+| `sources`         | 12 个数据源档案：名称、主页、`ok/error` 状态、最后成功时间、条数、失败原因；"关于与来源"面板直接读它                                                                                                                   |
+| `items`           | 文章/仓库主表：`id`=sha256(规范 URL) 前 20 位、标题、原文链接、摘要、所属源、发布/更新/采集时间、排序时间戳 `item_ts`、热度分 `rank_score`、指标（stars/downloads/likes）、是否中国相关、检索预拼文本；全局上限 500 条 |
+| `item_categories` | 条目↔分类关联，7 个枚举值（news/projects/skills/models/tips/apps/dev）                                                                                                                                                 |
+| `item_tags`       | 条目↔标签关联；入库时由 `backend/topics.py` 规则富化，每条至多 16 个                                                                                                                                                   |
+| `users`           | GitHub 登录用户：`github_id` 主键、login、昵称                                                                                                                                                                         |
+| `sessions`        | 登录会话：token 哈希、CSRF 令牌、过期时间（7 天）、限流窗口与计数；每账号最多 8 个                                                                                                                                     |
+| `favorites`       | 云端收藏（用户↔条目）                                                                                                                                                                                                  |
+| `followed_tags`   | 关注的标签（用户↔标签）                                                                                                                                                                                                |
 
 ### 运行结果怎么看 / 日志在哪
 
-| 方式 | 内容 |
-|---|---|
-| 站内面板 | 首页"N / 12 来源已同步"；"关于与来源"看每源状态、条数、最后成功时间与失败原因 |
-| `/api/health` | 免登录总览：快照时间、总条数、健康源数、最近一次采集明细（`sync` 字段） |
-| `/api/sources` | 免登录逐源状态 |
-| CF 面板日志 | 登录 [dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → `signal-ai-news` → **Logs**；Observability 已开启，cron 每次执行的记录与采集报错都在，可按时间过滤 |
-| 手动刷新 | `POST /api/sync` 带 `x-admin-token` 请求头（密钥存本地 `.secrets.local.txt`，不入仓库） |
+| 方式           | 内容                                                                                                                                                                           |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 站内面板       | 首页"N / 12 来源已同步"；"关于与来源"看每源状态、条数、最后成功时间与失败原因                                                                                                  |
+| `/api/health`  | 免登录总览：快照时间、总条数、健康源数、最近一次采集明细（`sync` 字段）                                                                                                        |
+| `/api/sources` | 免登录逐源状态                                                                                                                                                                 |
+| CF 面板日志    | 登录 [dash.cloudflare.com](https://dash.cloudflare.com) → Workers & Pages → `signal-ai-news` → **Logs**；Observability 已开启，cron 每次执行的记录与采集报错都在，可按时间过滤 |
+| 手动刷新       | `POST /api/sync` 带 `x-admin-token` 请求头（密钥存本地 `.secrets.local.txt`，不入仓库）                                                                                        |
 
 ## 用户系统
 
