@@ -85,6 +85,11 @@ class Default(WorkerEntrypoint):
             path = req['path']
             if path.startswith('/api/auth/') or path.startswith('/api/user/'):
                 resp = await handle_account_request(req, env)
+            elif path in ('/rss', '/rss.xml'):
+                # Worker-served feed; run_worker_first routes it here, not ASSETS.
+                from rss import handle_rss
+
+                resp = await handle_rss(env, req['origin'])
             elif not path.startswith('/api/'):
                 # Static assets (dist/) served by the platform binding.
                 return await env.ASSETS.fetch(request)
