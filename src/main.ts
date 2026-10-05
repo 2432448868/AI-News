@@ -3,8 +3,11 @@ import './style.css';
 import './motion.css';
 import { initMotion } from './motion';
 import shell from './shell.html?raw';
-import { CATEGORY_LABELS, escapeHtml as esc, filterItems, validateFeed } from './data.mjs';
+import { CATEGORY_LABELS, escapeHtml as esc, filterItems, growthDelta, validateFeed } from './data.mjs';
 import type { Category, Feed, Item } from './types';
+
+/** Cloud mode talks to the live API; static mode reads a frozen feed.json snapshot. */
+const cloud = import.meta.env.VITE_FEED_URL === '/api/feed';
 
 const paths = {
   arrow: '<path d="M7 17 17 7M7 7h10v10"/>',
@@ -116,6 +119,10 @@ const metric = (i: Item) =>
     : compact.format(i.metricValue) +
       ' ' +
       (i.metricLabel === 'stars' ? 'stars' : i.metricLabel === 'downloads' ? 'downloads' : 'likes');
+const SORT_NOTES: Record<string, string> = {
+  hot: '热度参考为各来源榜单名次的归一化排序，不代表跨平台真实热度或今日增长。',
+  growth: '涨星最快按本轮采集相对上一轮的增量排序，仅 GitHub 项目来源参与；其余信号沉底。',
+};
 const logo =
   '<svg viewBox="0 0 32 32" aria-hidden="true"><path d="M6 20h7L21 7h5M6 26h7l8-13h5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 get('#app').innerHTML = shell
@@ -235,6 +242,9 @@ function card(item: Item) {
       ? '<div class="metric-line">' +
         icon(item.metricLabel === 'stars' ? 'star' : 'bolt') +
         esc(metric(item)) +
+        (growthDelta(item) > 0
+          ? '<span class="metric-delta">+' + compact.format(growthDelta(item)) + '</span>'
+          : '') +
         '<span>' +
         (item.metricLabel === 'stars'
           ? '累计关注'
@@ -251,6 +261,10 @@ function renderPaper(featuredId?: string, excludeIds: string[] = []) {
   get('#paper-stamp').textContent = feed.generatedAt
     ? '付印 ' + stampTime.format(new Date(feed.generatedAt))
     : '';
+  // textContent keeps AI-written copy inert; static snapshots simply stay hidden
+  const note = get('#editor-note');
+  note.textContent = feed.editorNote?.text || '';
+  note.hidden = !feed.editorNote?.text;
   // 头条卡与开源榜已各自展示的条目不再上要目，避免同屏重复
   const picks = (filterItems(feed.items, { sort: 'latest' }) as Item[]).filter(
     (i) => i.id !== featuredId && !excludeIds.includes(i.id),
@@ -362,7 +376,8 @@ function renderResults() {
     days ||
     savedOnly
   );
-  get('#sort-note').hidden = sort !== 'hot';
+  get('#sort-note').hidden = !SORT_NOTES[sort];
+  get('#sort-note').textContent = SORT_NOTES[sort] || '';
   if (!feed) return;
   const filtered = filterItems(feed.items, {
     query,
@@ -448,6 +463,144 @@ function renderHealth() {
     )
     .join('');
 }
+interface ArchiveDay {
+  date: string;
+  generatedAt: string;
+  stats: { items?: number };
+}
+interface ArchiveEdition {
+  stats?: { items?: number };
+  lead?: { title: string; url: string; sourceName: string }[];
+}
+interface StatsPayload {
+  days: { date: string; items: number }[];
+  categories: { category: string; n: number }[];
+  tags: { tag: string; n: number }[];
+  sources: { status: string }[];
+}
+let archiveDays: ArchiveDay[] | null = null;
+async function fetchJson<T>(url: string): Promise<T> {
+  const response = await fetch(url, { cache: 'no-cache', signal: AbortSignal.timeout(10000) });
+  if (!response.ok) throw new Error('HTTP ' + response.status);
+  return (await response.json()) as T;
+}
+function loadArchive(date?: string) {
+  const box = get('#archive-list');
+  const attempt = date
+    ? fetchJson<ArchiveEdition>('/api/archive?date=' + encodeURIComponent(date)).then((edition) => {
+        const lead = edition.lead || [];
+        box.innerHTML =
+          '<button class="text-link" data-action="archive">返回往期列表</button>' +
+          '<p class="archive-date">' +
+          esc(date) +
+          ' · ' +
+          (edition.stats?.items ?? 0) +
+          ' 条信号</p>' +
+          (lead.length
+            ? '<ol class="archive-lead">' +
+              lead
+                .map(
+                  (l) =>
+                    '<li><a href="' +
+                    esc(l.url) +
+                    '" target="_blank" rel="noopener noreferrer">' +
+                    esc(l.title) +
+                    '<span class="paper-item-src">' +
+                    esc(l.sourceName) +
+                    '</span></a></li>',
+                )
+                .join('') +
+              '</ol>'
+            : '<p class="dialog-empty">这一期没有留下要目。</p>');
+      })
+    : (archiveDays
+        ? Promise.resolve(archiveDays)
+        : fetchJson<{ days: ArchiveDay[] }>('/api/archive').then((data) => {
+            archiveDays = data.days || [];
+            return archiveDays;
+          })
+      ).then(
+        (days) => {
+          box.innerHTML = days.length
+            ? '<ol class="archive-days">' +
+              days
+                .map(
+                  (d) =>
+                    '<li><button class="archive-day" data-action="archive-day" data-date="' +
+                    esc(d.date) +
+                    '"><strong>' +
+                    esc(d.date) +
+                    '</strong><span>' +
+                    (d.stats?.items ?? 0) +
+                    ' 条 · 付印 ' +
+                    stampTime.format(new Date(d.generatedAt)) +
+                    '</span></button></li>',
+                )
+                .join('') +
+              '</ol>'
+            : '<p class="dialog-empty">第一期还没付印；明早 08:05 后再来。</p>';
+        },
+      );
+  return attempt.catch(() => {
+    box.textContent = '往期读取失败，稍后再试。';
+  });
+}
+function loadStats() {
+  const box = get('#stats-list');
+  if (box.dataset.loaded) return Promise.resolve();
+  box.textContent = '正在合算…';
+  const bars = (rows: { label: string; n: number }[], max: number) =>
+    '<ol class="stat-bars">' +
+    rows
+      .map(
+        (r) =>
+          '<li><span class="stat-label">' +
+          esc(r.label) +
+          '</span><span class="stat-bar"><i style="width:' +
+          Math.round((r.n / max) * 100) +
+          '%"></i></span><span class="stat-value">' +
+          r.n +
+          '</span></li>',
+      )
+      .join('') +
+    '</ol>';
+  return fetchJson<StatsPayload>('/api/stats')
+    .then((data) => {
+      box.dataset.loaded = '1';
+      const dayMax = Math.max(1, ...data.days.map((d) => d.items));
+      const catMax = Math.max(1, ...data.categories.map((c) => c.n));
+      const okSources = data.sources.filter((s) => s.status === 'ok').length;
+      box.innerHTML =
+        '<h3>每日出刊</h3>' +
+        (data.days.length
+          ? bars(data.days.map((d) => ({ label: d.date.slice(5), n: d.items })), dayMax)
+          : '<p class="dialog-empty">出刊记录将从第一轮完整采集后开始累积。</p>') +
+        '<h3>分类分布</h3>' +
+        (data.categories.length
+          ? bars(
+              data.categories.map((c) => ({
+                label: labels[c.category as Category] || c.category,
+                n: c.n,
+              })),
+              catMax,
+            )
+          : '<p class="dialog-empty">暂无分类数据。</p>') +
+        '<h3>高频标签</h3>' +
+        (data.tags.length
+          ? '<p class="stat-tags">' +
+            data.tags.map((t) => esc(t.tag) + ' <span>' + t.n + '</span>').join(' · ') +
+            '</p>'
+          : '<p class="dialog-empty">暂无标签数据。</p>') +
+        '<p class="stat-sources">' +
+        okSources +
+        ' / ' +
+        data.sources.length +
+        ' 个来源当前在线</p>';
+    })
+    .catch(() => {
+      box.textContent = '统计读取失败，稍后再试。';
+    });
+}
 async function load() {
   if (loading) return;
   loading = true;
@@ -463,6 +616,11 @@ async function load() {
     );
     if (!response.ok) throw new Error('HTTP ' + response.status);
     feed = validateFeed(await response.json());
+    if (cloud) {
+      // 往期/统计依赖云端 API，静态快照模式保持隐藏
+      get('#nav-archive').hidden = false;
+      get('#nav-stats').hidden = false;
+    }
     renderHealth();
     renderHighlights();
     renderResults();
@@ -549,8 +707,20 @@ document.addEventListener('click', (event) => {
     case 'sources':
       get<HTMLDialogElement>('#sources-dialog').showModal();
       break;
+    case 'archive':
+      archiveDays = null; // every open re-reads, so today's edition shows up
+      get<HTMLDialogElement>('#archive-dialog').showModal();
+      void loadArchive();
+      break;
+    case 'archive-day':
+      void loadArchive(target.dataset.date);
+      break;
+    case 'stats':
+      get<HTMLDialogElement>('#stats-dialog').showModal();
+      void loadStats();
+      break;
     case 'close-dialog':
-      get<HTMLDialogElement>('#sources-dialog').close();
+      target.closest('dialog')?.close();
       break;
     case 'reload':
       void load();
@@ -641,8 +811,7 @@ document.addEventListener('keydown', (event) => {
     !event.ctrlKey &&
     !event.metaKey &&
     !event.altKey &&
-    !get<HTMLDialogElement>('#sources-dialog').open &&
-    !get<HTMLDialogElement>('#account-dialog').open &&
+    !document.querySelector('dialog[open]') &&
     !(event.target instanceof HTMLInputElement) &&
     !(event.target instanceof HTMLTextAreaElement) &&
     !(event.target instanceof HTMLSelectElement)
@@ -651,9 +820,9 @@ document.addEventListener('keydown', (event) => {
     get<HTMLInputElement>('#search').focus();
   }
 });
-get<HTMLDialogElement>('#sources-dialog').addEventListener('click', (event) => {
-  const dialog = get<HTMLDialogElement>('#sources-dialog');
-  if (event.target === dialog) {
+document.querySelectorAll('dialog').forEach((dialog) => {
+  dialog.addEventListener('click', (event) => {
+    if (event.target !== dialog) return;
     const rect = dialog.getBoundingClientRect();
     if (
       event.clientX < rect.left ||
@@ -662,7 +831,7 @@ get<HTMLDialogElement>('#sources-dialog').addEventListener('click', (event) => {
       event.clientY > rect.bottom
     )
       dialog.close();
-  }
+  });
 });
 matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (event) => {
   if (!['dark', 'light'].includes(readStorage('signal-theme') || '')) {

@@ -10,7 +10,15 @@
       <a href="#discover" class="nav-link active">发现</a
       ><button class="nav-link" data-action="saved" aria-pressed="false">
         我的收藏 <span id="saved-count">0</span></button
-      ><button class="nav-link" data-action="sources">关于与来源 {{icon:chevron}}</button>
+      ><button class="nav-link" data-action="sources">关于与来源 {{icon:chevron}}</button
+      ><!-- 云端版专属入口（静态快照模式保持隐藏） --><button
+        class="nav-link"
+        id="nav-archive"
+        data-action="archive"
+        hidden
+      >
+        往期</button
+      ><button class="nav-link" id="nav-stats" data-action="stats" hidden>统计</button>
     </nav>
     <div class="header-actions">
       <button id="account-button" class="account-trigger" aria-haspopup="dialog">我的账户</button>
@@ -49,6 +57,7 @@
         <span class="live-dot"></span><span class="paper-brand">signal 要目</span
         ><span class="paper-stamp" id="paper-stamp"></span>
       </p>
+      <p class="editor-note" id="editor-note" hidden></p>
       <ol id="paper-list" class="paper-list" aria-label="最新信号">
         <li class="skeleton-line"></li>
         <li class="skeleton-line"></li>
@@ -122,13 +131,12 @@
           ><select id="sort">
             <option value="latest">最新动态</option>
             <option value="hot">热度参考</option>
+            <option value="growth">涨星最快</option>
           </select></label
         >
       </div>
     </div>
-    <p class="sort-note" id="sort-note" hidden>
-      热度参考为各来源榜单名次的归一化排序，不代表跨平台真实热度或今日增长。
-    </p>
+    <p class="sort-note" id="sort-note" hidden></p>
     <div id="feed-grid" class="feed-grid" aria-busy="true">
       <div class="news-card skeleton">
         <div class="skeleton-line"></div>
@@ -205,6 +213,30 @@
   </div>
   <button class="secondary-button" data-action="reload">{{icon:refresh}} 重新加载网站快照</button>
   <p class="reload-note">这不会触发远端采集；维护者可在 GitHub Actions 手动运行更新。</p>
+</dialog>
+<dialog id="archive-dialog" aria-labelledby="archive-title">
+  <div class="dialog-heading">
+    <div>
+      <h2 id="archive-title">往期报纸</h2>
+    </div>
+    <button class="icon-button" data-action="close-dialog" aria-label="关闭往期面板">
+      {{icon:close}}
+    </button>
+  </div>
+  <p class="dialog-intro">每天 08:05 付印的头版存档，保留最近 90 期。</p>
+  <div id="archive-list"></div>
+</dialog>
+<dialog id="stats-dialog" aria-labelledby="stats-title">
+  <div class="dialog-heading">
+    <div>
+      <h2 id="stats-title">编辑部统计</h2>
+    </div>
+    <button class="icon-button" data-action="close-dialog" aria-label="关闭统计面板">
+      {{icon:close}}
+    </button>
+  </div>
+  <p class="dialog-intro">近 30 天出刊条数，以及当前快照里的信号分布。</p>
+  <div id="stats-list"></div>
 </dialog>
 <dialog id="account-dialog" aria-labelledby="account-title">
   <div class="dialog-heading">

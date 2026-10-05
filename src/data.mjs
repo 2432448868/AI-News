@@ -101,12 +101,34 @@ export function validateFeed(value) {
       i.rankScore < 0 ||
       i.rankScore > 100 ||
       !(i.metricValue === null || (Number.isFinite(i.metricValue) && i.metricValue >= 0)) ||
+      // metricPrev arrived with growth sorting; static snapshots ship without it
+      !(
+        i.metricPrev === undefined ||
+        i.metricPrev === null ||
+        (Number.isFinite(i.metricPrev) && i.metricPrev >= 0)
+      ) ||
       !(i.metricLabel === null || typeof i.metricLabel === 'string')
     )
       fail();
     ids.add(i.id);
   }
+  if (
+    value.editorNote !== undefined &&
+    !(
+      value.editorNote === null ||
+      (value.editorNote &&
+        typeof value.editorNote.date === 'string' &&
+        typeof value.editorNote.text === 'string' &&
+        value.editorNote.text.trim())
+    )
+  )
+    fail();
   return { ...value, items: value.items.map(enrichItem) };
+}
+export function growthDelta(item) {
+  return item.metricValue !== null && item.metricPrev !== null
+    ? item.metricValue - item.metricPrev
+    : Number.NEGATIVE_INFINITY;
 }
 export function filterItems(
   items,
@@ -147,6 +169,10 @@ export function filterItems(
     .sort((a, b) =>
       sort === 'hot'
         ? b.rankScore - a.rankScore || itemTime(b) - itemTime(a) || a.id.localeCompare(b.id)
-        : itemTime(b) - itemTime(a) || b.rankScore - a.rankScore || a.id.localeCompare(b.id),
+        : sort === 'growth'
+          ? growthDelta(b) - growthDelta(a) ||
+            itemTime(b) - itemTime(a) ||
+            a.id.localeCompare(b.id)
+          : itemTime(b) - itemTime(a) || b.rankScore - a.rankScore || a.id.localeCompare(b.id),
     );
 }

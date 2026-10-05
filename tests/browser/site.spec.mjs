@@ -30,7 +30,8 @@ const fixture = {
     updatedAt: null,
     collectedAt: now,
     rankScore: 100 - i,
-    metricValue: i % 7 === 1 ? 1000 + i : null,
+    metricValue: i % 7 === 1 ? 1000 + i * 30 : null,
+    metricPrev: i % 7 === 1 ? 1000 : null,
     metricLabel: i % 7 === 1 ? 'stars' : null,
   })),
 };
@@ -89,6 +90,32 @@ test('sorting shows ranking disclaimer', async ({ page }) => {
   await expect(page.locator('#sort-note')).toBeVisible();
   await page.locator('#sort').selectOption('latest');
   await expect(page.locator('#sort-note')).toBeHidden();
+});
+test('growth sort leads with the biggest star delta and sinks metric-less items', async ({
+  page,
+}) => {
+  await mock(page);
+  await page.locator('#sort').selectOption('growth');
+  await expect(page.locator('#sort-note')).toContainText('涨星最快');
+  // deltas are i*30 on i ∈ {1,8,15,22} → biggest first, everything else sinks
+  await expect(page.locator('.news-card').first().locator('h3')).toContainText('Test signal 22');
+  await expect(page.locator('.metric-delta')).toHaveCount(4);
+  await expect(page.locator('.metric-delta').first()).toHaveText('+660');
+  await expect(page.locator('.news-card').nth(4).locator('.metric-delta')).toHaveCount(0);
+});
+test('editor note renders from the feed and stays hidden without one', async ({ page }) => {
+  await mock(page);
+  await expect(page.locator('#editor-note')).toBeHidden();
+  const data = structuredClone(fixture);
+  data.editorNote = { date: '2026-10-06', text: '看点：开源持续发力。' };
+  await mock(page, data);
+  await expect(page.locator('#editor-note')).toBeVisible();
+  await expect(page.locator('#editor-note')).toHaveText('看点：开源持续发力。');
+});
+test('static snapshots keep cloud-only entries hidden', async ({ page }) => {
+  await mock(page);
+  await expect(page.locator('#nav-archive')).toBeHidden();
+  await expect(page.locator('#nav-stats')).toBeHidden();
 });
 test('bookmark persists after reload and can be removed from saved view', async ({ page }) => {
   await mock(page);
