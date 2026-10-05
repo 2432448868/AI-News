@@ -50,7 +50,7 @@ async function open(page) {
   await expect(page.locator('#account-dialog')).toBeVisible();
 }
 
-test('configured guest sees GitHub login and local records are not uploaded', async ({ page }) => {
+test('configured guest sees GitHub login and favorites require it', async ({ page }) => {
   const { writes } = await mock(page, { loggedIn: false });
   await open(page);
   await expect(page.getByRole('link', { name: /使用 GitHub 登录/ })).toHaveAttribute(
@@ -58,7 +58,23 @@ test('configured guest sees GitHub login and local records are not uploaded', as
     '/api/auth/github',
   );
   expect(writes).toEqual([]);
-  await expect(page.locator('#account-content')).toContainText('不会自动上传');
+  await expect(page.locator('#account-content')).toContainText('需要登录后使用');
+  await page.keyboard.press('Escape');
+  await page.locator('.news-card button[data-action="save"]').first().click();
+  await expect(page.locator('#account-dialog')).toBeVisible();
+  await expect(page.locator('#toast')).toHaveText('登录后才能收藏。');
+  await expect(page.locator('#saved-count')).toHaveText('0');
+  expect(writes).toEqual([]);
+  expect(await page.evaluate(() => JSON.parse(localStorage.getItem('signal-saved')))).toEqual([
+    'local-only',
+  ]);
+});
+test('guest cannot open saved view without login', async ({ page }) => {
+  await mock(page, { loggedIn: false });
+  await page.locator('[data-action="saved"]').first().click();
+  await expect(page.locator('#account-dialog')).toBeVisible();
+  await expect(page.locator('#toast')).toHaveText('登录后才能查看收藏。');
+  await expect(page.locator('#discover-title')).not.toContainText('我的收藏');
 });
 test('unconfigured account is explicit and modal is accessible without horizontal overflow', async ({
   page,
@@ -88,7 +104,7 @@ test('cloud favorites wait for server success, persist on refresh, and stay out 
   await page.reload();
   await expect(page.locator('#saved-count')).toHaveText('1');
 });
-test('profile is escaped, followed tags support quick filtering, logout restores local favorites', async ({
+test('profile is escaped, followed tags support quick filtering, logout clears cloud favorites', async ({
   page,
 }) => {
   await mock(page);
@@ -107,8 +123,9 @@ test('profile is escaped, followed tags support quick filtering, logout restores
   await expect(page.locator('#active-tag')).toContainText('DeepSeek');
   await open(page);
   await page.getByRole('button', { name: '退出登录' }).click();
-  await expect(page.locator('#saved-count')).toHaveText('1');
+  await expect(page.locator('#saved-count')).toHaveText('0');
   await expect(page.locator('#account-button')).toHaveText('我的账户');
+  await expect(page.locator('#account-content')).toContainText('需要登录后使用');
 });
 test('failed cloud writes do not falsely change saved state', async ({ page }) => {
   await mock(page, { failWrite: true });

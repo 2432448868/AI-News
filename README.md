@@ -159,5 +159,5 @@ PLAYWRIGHT_EXECUTABLE_PATH='C:/Program Files/Google/Chrome/Application/chrome.ex
 
 ## 用户系统
 
-新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；Pages 保持本地模式，Cloudflare 端存 D1。
+新增 GitHub OAuth 登录、个人昵称、云端收藏和标签关注；云端收藏与关注标签需要登录，Pages 保持本地收藏模式，Cloudflare 端存 D1。
 [用户系统说明与配置教程](docs/accounts/README.md)。2026-10-04 已配置 OAuth 密钥并完成真实 GitHub 登录验收，账号系统上线。

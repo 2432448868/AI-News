@@ -49,10 +49,12 @@ export function initAccount(hooks: Hooks) {
           ? '<a class="primary-button account-login" href="/api/auth/github">使用 GitHub 登录 <span aria-hidden="true">↗</span></a><p class="account-note">仅使用 GitHub 公开身份，不申请仓库或邮箱权限。登录即创建本站账户。</p>'
           : '<p class="account-note">' +
             (cloud
-              ? '管理员尚未启用 GitHub 登录。现在仍可浏览资讯并使用本地收藏。'
+              ? '管理员尚未启用 GitHub 登录。收藏与关注标签暂不可用。'
               : '当前为 GitHub Pages 静态版，仅提供本地收藏。云端账号功能需在 Cloudflare 版本启用。') +
             '</p>') +
-        '<p class="account-privacy">登录后的云端收藏与游客本地收藏分开保存，不会自动上传这台设备上的记录。</p>';
+        (cloud
+          ? '<p class="account-privacy">收藏与关注标签需要登录后使用；游客模式下本站不保存收藏记录。</p>'
+          : '<p class="account-privacy">本地收藏仅保存在当前浏览器，不会自动上传这台设备上的记录。</p>');
       return;
     }
     content.innerHTML =
@@ -108,7 +110,7 @@ export function initAccount(hooks: Hooks) {
     if (!response.ok) {
       if (response.status === 401) {
         state = { available: true, user: null, favorites: [], tags: [] };
-        hooks.saved(null);
+        hooks.saved(cloud ? [] : null);
       }
       throw new Error(
         typeof result.error === 'string' ? result.error : '账号请求失败，请稍后重试。',
@@ -118,7 +120,8 @@ export function initAccount(hooks: Hooks) {
   }
   function apply(next: Session) {
     state = next;
-    hooks.saved(next.user ? next.favorites : null);
+    // null = 本地模式（Pages 静态版）；云端版游客拿到空列表——收藏是登录专属功能。
+    hooks.saved(next.user ? next.favorites : cloud ? [] : null);
     render();
   }
   async function refresh() {
@@ -198,7 +201,7 @@ export function initAccount(hooks: Hooks) {
       try {
         await request('/api/auth/logout', 'POST');
         apply({ available: true, user: null, favorites: [], tags: [] });
-        status.textContent = '已退出，恢复这台设备的本地收藏。';
+        status.textContent = '已退出登录。';
         hooks.toast(status.textContent);
       } catch (error) {
         status.textContent = error instanceof Error ? error.message : '退出失败，请重试。';
@@ -229,13 +232,28 @@ export function initAccount(hooks: Hooks) {
         hooks.toast('请先在账户面板确认连接状态。');
         return true;
       }
-      if (!state.user) return false;
+      if (!state.user) {
+        if (!cloud) return false; // Pages 静态版：无后端，保留本地收藏
+        dialog.showModal();
+        hooks.toast('登录后才能收藏。');
+        return true;
+      }
       const saved = !state.favorites.includes(id);
       void mutate(
         '/api/user/favorites',
         { id, saved },
         saved ? '已保存到云端收藏。' : '已取消云端收藏。',
       );
+      return true;
+    },
+    requireAuth(reason: string) {
+      if (!cloud || state.user) return false;
+      if (checking || failed) {
+        hooks.toast('请先在账户面板确认连接状态。');
+        return true;
+      }
+      dialog.showModal();
+      hooks.toast(reason);
       return true;
     },
     follow(tag: string) {

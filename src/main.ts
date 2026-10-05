@@ -350,7 +350,7 @@ function renderResults() {
   get('#discover-title').innerHTML =
     (savedOnly ? '我的收藏' : '发现新鲜事') + '<span class="heading-dot">.</span>';
   get('#result-count').textContent =
-    (savedOnly ? '本地收藏 · ' : '') +
+    (savedOnly ? '收藏 · ' : '') +
     filtered.length +
     ' 条值得探索的信号' +
     (query ? ' · 搜索「' + query + '」' : '') +
@@ -537,6 +537,7 @@ document.addEventListener('click', (event) => {
       break;
     }
     case 'saved':
+      if (account.requireAuth('登录后才能查看收藏。')) break;
       savedOnly = !savedOnly;
       limit = 12;
       renderResults();
