@@ -165,6 +165,18 @@ class TestItems:
         assert [i['id'] for i in payload['items']] == ['cc']
         assert payload['total'] == 3
 
+    def test_sort_growth(self, d1):
+        env = make_env(d1)
+        seed_feed(env)
+        run(db_batch(env, [
+            ("UPDATE items SET metric_value = 180, metric_prev = 100 WHERE id = 'aa'", ()),
+            ("UPDATE items SET metric_value = 500, metric_prev = 50 WHERE id = 'cc'", ()),
+        ]))
+        payload = body_of(run(api.handle_api(req(path='/api/items', query='sort=growth'), env)))
+        # delta 450 (cc) → 80 (aa) → NULL diff sinks last (bb, no metrics)
+        assert [i['id'] for i in payload['items']] == ['cc', 'aa', 'bb']
+        assert payload['items'][0]['metricPrev'] == 50
+
     def test_days_zero_no_filter(self, d1):
         env = make_env(d1)
         seed_feed(env)

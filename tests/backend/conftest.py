@@ -11,7 +11,12 @@ ROOT = Path(__file__).resolve().parents[2]
 # Backend modules are flat top-level modules (Cloudflare loads entry.py that
 # way), so tests import them the same way: api, util, collector, ...
 sys.path.insert(0, str(ROOT / 'backend'))
-SCHEMA = (ROOT / 'migrations' / '0001_init.sql').read_text(encoding='utf-8')
+# Schema = all migrations in filename order (0001, 0002, ...) — mirrors what
+# `wrangler d1 migrations apply` does remotely.
+SCHEMA = '\n'.join(
+    path.read_text(encoding='utf-8')
+    for path in sorted((ROOT / 'migrations').glob('*.sql'))
+)
 
 BASE_ENV = {
     'APP_ORIGIN': 'https://signal.example.com',

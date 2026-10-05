@@ -57,7 +57,7 @@ def _source_out(row):
 
 _ITEM_COLS = (
     'id, title, url, summary, source_id, source_name, published_at, updated_at, '
-    'collected_at, rank_score, metric_label, metric_value'
+    'collected_at, rank_score, metric_label, metric_value, metric_prev'
 )
 
 
@@ -74,6 +74,7 @@ def _row_to_item(row):
         'collectedAt': row['collected_at'],
         'metricLabel': row['metric_label'],
         'metricValue': row['metric_value'],
+        'metricPrev': row['metric_prev'],
         'rankScore': row['rank_score'],
         'categories': [],
         'tags': [],
@@ -108,6 +109,9 @@ async def load_all_items(env):
 _ORDER = {
     'latest': 'item_ts DESC, rank_score DESC, id ASC',
     'hot': 'rank_score DESC, item_ts DESC, id ASC',
+    # Growth = metric gained since the previous collection pass; NULL diff
+    # (RSS items, first-seen repos) sinks to the bottom.
+    'growth': '(metric_value - metric_prev) DESC NULLS LAST, item_ts DESC, id ASC',
 }
 
 

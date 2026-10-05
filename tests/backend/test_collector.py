@@ -244,6 +244,36 @@ class TestCollectSource:
         assert items[0]['id'] == collector.item_id('https://github.com/org/one')
 
 
+class TestMetricPrev:
+    def test_second_pass_carries_previous_metric(self, d1, monkeypatch):
+        env = make_env(d1)
+        payloads = {'https://api.github.com/search': json.dumps({'items': [repo('one')]})}
+        patch_sources(monkeypatch, [gh_source()])
+        patch_fetch(monkeypatch, payloads)
+
+        run(run_collection(env, now_ms=NOW_MS))
+        row = run(db_all(env, 'SELECT metric_value, metric_prev FROM items'))[0]
+        assert row['metric_value'] == 100 and row['metric_prev'] is None  # first sighting
+
+        payloads['https://api.github.com/search'] = json.dumps(
+            {'items': [repo('one', stargazers_count=180)]}
+        )
+        run(run_collection(env, now_ms=NOW_MS))
+        row = run(db_all(env, 'SELECT metric_value, metric_prev FROM items'))[0]
+        assert row['metric_value'] == 180 and row['metric_prev'] == 100  # delta +80
+
+    def test_rss_items_never_get_metric_prev(self, d1, monkeypatch):
+        env = make_env(d1)
+        patch_sources(monkeypatch, [rss_source()])
+        patch_fetch(monkeypatch, {'https://www.qbitai.com/feed': RSS})
+        run(run_collection(env, now_ms=NOW_MS))
+        rows = run(db_all(env, 'SELECT metric_prev FROM items'))
+        assert rows and all(row['metric_prev'] is None for row in rows)
+
+    def test_param_budget_under_d1_cap(self):
+        assert len(collector._ITEM_COLUMNS) * collector._ITEM_ROWS_PER_STMT <= 100
+
+
 class TestRunCollection:
     def test_rss_success_replaces_out_of_window(self, d1, monkeypatch):
         env = make_env(d1)

@@ -229,6 +229,7 @@ def _base(source, url, title, now, index):
         'collectedAt': now,
         'metricLabel': None,
         'metricValue': None,
+        'metricPrev': None,
         'rankScore': max(0, 100 - index * 3),
     }
 
@@ -403,7 +404,8 @@ _ITEM_CONFLICT = (
         col + ' = excluded.' + col
         for col in [
             'title', 'url', 'summary', 'source_id', 'source_name', 'published_at', 'updated_at',
-            'collected_at', 'item_ts', 'rank_score', 'metric_label', 'metric_value', 'is_china', 'search_text',
+            'collected_at', 'item_ts', 'rank_score', 'metric_label', 'metric_value', 'metric_prev',
+            'is_china', 'search_text',
         ]
     )
     + ' WHERE excluded.source_id = items.source_id AND excluded.collected_at >= items.collected_at'
@@ -411,9 +413,9 @@ _ITEM_CONFLICT = (
 _ITEM_COLUMNS = [
     'id', 'title', 'url', 'summary', 'source_id', 'source_name',
     'published_at', 'updated_at', 'collected_at', 'item_ts',
-    'rank_score', 'metric_label', 'metric_value', 'is_china', 'search_text',
+    'rank_score', 'metric_label', 'metric_value', 'metric_prev', 'is_china', 'search_text',
 ]
-_ITEM_ROWS_PER_STMT = 6  # 6 × 15 = 90 params, under D1's 100 cap
+_ITEM_ROWS_PER_STMT = 6  # 6 × 16 = 96 params, under D1's 100 cap — a 17th column must drop this to 5
 
 # Source row must exist BEFORE item rows (items.source_id FK); item_count is
 # refreshed by a trailing UPDATE once this source's items are in place.
@@ -433,7 +435,7 @@ def _item_row(item):
     return (
         item['id'], item['title'], item['url'], item['summary'], item['sourceId'], item['sourceName'],
         item['publishedAt'], item['updatedAt'], item['collectedAt'], item_time(item),
-        item['rankScore'], item['metricLabel'], item['metricValue'],
+        item['rankScore'], item['metricLabel'], item['metricValue'], item.get('metricPrev'),
         1 if is_china_related(item) else 0, search_text(item),
     )
 
@@ -460,6 +462,14 @@ async def write_source_success(env, source, items, now, now_ms):
                 ('DELETE FROM items WHERE id IN (' + ','.join('?' * len(group)) + ')', tuple(group))
             )
     else:
+        # Growth tracking: grab the previous metric before this source's rows
+        # are deleted, so the re-insert can carry metric_prev (the ON CONFLICT
+        # clause can't — the old rows are already gone by the time it runs).
+        prev = {row['id']: row['metric_value'] for row in await db_all(
+            env, 'SELECT id, metric_value FROM items WHERE source_id = ?', (source['id'],),
+        )}
+        for item in enriched:
+            item['metricPrev'] = prev.get(item['id'])
         statements.append(('DELETE FROM items WHERE source_id = ?', (source['id'],)))
 
     for group in chunk(enriched, _ITEM_ROWS_PER_STMT):
